@@ -41,7 +41,7 @@ class HermesHub:
 
         # Initialize storage
         kg_config = self.config["storage"]["graph"]
-        kg_path = kg_config.get("persist_path", "./storage/knowledge_graph/graph.gpickle")
+        kg_path = os.path.join(os.path.dirname(__file__), kg_config.get("persist_path", "storage/knowledge_graph/graph.gpickle"))
         self.knowledge_graph = KnowledgeGraph(persist_path=kg_path)
 
         # SkillIndexer with graph integration
