@@ -176,9 +176,16 @@ def mark_processed(issue_number, feedback, success):
     print(f"  [issue #{issue_number}] 已回复并关闭")
 
 
+def _send_feishu(message: str):
+    """发送纯文本到飞书 webhook"""
+    webhook = os.environ.get("FEISHU_WEBHOOK_URL", "")
+    if webhook:
+        import requests
+        requests.post(webhook, json={"msg_type": "text", "content": {"text": message}}, timeout=10)
+
 def main():
-    print("=" * 55)
-    print(f"  MisakaNet Hub Poller")
+    if not os.path.exists(".hook_stats"):
+        os.makedirs(".hook_stats")
     print(f"  repo: {REPO}")
     print(f"  time: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 55)
@@ -197,6 +204,9 @@ def main():
 
     # 检查 hook stats 并推送飞书（独立于 Issues，每次均执行）
     _check_hook_stats_and_notify()
+
+    # 检查知识使用报告并推送飞书
+    _check_usage_and_notify()
 
     # 获取未处理反馈
     issues = fetch_unprocessed_feedback()
@@ -244,8 +254,52 @@ def main():
         success = update_knowledge_graph(kg, feedback)
         mark_processed(issue["number"], feedback, success)
 
-    print(f"\n=== 完成: 处理 {len(issues)} 条反馈 ===")
+    print("=" * 55)
 
+
+def _check_usage_and_notify():
+    """检查新提交的 usage 报告，推送到飞书"""
+    state_path = os.path.join(PROJECT_ROOT, ".hook_stats", ".usage_last_seen.json")
+    last_seen = {}
+    if os.path.exists(state_path):
+        try:
+            last_seen = json.load(open(state_path, "r"))
+        except (json.JSONDecodeError, OSError):
+            last_seen = {}
+    last_id = last_seen.get("last_issue_id", 0)
+
+    # 查询 usage 标签的 Issue
+    url = f"https://api.github.com/repos/{REPO}/issues?labels=usage&state=all&sort=created&direction=desc&per_page=5"
+    try:
+        import urllib.request
+        req = urllib.request.Request(url, headers={
+            "Authorization": f"token {_get_token()}",
+            "User-Agent": "MisakaNet-Hub"
+        })
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            issues = json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"[usage_notify] 获取 Issue 失败: {e}")
+        return
+
+    new_issues = [i for i in issues if i.get("number", 0) > last_id and not i.get("pull_request")]
+    if not new_issues:
+        return
+
+    for issue in sorted(new_issues, key=lambda i: i["number"]):
+        body = issue.get("body", "")
+        node = issue.get("title", "?").replace("usage:", "").strip()
+        used = ""
+        for line in body.split("\n"):
+            if line.strip().startswith("- "):
+                used += line.strip() + "\n"
+        msg = f"📖 知识使用报告\n节点: {node}\n使用知识:\n{used}\n→ {issue['html_url']}"
+        _send_feishu(msg)
+        last_id = max(last_id, issue["number"])
+
+    os.makedirs(os.path.dirname(state_path), exist_ok=True)
+    json.dump({"last_issue_id": last_id}, open(state_path, "w"), indent=2)
+    print(f"[usage_notify] 已推送 {len(new_issues)} 条 usage 报告")
 
 def _check_hook_stats_and_notify():
     """读取 .hook_stats/，有新增数据则推飞书"""
