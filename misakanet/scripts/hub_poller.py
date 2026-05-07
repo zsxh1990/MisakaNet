@@ -177,11 +177,33 @@ def mark_processed(issue_number, feedback, success):
 
 
 def _send_feishu(message: str):
-    """发送纯文本到飞书 webhook"""
-    webhook = os.environ.get("FEISHU_WEBHOOK_URL", "")
+    """发送纯文本到飞书 webhook（从 config 或 env var 读取 URL）"""
+    import yaml
+    config_path = os.path.join(PROJECT_ROOT, "config.yaml")
+    webhook = ""
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, "r") as f:
+                cfg = yaml.safe_load(f)
+            webhook = cfg.get("feishu", {}).get("webhook_url", "")
+            if "${" in webhook:  # 占位符，不用
+                webhook = ""
+        except Exception:
+            pass
+    if not webhook:
+        webhook = os.environ.get("FEISHU_WEBHOOK_URL", "")
     if webhook:
         import requests
-        requests.post(webhook, json={"msg_type": "text", "content": {"text": message}}, timeout=10)
+        try:
+            resp = requests.post(webhook, json={"msg_type": "text", "content": {"text": message}}, timeout=10)
+            if resp.status_code == 200:
+                print(f"[feishu] 消息已推送 ({len(message)} chars)")
+            else:
+                print(f"[feishu] 推送失败: HTTP {resp.status_code}")
+        except Exception as e:
+            print(f"[feishu] 推送异常: {e}")
+    else:
+        print("[feishu] 未配置飞书 webhook，跳过")
 
 def main():
     if not os.path.exists(".hook_stats"):
