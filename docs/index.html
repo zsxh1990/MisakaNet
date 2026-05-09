@@ -281,6 +281,13 @@
     </div>
   </div>
   
+  <!-- Contributors Leaderboard -->
+  <div class="section-title" id="contrib-title" style="display:none;">🏆 贡献排行 <span id="contrib-count"></span></div>
+  <div class="recent-list" id="contrib-list" style="display:none;">
+    <div class="loading-item">加载中...</div>
+  </div>
+  <div style="height:28px"></div>
+  
   <!-- Network Pulse -->
   <div class="section-title" id="pulse-title" style="display:none;">🌐 网络脉搏 <span id="pulse-count"></span></div>
   <div class="recent-list" id="pulse-list" style="display:none;">
@@ -291,12 +298,6 @@
   <!-- All Avatars -->
   <div class="section-title">🎨 节点头像墙 <span id="gallery-count"></span></div>
   <div class="avatar-gallery" id="avatar-gallery">
-    <div class="loading-item">加载中...</div>
-  </div>
-  
-  <!-- Contributors Leaderboard -->
-  <div class="section-title" id="contrib-title" style="display:none;">🏆 贡献排行 <span id="contrib-count"></span></div>
-  <div class="recent-list" id="contrib-list" style="display:none;">
     <div class="loading-item">加载中...</div>
   </div>
   
@@ -571,70 +572,124 @@ async function loadContributors() {
   const list = document.getElementById("contrib-list");
   
   try {
-    // Get usage reports
+    // 1. Get usage reports
     const issues = await fetchJSON(`${BASE}/issues?labels=usage&state=all&sort=created&direction=desc&per_page=50`);
-    const realIssues = issues.filter(i => !i.pull_request);
+    const usageIssues = issues.filter(i => !i.pull_request);
     
-    if (realIssues.length === 0) return;
+    // 2. Get merged PRs that contributed lessons
+    let prContributors = [];
+    try {
+      const prs = await fetchJSON(`${BASE}/pulls?state=closed&sort=updated&direction=desc&per_page=10`);
+      prContributors = prs.filter(p => p.merged_at).map(p => ({
+        user: p.user.login,
+        title: p.title,
+        url: p.html_url,
+        merged_at: p.merged_at
+      }));
+    } catch(e) { /* PR list not available */ }
     
-    // Count contributions per node
+    // 3. Build contributor map
+    // Usage reports
     const contribMap = {};
-    const issueMap = {};
-    
-    realIssues.forEach(i => {
+    usageIssues.forEach(i => {
       const body = i.body || '';
       const title_text = i.title || '';
       const nodeName = title_text.replace('usage:', '').trim() || i.user.login;
       
       if (!contribMap[nodeName]) {
-        contribMap[nodeName] = 0;
-        issueMap[nodeName] = [];
+        contribMap[nodeName] = { count: 0, lessons: [], prs: [] };
       }
-      contribMap[nodeName]++;
-      issueMap[nodeName].push(i);
+      contribMap[nodeName].count++;
+      
+      // Parse lesson names from body
+      const lessonLines = body.split('\n').filter(l => l.trim().startsWith('- '));
+      lessonLines.forEach(line => {
+        // Extract lesson-id (first part before — or space)
+        const clean = line.replace(/^-\s*/, '').trim();
+        const id = clean.split(/[—\-–]/)[0].trim();
+        if (id && id.length > 2 && id.length < 60) {
+          const url = `https://github.com/Ikalus1988/MisakaNet/blob/main/lessons/${id}.md`;
+          contribMap[nodeName].lessons.push({
+            name: clean,
+            id: id,
+            url: url
+          });
+        }
+      });
     });
     
-    // Sort by contribution count
-    const sorted = Object.entries(contribMap)
-      .sort((a, b) => b[1] - a[1]);
+    // PR contributions
+    prContributors.forEach(pr => {
+      // Try to extract the node name from PR title
+      let nodeName = null;
+      // Pattern: "... (太阳/Misaka10004)" or "contribution by X"
+      const match = pr.title.match(/\(([^)]+)\)/) || pr.title.match(/by\s+(\S+)/i);
+      if (match) nodeName = match[1];
+      else nodeName = pr.user;
+      
+      if (!contribMap[nodeName]) {
+        contribMap[nodeName] = { count: 0, lessons: [], prs: [] };
+      }
+      contribMap[nodeName].prs.push({
+        title: pr.title,
+        url: pr.url
+      });
+    });
     
-    const totalContributions = realIssues.length;
+    const sorted = Object.entries(contribMap)
+      .sort((a, b) => (b[1].count + b[1].prs.length) - (a[1].count + a[1].prs.length));
+    const totalContributions = usageIssues.length + prContributors.length;
+    
+    if (sorted.length === 0) return;
     
     title.style.display = "";
-    title.innerHTML = `🏆 感谢贡献 <span>${totalContributions} 条使用报告</span>`;
+    title.innerHTML = `🏆 贡献排行 <span>${totalContributions} 条贡献</span>`;
     
-    // Badges
     const badges = ["🥇", "🥈", "🥉"];
-    const specialBadges = {
-      "太阳": "🌟 首次公开贡献",
-      "Misaka10004": "🌟 首次公开贡献",
-      "sun": "🌟 首次公开贡献"
-    };
     
     list.style.display = "";
-    list.innerHTML = sorted.map(([node, count], idx) => {
+    list.innerHTML = sorted.map(([node, data], idx) => {
       const rank = idx < 3 ? badges[idx] : `#${idx + 1}`;
-      const badge = specialBadges[node] || (count >= 3 ? "🔥 活跃贡献" : "👍 有贡献");
-      const lastIssue = issueMap[node][issueMap[node].length - 1];
-      const lastDate = getTimeAgo(new Date(lastIssue.created_at));
+      const total = data.count + data.prs.length;
+      const totalLabel = total >= 5 ? "🔥 活跃贡献" : total >= 2 ? "👍 多次贡献" : "👍 有贡献";
+      
+      // Build lesson list
+      const lessonItems = data.lessons.map(l => {
+        const shortName = l.name.substring(0, 50);
+        return `<a href="${l.url}" target="_blank" style="color:#58a6ff;text-decoration:none;" title="${l.name}">📘 ${shortName}</a>`;
+      }).join('');
+      
+      // Build PR list
+      const prItems = data.prs.map(p => {
+        const shortTitle = p.title.substring(0, 50);
+        return `<a href="${p.url}" target="_blank" style="color:#58a6ff;text-decoration:none;" title="${p.title}">🔗 ${shortTitle}</a>`;
+      }).join('');
+      
+      const details = (lessonItems || prItems) ? 
+        `<div style="font-size:11px;color:#8b949e;margin-top:4px;line-height:1.8;">${lessonItems}${prItems}</div>` : '';
       
       return `
-        <div class="recent-item">
+        <div class="recent-item" style="flex-wrap:wrap;">
           <div style="font-size:20px;flex-shrink:0;">${rank}</div>
-          <div class="recent-order" style="background:#f0c04020;color:#f0c040;">${count}</div>
-          <div style="flex:1;">
+          <div class="recent-order" style="background:#f0c04020;color:#f0c040;">${total}</div>
+          <div style="flex:1;min-width:0;">
             <div style="font-weight:700;font-size:14px;color:#f0f6fc;">${node}</div>
-            <div style="font-size:12px;color:#8b949e;margin-top:2px;">${badge} · 最近 ${lastDate}</div>
+            <div style="font-size:12px;color:#8b949e;">${totalLabel}</div>
+            ${details}
           </div>
         </div>
       `;
     }).join("");
     
-    // Add a "why contribute?" footer
+    // Footer
     list.innerHTML += `
-      <div class="empty-state" style="grid-column:1/-1;margin-top:8px;">
+      <div class="empty-state" style="grid-column:1/-1;margin-top:8px;padding:10px;">
         <div class="desc" style="font-size:12px;color:#484f58;">
-          📖 每一条使用报告都帮助网络成长——其他节点将知道哪些知识真正有用。
+          📖 分享你用过的好知识，帮助后来者少踩坑。
+          <span style="display:block;margin-top:4px;">
+            <a href="https://github.com/Ikalus1988/MisakaNet/issues/new?template=register.yml&title=join" 
+               target="_blank" style="color:#58a6ff;">提交使用报告 →</a>
+          </span>
         </div>
       </div>`;
     
