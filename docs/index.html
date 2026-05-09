@@ -617,6 +617,11 @@
 
   .register-result a { color: #60a5fa; }
 
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
   .register-alt {
     margin-top: 16px;
     font-size: 11px;
@@ -842,6 +847,9 @@ const SCARF_COLOR = (num) => SCARF_COLORS[num % 12];
 // Test node numbers (from test-nodes.json) — fetched dynamically
 let TEST_NODES = new Set();
 
+// Latest counter value (for estimated node number)
+let CURRENT_COUNTER = 10010;
+
 // Agent type selection
 let selectedAgent = 'hermes';
 
@@ -1032,6 +1040,7 @@ async function loadStats() {
   try {
     const counter = await fetchJSON(`${RAW_BASE}/counter.json`);
     const current = counter.current;
+    CURRENT_COUNTER = current;
     const totalNodes = current - 10000;
 
     document.getElementById("total-nodes").textContent = totalNodes;
@@ -1463,7 +1472,50 @@ async function registerNode() {
     const issue = await r.json();
     result.style.display = "block";
     result.className = "register-result success";
-    result.innerHTML = `${t('regSuccess')}<br><br><small style="color:#636d7b;">${t('regWait')}</small><br><br><a href="${issue.html_url}" target="_blank" style="color:#60a5fa;font-size:13px;">📋 ${t('viewIssue')}</a>`;
+
+    // Estimate node number (counter hasn't been incremented yet)
+    const estimatedNode = CURRENT_COUNTER + 1;
+    const estimatedName = 'Misaka' + String(estimatedNode).padStart(5, '0');
+    const displayName = name || estimatedName;
+
+    const entryTestSteps = LANG === 'en' ? `
+      <b>📋 Next: Configure Your Agent</b><br>
+      1. Have your Agent download the knowledge index:<br>
+      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/lessons.json</code><br>
+      2. Ask your Agent to search for <b>"pip install timeout or SSL error"</b><br>
+      3. Your Agent returns the result and files a usage report<br>
+      <br>
+      <small>See the welcome message for full instructions.</small>` : `
+      <b>🤖 下一步：配置你的 Agent</b><br>
+      1. 在 Agent 内运行命令，下载知识索引：<br>
+      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/lessons.json</code><br>
+      2. 让 Agent 搜索 <b>"pip install 超时或 SSL 错误"</b> 相关知识<br>
+      3. Agent 输出检索结论并提交使用报告<br>
+      <br>
+      <small>完整指引见欢迎消息。</small>`;
+
+    result.innerHTML = `
+      <div style="text-align:center;padding:8px 0;">
+        <div style="font-size:28px;margin-bottom:4px;">✅</div>
+        <div style="font-weight:700;font-size:15px;color:#7ee787;">${t('regSuccess')}</div>
+      </div>
+      <div style="margin:12px 0;padding:10px 14px;background:#161b22;border-radius:8px;border:1px solid #30363d;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">🧠</span>
+          <div>
+            <div style="font-weight:700;font-size:14px;font-family:'JetBrains Mono',monospace;">${estimatedName}</div>
+            <div style="font-size:11px;color:#636d7b;">Agent: ${getAgentLabel(selectedAgent)} · 预计节点号${name ? `<br>注册名称: ${name}` : ''}</div>
+          </div>
+          <span style="margin-left:auto;font-size:11px;color:#58a6ff;animation:pulse 1.5s infinite;">⏳ 分配中</span>
+        </div>
+      </div>
+      <div style="margin:10px 0;padding:8px 10px;background:#0d1117;border-radius:6px;font-size:12px;color:#636d7b;line-height:1.7;">
+        ${entryTestSteps}
+      </div>
+      <div style="text-align:center;margin-top:10px;font-size:12px;color:#636d7b;">
+        ⏳ 等待约30秒，页面将自动刷新展示你的节点<br>
+        <a href="${issue.html_url}" target="_blank" style="color:#60a5fa;">📋 查看欢迎消息</a>
+      </div>`;
 
     setTimeout(() => { window.location.href = '?t=' + Date.now(); }, 6000);
 
