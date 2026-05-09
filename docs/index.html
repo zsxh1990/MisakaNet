@@ -934,12 +934,14 @@ applyI18n();
 document.getElementById('lang-btn').textContent = LANG === 'zh' ? 'EN' : '中';
 
 async function fetchJSON(url) {
-  const headers = {};
-  // Use registration token for GitHub API calls to avoid rate limiting
   if (url.includes('api.github.com')) {
-    headers['Authorization'] = 'Bearer ' + REGISTER_TOKEN;
+    const r = await fetch(url, {
+      headers: { 'Authorization': 'Bearer ' + REGISTER_TOKEN }
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
   }
-  const r = await fetch(url, { headers });
+  const r = await fetch(url);
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   return r.json();
 }
