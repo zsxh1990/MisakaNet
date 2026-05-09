@@ -587,8 +587,15 @@ async function loadContributors() {
         merged_at: p.merged_at
       }));
     } catch(e) { /* PR list not available */ }
-    
     // 3. Build contributor map
+    
+    // Get list of lessons that actually exist in MisakaNet
+    let existingLessons = new Set();
+    try {
+      const lessonsIndex = await fetchJSON(`${RAW_BASE}/lessons.json`);
+      existingLessons = new Set(lessonsIndex.map(l => l.id));
+    } catch(e) { /* fallback: no lessons index */ }
+    
     // Usage reports
     const contribMap = {};
     usageIssues.forEach(i => {
@@ -608,11 +615,13 @@ async function loadContributors() {
         const clean = line.replace(/^-\s*/, '').trim();
         const id = clean.split(/[—\-–]/)[0].trim();
         if (id && id.length > 2 && id.length < 60) {
+          const exists = existingLessons.has(id);
           const url = `https://github.com/Ikalus1988/MisakaNet/blob/main/lessons/${id}.md`;
           contribMap[nodeName].lessons.push({
             name: clean,
             id: id,
-            url: url
+            url: url,
+            exists: exists
           });
         }
       });
@@ -656,7 +665,10 @@ async function loadContributors() {
       // Build lesson list
       const lessonItems = data.lessons.map(l => {
         const shortName = l.name.substring(0, 50);
-        return `<a href="${l.url}" target="_blank" style="color:#58a6ff;text-decoration:none;" title="${l.name}">📘 ${shortName}</a>`;
+        if (l.exists) {
+          return `<a href="${l.url}" target="_blank" style="color:#58a6ff;text-decoration:none;" title="${l.name}">📘 ${shortName}</a>`;
+        }
+        return `<span style="color:#484f58;" title="此lesson仅在内部网络可用">📘 ${shortName}</span>`;
       }).join('');
       
       // Build PR list
