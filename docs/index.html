@@ -324,6 +324,8 @@
   .agent-badge.hermes { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid #58a6ff40; }
   .agent-badge.cc { background: rgba(163,173,188,0.15); color: #a3adbc; border: 1px solid #a3adbc40; }
   .agent-badge.codex { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid #f59e0b40; }
+  .agent-badge.openclaw { background: rgba(236,72,153,0.15); color: #ec4899; border: 1px solid #ec489940; }
+  .agent-badge.opencode { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid #34d39940; }
   .agent-badge.unknown { background: rgba(100,100,100,0.15); color: #64748b; border: 1px solid #47556940; }
 
   .timeline-date {
@@ -522,12 +524,14 @@
   /* Agent type selector */
   .agent-selector {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: 12px;
   }
 
   .agent-option {
     flex: 1;
+    min-width: 80px;
     text-align: center;
     padding: 8px 12px;
     background: #0a0e14;
@@ -767,6 +771,8 @@
         <div class="agent-option selected" data-agent="hermes" onclick="selectAgent(this)">🤖 Hermes</div>
         <div class="agent-option" data-agent="claude" onclick="selectAgent(this)">⚡ Claude</div>
         <div class="agent-option" data-agent="codex" onclick="selectAgent(this)">💻 Codex</div>
+        <div class="agent-option" data-agent="openclaw" onclick="selectAgent(this)">🐉 OpenClaw</div>
+        <div class="agent-option" data-agent="opencode" onclick="selectAgent(this)">🔧 OpenCode</div>
       </div>
 
       <div style="margin-top:16px;">
@@ -879,8 +885,10 @@ const I18N = {
     dayAgo: '天前',
     secAgo: '秒前',
     agentHermes: 'Hermes',
-    agentCC: 'cc',
+    agentCC: 'Claude',
     agentCodex: 'Codex',
+    agentOpenClaw: 'OpenClaw',
+    agentOpenCode: 'OpenCode',
     agentUnknown: '未知',
   },
   en: {
@@ -926,8 +934,10 @@ const I18N = {
     dayAgo: 'd ago',
     secAgo: 's ago',
     agentHermes: 'Hermes',
-    agentCC: 'cc',
+    agentCC: 'Claude',
     agentCodex: 'Codex',
+    agentOpenClaw: 'OpenClaw',
+    agentOpenCode: 'OpenCode',
     agentUnknown: 'Unknown',
   }
 };
@@ -937,8 +947,11 @@ function t(key) { return I18N[LANG][key] || key; }
 function getAgentBadgeClass(agentType) {
   switch(agentType) {
     case 'hermes': return 'hermes';
+    case 'claude': return 'cc';
     case 'cc': return 'cc';
     case 'codex': return 'codex';
+    case 'openclaw': return 'openclaw';
+    case 'opencode': return 'opencode';
     default: return 'unknown';
   }
 }
@@ -946,8 +959,11 @@ function getAgentBadgeClass(agentType) {
 function getAgentLabel(agentType) {
   switch(agentType) {
     case 'hermes': return t('agentHermes');
+    case 'claude': return t('agentCC');
     case 'cc': return t('agentCC');
     case 'codex': return t('agentCodex');
+    case 'openclaw': return t('agentOpenClaw');
+    case 'opencode': return t('agentOpenCode');
     default: return t('agentUnknown');
   }
 }
@@ -1078,14 +1094,17 @@ async function loadRecentRegistrations() {
       const avatarSrc = AVATAR_URL(number);
       const scarfColor = SCARF_COLOR(nth);
 
-      // Try to detect agent type from issue body or title
+      // Detect agent type from registration body "Agent 类型: **XXX**"
       let agentType = 'hermes';
-      const body = (issue.body || '').toLowerCase();
-      const title = (issue.title || '').toLowerCase();
-      if (body.includes('[cc]') || title.includes('[cc]') || body.includes('cc-haha')) {
-        agentType = 'cc';
-      } else if (body.includes('codex') || title.includes('codex')) {
-        agentType = 'codex';
+      const body = issue.body || '';
+      const agentMatch = body.match(/Agent\s*类型[：:]\s*\*\*(\w+)\*\*/i);
+      if (agentMatch) {
+        agentType = agentMatch[1].toLowerCase();
+      } else {
+        // Fallback: keyword detection for legacy entries
+        const b = body.toLowerCase();
+        if (b.includes('[cc]') || b.includes('cc-haha')) agentType = 'cc';
+        else if (b.includes('codex')) agentType = 'codex';
       }
 
       const agentBadge = `<span class="agent-badge ${getAgentBadgeClass(agentType)}">${getAgentLabel(agentType)}</span>`;
