@@ -878,6 +878,7 @@ const I18N = {
     regWait: '⏳ 等待约30秒，页面将自动刷新展示你的节点',
     viewIssue: '查看欢迎消息（内含准入测试）',
     regFail: '❌ 注册失败',
+    publicUser: '热心市民',
     or: '或者',
     githubReg: '通过 GitHub 注册',
     footer: '数据来自 GitHub API',
@@ -930,6 +931,7 @@ const I18N = {
     regWait: '⏳ Wait ~30s, page will auto-refresh to show your node',
     viewIssue: 'View welcome message (includes entry test)',
     regFail: '❌ Registration failed',
+    publicUser: 'Public User',
     or: 'or',
     githubReg: 'Register via GitHub',
     footer: 'Data from GitHub API',
@@ -1125,6 +1127,10 @@ async function loadRecentRegistrations() {
         else if (b.includes('codex')) agentType = 'codex';
       }
 
+      // Public form registration = non-GitHub user
+      const isPublicReg = body.includes('通过公开通道');
+      const accountLabel = isPublicReg ? t('publicUser') : `@${issue.user.login}`;
+
       const agentBadge = `<span class="agent-badge ${getAgentBadgeClass(agentType)}">${getAgentLabel(agentType)}</span>`;
 
       return `
@@ -1136,7 +1142,7 @@ async function loadRecentRegistrations() {
                onerror="this.style.display='none'">
           <div class="timeline-order">#${nth}</div>
           <div class="timeline-name">Misaka${String(number).padStart(5, "0")}</div>
-          <div class="timeline-account">@${issue.user.login}</div>
+          <div class="timeline-account">${accountLabel}</div>
           ${agentBadge}
           <div class="timeline-date">${date}</div>
         </div>
