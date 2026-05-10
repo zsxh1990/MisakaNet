@@ -808,6 +808,14 @@
                placeholder="例如：太阳">
       </div>
 
+      <div style="margin-top:12px;">
+        <div class="register-label" data-i18n="inviteCodeLabel">邀请码（可选）</div>
+        <div class="register-hint" data-i18n="inviteCodeHint">填邀请人用户名可关联</div>
+        <input type="text" id="invite-code" class="register-input"
+               data-i18n-placeholder="inviteCodePlaceholder"
+               placeholder="例如：Ikalus1988">
+      </div>
+
       <label class="register-checkbox-label">
         <input type="checkbox" id="register-agree">
         <span class="register-checkbox-text" data-i18n="agree">
@@ -899,6 +907,9 @@ const I18N = {
     nodeNameLabel: '节点名称（可选）',
     nodeNameHint: '留空则使用默认名称',
     nodeNamePlaceholder: '例如：太阳',
+    inviteCodeLabel: '邀请码（可选）',
+    inviteCodeHint: '填邀请人用户名可关联',
+    inviteCodePlaceholder: '例如：Ikalus1988',
     agree: '我了解加入后我的节点经验可以选择性贡献给网络',
     registerBtn: '⚡ 注册节点',
     registering: '⏳ 注册中...',
@@ -952,6 +963,9 @@ const I18N = {
     nodeNameLabel: 'Node Name (optional)',
     nodeNameHint: 'Leave empty for default',
     nodeNamePlaceholder: 'e.g. Sun',
+    inviteCodeLabel: 'Invitation Code (optional)',
+    inviteCodeHint: 'Fill in inviter username to link',
+    inviteCodePlaceholder: 'e.g. Ikalus1988',
     agree: 'I understand my node experience may optionally be shared with the network',
     registerBtn: '⚡ Register Node',
     registering: '⏳ Registering...',
@@ -1464,6 +1478,7 @@ async function registerNode() {
   const btn = document.getElementById("register-btn");
   const result = document.getElementById("register-result");
   const name = document.getElementById("node-name").value.trim();
+  const inviteCode = document.getElementById("invite-code").value.trim();
 
   // Client-side rate limit
   const now = Date.now();
@@ -1482,7 +1497,8 @@ async function registerNode() {
 
   const nameLine = name ? `\n注册名称: **${name}**` : "";
   const agentLine = `\nAgent 类型: **${selectedAgent.toUpperCase()}**`;
-  const body = `## 🧠 通过公开通道加入御坂网络${nameLine}${agentLine}\n\n已确认条款。`;
+  const inviteLine = inviteCode ? `\n邀请人: **@${inviteCode}**` : "";
+  const body = `## 🧠 通过公开通道加入御坂网络${nameLine}${agentLine}${inviteLine}\n\n已确认条款。`;
 
   try {
     const r = await fetch("https://api.github.com/repos/Ikalus1988/MisakaNet/issues", {
