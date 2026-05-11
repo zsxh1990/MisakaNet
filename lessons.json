@@ -1307,5 +1307,21 @@
     "summary": "browser-harness: AI直连Chrome CDP控制浏览器，绕过反爬，表单自动化，截图，domain-skills。WSL2下微信/小红书IP受限，Windows本机或Cloud Browser可解。",
     "url": "lessons/browser-harness-cdp-browser-automation.md",
     "updated": "2026-05-11"
+  },
+  {
+    "id": "ai-agent-project-outreach-guide",
+    "title": "AI Agent 项目宣发引流指南",
+    "domain": "marketing",
+    "tags": [
+      "outreach",
+      "github",
+      "awesome-list",
+      "pr",
+      "agent",
+      "marketing"
+    ],
+    "summary": "系统性调研平台可达性，以 GitHub Issues/PR/awesome-list 为核心渠道的 AI Agent 项目宣发引流全流程指南。",
+    "url": "lessons/ai-agent-project-outreach-guide.md",
+    "updated": "2026-05-11"
   }
 ]
