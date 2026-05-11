@@ -55,7 +55,7 @@ jobs:
             # Use PUSH_TOKEN (full-access PAT secret, has contents:write)
             git config user.name "misakanet-bot"
             git config user.email "bot@misakanet.dev"
-            git remote set-url origin https://ikalus1988:${{ secrets.PUSH_TOKEN }}@github.com/Ikalus1988/MisakaNet.git
+            git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/Ikalus1988/MisakaNet.git
             git add --force counter.json avatars/${user}.png
             git commit -m "register: ${user}" || true
 
