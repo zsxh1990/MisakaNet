@@ -21,7 +21,7 @@ created: "2026-05-09"
 ## 是什么
 
 `~/ccswitch` — 一键切换 Claude Code 模型和代理上游的 bash 脚本。
-同时更新 `~/.claude/settings.json`（WSL）和 `/mnt/c/Users/hp/.claude/settings.json`（Windows），并重启代理。
+同时更新 `~/.claude/settings.json`（WSL）和 `C:/Users/User/.claude/settings.json`（Windows），并重启代理。
 
 ## 用法
 
@@ -103,7 +103,7 @@ ccswitch 支持两种 Claude Code 连接模式：
 |------|------|
 | `~/ccswitch` | 切换脚本本体 |
 | `~/.claude/settings.json` | WSL 侧 Claude 配置 |
-| `/mnt/c/Users/hp/.claude/settings.json` | Windows 侧 Claude 配置 |
+| `C:/Users/User/.claude/settings.json` | Windows 侧 Claude 配置 |
 | `~/anthropic-openai-proxy.py` | 本地代理（双上游 fallback） |
 | `/tmp/proxy_env.sh` | Mioffice API key + MIOFFICE_API_KEY |
 

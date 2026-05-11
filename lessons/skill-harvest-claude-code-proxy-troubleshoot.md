@@ -136,7 +136,7 @@ ccswitch list            # 可用模型列表
 | `~/anthropic-openai-proxy.py` | 代理脚本（ThreadingHTTPServer :8765） |
 | `~/ccswitch` | 模型+代理切换脚本 |
 | `~/.claude/settings.json` | WSL 侧 Claude 配置 |
-| `/mnt/c/Users/hp/.claude/settings.json` | Windows 侧 Claude 配置 |
+| `C:/Users/User/.claude/settings.json` | Windows 侧 Claude 配置 |
 | `/tmp/proxy_env.sh` | API key 环境变量 |
 | `~/Desktop/start-claude-proxy.bat` | Windows 桌面一键开代理 |
 | `~/Desktop/stop-claude-proxy.bat` | Windows 桌面一键关代理 |

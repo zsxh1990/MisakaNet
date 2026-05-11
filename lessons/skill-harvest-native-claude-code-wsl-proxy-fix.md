@@ -123,8 +123,8 @@ with open('~/.claude/settings.json', 'w') as f:
 Claude Code 启动时调用 `https://api.anthropic.com/api/claude_cli/bootstrap` 做会话初始化，这个调用不走代理。`--bare` 跳过 bootstrap，直接用 `settings.json` 中的环境变量走代理。
 
 **已知 mify keys**（2026-05-03 用户确认可用）：
-- `sk-ME1NhZnAiOF6sapnoUWbCsNtAhfUjzqXEuYkZeGNlPrCPq4i`
-- `sk-UPZsv4tICwfriRerkBYyLViQsjcX7i7iFBJxg0PNRS7bFMVw`
+- `<YOUR_API_KEY>`
+- `<YOUR_API_KEY>`
 
 mify Anthropic 端点：`http://model.mify.ai.srv/anthropic`
 
