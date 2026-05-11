@@ -29,9 +29,9 @@ jobs:
       - name: Assign number + update counter (atomic with retry)
         id: assign
         run: |
-          MAX_ATTEMPTS=5
+          REGISTERED=false
           ATTEMPT=0
-          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+          while [ $ATTEMPT -lt 5 ]; do
             ATTEMPT=$((ATTEMPT + 1))
             # Read current counter
             current=$(python3 -c "import json; print(json.load(open('counter.json'))['current'])")
@@ -52,10 +52,8 @@ jobs:
             python3 misakanet-avatar.py $next --output avatars
 
             # Commit and push (fail-safe if another run pushed first)
-            # GITHUB_TOKEN is already configured by actions/checkout
             git config user.name "misakanet-bot"
             git config user.email "bot@misakanet.dev"
-            # Use the token from checkout's stored credentials
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Ikalus1988/MisakaNet.git
             git add --force counter.json avatars/${user}.png
             git commit -m "register: ${user}" || true
@@ -64,15 +62,17 @@ jobs:
               echo "NEXT=$next" >> $GITHUB_OUTPUT
               echo "USER=$user" >> $GITHUB_OUTPUT
               echo "Assigned $user (attempt $ATTEMPT)"
+              REGISTERED=true
               break
             else
-              echo "Push conflict (attempt $ATTEMPT/$MAX_ATTEMPTS), retrying..."
+              echo "Push conflict (attempt $ATTEMPT/5), retrying..."
               sleep 2
             fi
           done
-          # All retries exhausted — fail the step
-          echo "FATAL: Could not assign node number after $MAX_ATTEMPTS attempts"
-          exit 1
+          if [ "$REGISTERED" != "true" ]; then
+            echo "FATAL: Could not assign node number after 5 attempts"
+            exit 1
+          fi
 
       - name: Post welcome message with entry test
         uses: actions/github-script@v7
