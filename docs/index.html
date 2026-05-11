@@ -1312,13 +1312,14 @@ async function loadContributors() {
 
     // Also fetch merged PRs to count lesson contributions from external users
     try {
-      const prs = await fetchJSON(`${BASE}/pulls?state=closed&sort=updated&direction=desc&per_page=10`);
-      const mergedPRs = prs.filter(p => p.merged_at);
+      const prs = await fetchJSON(`${BASE}/pulls?state=closed&sort=updated&direction=desc&per_page=20`);
+      // All closed PRs count as contributions (merged via API or force-push merged)
+      const closedPRs = prs.filter(p => p.closed_at && !p.draft);
       // Build a lookup to avoid adding duplicate contributors
       const usageNames = new Set(usageIssues.map(i =>
         (i.title || '').replace('usage:', '').trim() || i.user.login
       ));
-      for (const pr of mergedPRs) {
+      for (const pr of closedPRs) {
         // Extract contributor name from PR title: "feat: xxx (太阳/Misaka10004)"
         let prContributor = pr.user.login;
         const titleMatch = pr.title.match(/\(([^)]+)\)/);
@@ -1334,7 +1335,7 @@ async function loadContributors() {
           body: pr.body || '',
           user: { login: pr.user.login },
           pull_request: null,
-          created_at: pr.merged_at
+          created_at: pr.merged_at || pr.closed_at || pr.created_at
         });
       }
     } catch(e) {
