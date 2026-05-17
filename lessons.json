@@ -633,6 +633,21 @@
     "updated": ""
   },
   {
+    "id": "tool-arg-coercion-5-patterns",
+    "title": "Tool 参数自动修复管线（5种Known Failure模式）",
+    "domain": "development",
+    "tags": [
+      "tool-call",
+      "llm",
+      "arg-coercion",
+      "error-repair",
+      "model-tools"
+    ],
+    "summary": "LLM 调用工具时经常传错参数格式：字符串当数组、`\"null\"` 当 null、`\"true\"` 当 bool、`\"42\"` 当 int、`{}` 当 `[]`。这些错误随机发生，不处理会导致工具调用失败，影响用户体验。",
+    "url": "lessons/tool-arg-coercion-5-patterns.md",
+    "updated": ""
+  },
+  {
     "id": "tts中文编码-powerhsell传参必须用txt文件",
     "title": "tts中文编码-powerhsell传参必须用txt文件",
     "domain": "uncategorized",
