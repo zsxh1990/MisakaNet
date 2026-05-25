@@ -23,7 +23,7 @@ function jsonResponse(body, status = 200) {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     // CORS 预检
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: CORS_HEADERS });
@@ -102,7 +102,7 @@ export default {
     const issueBody = `## 🧠 通过公开通道加入御坂网络${nameLine}${agentLine}${inviteLine}\n\n已确认条款。`;
 
     // 调用 GitHub API — token 只出现在这里
-    const token = REGISTER_TOKEN; // 从 Cloudflare 环境变量读取
+    const token = env.REGISTER_TOKEN; // 从 Cloudflare 环境变量读取
     if (!token) {
       return jsonResponse({ error: "Server misconfigured" }, 500);
     }
