@@ -780,7 +780,7 @@
   <!-- Header -->
   <header class="header">
     <div class="header-content">
-      <button class="lang-toggle" id="lang-btn">EN</button>
+
       <div class="logo-row">
         <svg class="logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="8" fill="#60a5fa" opacity="0.9"/>
@@ -1158,28 +1158,7 @@ function getAgentLabel(agentType) {
   }
 }
 
-function applyI18n() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = t(el.getAttribute('data-i18n'));
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
-  });
-  document.querySelectorAll('[data-i18n-agent]').forEach(el => {
-    const key = el.getAttribute('data-i18n-agent');
-    if (I18N[LANG][key]) el.textContent = t(key);
-  });
-}
 
-function toggleLang() {
-  LANG = LANG === 'zh' ? 'en' : 'zh';
-  localStorage.setItem('misakanet-lang', LANG);
-  document.getElementById('lang-btn').textContent = LANG === 'zh' ? 'EN' : '中';
-  applyI18n();
-}
-
-applyI18n();
-document.getElementById('lang-btn').textContent = LANG === 'zh' ? 'EN' : '中';
 
 let _allLessons = null;
 async function loadLessons() {
