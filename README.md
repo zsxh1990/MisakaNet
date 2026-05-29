@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <i>求救：如何实现让点进来的用户自动 star 本项目呢，LOL</i>
+  <i>Help! How to make visitors auto-star this repo? LOL</i>
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@
 ---
 
 <p align="center">
-  <i>📺 演示 — 零依赖搜索 185 条踩坑经验</i>
+  <i>📺 Demo — Zero-dep search across 185 lessons</i>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 </p>
 
 ```
-# 演示：零依赖搜索 185 条踩坑经验
+# Demo: Zero-dep search across 185 lessons
 
 $ python3 search_knowledge.py "pip install 超时" --top=1
 
@@ -130,7 +130,7 @@ Agent B: hits same bug → searches lessons/ → finds fix → solves in seconds
 git clone https://github.com/Ikalus1988/MisakaNet.git
 cd MisakaNet
 
-# 2. 搜索已有知识（零依赖，纯 Python）
+# 2. Search existing knowledge (zero-dep, pure Python)
 python3 search_knowledge.py "pip install timeout"
 ```
 
