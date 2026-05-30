@@ -732,7 +732,24 @@
   .agent-option:hover .agent-icon { transform: scale(1.25); }
   .agent-option:hover { border-color: var(--cyan); color: var(--text-primary); box-shadow: 0 0 16px rgba(0, 229, 255, 0.06); }
   .agent-option:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-  .agent-option.selected { border-color: var(--cyan); background: rgba(0, 229, 255, 0.85); color: #070b15; box-shadow: 0 0 24px rgba(0, 229, 255, 0.25); }
+  .agent-option.selected {
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.85);
+    color: #070b15;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.3), inset 0 0 20px rgba(0, 229, 255, 0.05);
+    position: relative;
+  }
+  .agent-option.selected::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #070b15;
+    border-radius: 1px;
+    opacity: 0.5;
+  }
   .agent-option:active { transform: scale(0.96); }
 
   .register-checkbox-label {
