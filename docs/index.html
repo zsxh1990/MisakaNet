@@ -100,7 +100,7 @@
   .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
     min-height: 200px;
   }
 
@@ -136,20 +136,6 @@
   }
   .lang-toggle:hover { background: rgba(96, 165, 250, 0.2); border-color: #60a5fa; }
 
-  .logo-row {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-
-  .logo-svg {
-    width: 60px;
-    height: 60px;
-    filter: drop-shadow(0 0 14px rgba(96, 165, 250, 0.5));
-  }
-
   .logo-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 52px;
@@ -157,6 +143,7 @@
     letter-spacing: 5px;
     color: #f1f5f9;
     text-shadow: 0 0 50px rgba(96, 165, 250, 0.50);
+    margin-bottom: 12px;
   }
 
   /* Chinese calligraphy style for 御坂网络 */
@@ -774,7 +761,6 @@
     .header-avatar { display: none; }
     .header-content { text-align: center; }
     .header-content .lang-btn-row { justify-content: center; }
-    .logo-row { justify-content: center; }
     .logo-title { font-size: 32px; letter-spacing: 2px; }
     .logo-cn { font-size: 32px; letter-spacing: 6px; }
     .timeline::before { left: 20px; }
@@ -797,34 +783,7 @@
       <img class="header-avatar" src="https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/promotional/misaka-avatar-crop.png" alt="">
       <div class="header-content">
 
-      <div class="logo-row">
-        <svg class="logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="8" fill="#60a5fa" opacity="0.9"/>
-          <circle cx="12" cy="16" r="5" fill="#60a5fa" opacity="0.6"/>
-          <circle cx="52" cy="16" r="5" fill="#60a5fa" opacity="0.6"/>
-          <circle cx="12" cy="48" r="5" fill="#60a5fa" opacity="0.6"/>
-          <circle cx="52" cy="48" r="5" fill="#60a5fa" opacity="0.6"/>
-          <circle cx="32" cy="8" r="4" fill="#f59e0b" opacity="0.8"/>
-          <circle cx="32" cy="56" r="4" fill="#f59e0b" opacity="0.8"/>
-          <circle cx="6" cy="32" r="4" fill="#f59e0b" opacity="0.6"/>
-          <circle cx="58" cy="32" r="4" fill="#f59e0b" opacity="0.6"/>
-          <line x1="32" y1="32" x2="12" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-          <line x1="32" y1="32" x2="52" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-          <line x1="32" y1="32" x2="12" y2="48" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-          <line x1="32" y1="32" x2="52" y2="48" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-          <line x1="32" y1="32" x2="32" y2="8" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-          <line x1="32" y1="32" x2="32" y2="56" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
-          <line x1="32" y1="32" x2="6" y2="32" stroke="#f59e0b" stroke-width="1" opacity="0.4"/>
-          <line x1="32" y1="32" x2="58" y2="32" stroke="#f59e0b" stroke-width="1" opacity="0.4"/>
-          <line x1="12" y1="16" x2="32" y2="8" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
-          <line x1="52" y1="16" x2="32" y2="8" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
-          <line x1="12" y1="48" x2="32" y2="56" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
-          <line x1="52" y1="48" x2="32" y2="56" stroke="#60a5fa" stroke-width="1" opacity="0.3"/>
-        </svg>
-        <div>
-          <div class="logo-title" data-i18n="siteTitle">MISAKA NETWORK</div>
-        </div>
-      </div>
+      <div class="logo-title" data-i18n="siteTitle">MISAKA NETWORK</div>
       <div class="logo-cn" data-i18n="titleCn">御坂网络</div>
       <div class="logo-tagline">Safe. Useful. Zero-Dep.</div>
       <div class="lang-btn-row" style="margin-top:8px;display:flex;gap:6px;justify-content:flex-end;">
