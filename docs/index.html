@@ -733,6 +733,7 @@
   .agent-option:hover { border-color: var(--cyan); color: var(--text-primary); box-shadow: 0 0 16px rgba(0, 229, 255, 0.06); }
   .agent-option:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
   .agent-option.selected { border-color: var(--cyan); background: rgba(0, 229, 255, 0.85); color: #070b15; box-shadow: 0 0 24px rgba(0, 229, 255, 0.25); }
+  .agent-option:active { transform: scale(0.96); }
 
   .register-checkbox-label {
     display: flex;
@@ -998,6 +999,18 @@
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(0, 229, 255, 0.02);
     position: relative;
   }
+  /* ── Border energy flow animation ── */
+  @keyframes energyFlow {
+    0% { border-color: rgba(0, 229, 255, 0.08); box-shadow: 0 0 15px rgba(0, 229, 255, 0.02), 0 0 0 0 rgba(0, 229, 255, 0); }
+    25% { border-color: rgba(0, 229, 255, 0.15); box-shadow: 3px -3px 20px rgba(0, 229, 255, 0.06), 0 0 0 1px rgba(0, 229, 255, 0.02); }
+    50% { border-color: rgba(0, 229, 255, 0.08); box-shadow: -3px 3px 20px rgba(0, 229, 255, 0.06), 0 0 0 0 rgba(0, 229, 255, 0); }
+    75% { border-color: rgba(0, 229, 255, 0.12); box-shadow: 0 0 15px rgba(0, 229, 255, 0.04), 0 0 0 1px rgba(0, 229, 255, 0.02); }
+    100% { border-color: rgba(0, 229, 255, 0.08); box-shadow: 0 0 15px rgba(0, 229, 255, 0.02), 0 0 0 0 rgba(0, 229, 255, 0); }
+  }
+  .content-glass {
+    animation: energyFlow 6s ease-in-out infinite;
+  }
+
   /* Tech corner decorations */
   .content-glass::before,
   .content-glass::after {
@@ -1005,21 +1018,32 @@
     position: absolute;
     width: 16px;
     height: 16px;
-    border-color: rgba(0, 229, 255, 0.2);
+    border-color: rgba(0, 229, 255, 0.25);
     border-style: solid;
     pointer-events: none;
+    transition: border-color 0.3s;
+  }
+  .content-glass:hover::before,
+  .content-glass:hover::after {
+    border-color: rgba(0, 229, 255, 0.5);
   }
   .content-glass::before {
     top: -1px;
     left: -1px;
     border-width: 2px 0 0 2px;
     border-radius: 4px 0 0 0;
+    animation: cornerPulse 6s ease-in-out infinite;
   }
   .content-glass::after {
     bottom: -1px;
     right: -1px;
     border-width: 0 2px 2px 0;
     border-radius: 0 0 4px 0;
+    animation: cornerPulse 6s ease-in-out infinite 3s;
+  }
+  @keyframes cornerPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
   }
 
   /* ── Status notification — cyan system ── */
