@@ -2408,7 +2408,25 @@ async function registerNode() {
   const body = `## 🧠 通过公开通道加入御坂网络${nameLine}${agentLine}${inviteLine}\n\n已确认条款。`;
 
   try {
-    const r = await fetch(WORKER_URL, {
+  // ── Terminal handshake animation ──
+  result.style.display = "block";
+  result.className = "register-result";
+  result.style.background = "rgba(0,0,0,0.4)";
+  result.style.border = "1px solid rgba(0,229,255,0.1)";
+  result.style.color = "var(--cyan)";
+  result.style.textAlign = "left";
+  result.style.fontFamily = "'JetBrains Mono', monospace";
+  result.style.fontSize = "11px";
+  result.style.padding = "14px 18px";
+  result.innerHTML = `<span style="color:#475569;">> </span><span>CONNECTING TO NETWORK...</span>`;
+  
+  await new Promise(r => setTimeout(r, 300));
+  result.innerHTML += `<br><span style="color:#475569;">> </span><span>AUTHENTICATING NODE...</span>`;
+  
+  await new Promise(r => setTimeout(r, 250));
+  result.innerHTML += `<br><span style="color:#475569;">> </span><span>REQUESTING PROXY TOKEN...</span>`;
+
+  const r = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2452,6 +2470,10 @@ async function registerNode() {
       3. Agent 输出检索结论并提交使用报告<br>
       <br>
       <small>完整指引见欢迎消息。</small>`;
+
+    // Terminal access granted
+    result.innerHTML += `<br><span style="color:#475569;">> </span><span style="color:#22c55e;">ACCESS GRANTED: ${estimatedName}</span>`;
+    await new Promise(r => setTimeout(r, 400));
 
     // Build success UI
     result.innerHTML = `
