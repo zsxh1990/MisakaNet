@@ -2013,5 +2013,32 @@
     "summary": "Feishu webhook URL、app_id、app_secret 被误提交到 git 仓库，",
     "url": "lessons/飞书-webhook-url-必须用环境变量或-gitignored-的-config-yaml.md",
     "updated": "2026-05-03"
+  },
+  {
+    "id": "js-dead-code-chain-break",
+    "title": "JavaScript 死代码终止执行链——一个 TypeError 让整个页面静默失效",
+    "domain": "frontend",
+    "tags": ["js", "debug", "typeerror", "event-binding"],
+    "summary": "静态页面中一行死代码(document.getElementById('lang-btn').addEventListener('click', toggleLang))抛出TypeError，阻断后续所有事件绑定和异步初始化。页面多个功能看起来独立崩溃，实则一个根因。",
+    "url": "lessons/js-dead-code-chain-break.md",
+    "updated": "2026-05-30"
+  },
+  {
+    "id": "static-page-width-consistency",
+    "title": "静态页面多组件宽度一致性——不同 max-width 导致视觉割裂",
+    "domain": "frontend",
+    "tags": ["css", "layout", "ux", "responsive"],
+    "summary": "页面各区块搜索栏(max-width:800px)、Agent注册栏(max-width:600px)、注册表单(min-width:360px)宽度不一致，产生拼凑感。统一继承容器宽度解决。",
+    "url": "lessons/static-page-width-consistency.md",
+    "updated": "2026-05-30"
+  },
+  {
+    "id": "static-page-github-api-403-rate-limit",
+    "title": "静态页面直接调用 GitHub API 的 403 限流处理",
+    "domain": "frontend",
+    "tags": ["github-api", "rate-limit", "static-site", "error-handling"],
+    "summary": "纯静态页面直接调用GitHub REST API时，未认证请求60 req/hour硬限制容易触发403。用AbortController超时+并行独立容错+友好提示解决。",
+    "url": "lessons/static-page-github-api-403-rate-limit.md",
+    "updated": "2026-05-30"
   }
 ]
