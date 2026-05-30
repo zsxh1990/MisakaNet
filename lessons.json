@@ -2016,28 +2016,28 @@
   },
   {
     "id": "js-dead-code-chain-break",
-    "title": "JavaScript 死代码终止执行链——一个 TypeError 让整个页面静默失效",
+    "title": "JavaScript 执行链断裂：一个未捕获 TypeError 如何让整个页面静默失效",
     "domain": "frontend",
-    "tags": ["js", "debug", "typeerror", "event-binding"],
-    "summary": "静态页面中一行死代码(document.getElementById('lang-btn').addEventListener('click', toggleLang))抛出TypeError，阻断后续所有事件绑定和异步初始化。页面多个功能看起来独立崩溃，实则一个根因。",
+    "tags": ["js", "runtime", "typeerror", "execution-model", "defensive"],
+    "summary": "JS同步执行线程中任何未捕获异常都导致后续所有代码跳过。防御方案：可选链?.、try/catch隔离事件绑定、全局错误监听、删除遗留DOM引用。",
     "url": "lessons/js-dead-code-chain-break.md",
     "updated": "2026-05-30"
   },
   {
     "id": "static-page-width-consistency",
-    "title": "静态页面多组件宽度一致性——不同 max-width 导致视觉割裂",
+    "title": "静态页面多组件宽度一致性——各自定义 max-width 导致视觉割裂",
     "domain": "frontend",
     "tags": ["css", "layout", "ux", "responsive"],
-    "summary": "页面各区块搜索栏(max-width:800px)、Agent注册栏(max-width:600px)、注册表单(min-width:360px)宽度不一致，产生拼凑感。统一继承容器宽度解决。",
+    "summary": "各区块各自定义max-width(800px/600px/min-width:360px)导致视觉割裂。统一继承容器宽度、只有特殊元素才独立定义max-width。继承比覆盖更稳定。",
     "url": "lessons/static-page-width-consistency.md",
     "updated": "2026-05-30"
   },
   {
     "id": "static-page-github-api-403-rate-limit",
-    "title": "静态页面直接调用 GitHub API 的 403 限流处理",
+    "title": "静态页面调用外部 API 的容错设计原则",
     "domain": "frontend",
-    "tags": ["github-api", "rate-limit", "static-site", "error-handling"],
-    "summary": "纯静态页面直接调用GitHub REST API时，未认证请求60 req/hour硬限制容易触发403。用AbortController超时+并行独立容错+友好提示解决。",
+    "tags": ["api", "rate-limit", "static-site", "error-handling", "fault-tolerance"],
+    "summary": "静态页面直接调用第三方API时必须：每个请求设超时、并行请求独立容错、子功能独立执行、用户友好的错误降级。无后端中间层兜底时容错是架构必选项。",
     "url": "lessons/static-page-github-api-403-rate-limit.md",
     "updated": "2026-05-30"
   }

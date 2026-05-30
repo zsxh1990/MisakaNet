@@ -1,33 +1,51 @@
 ---
-{"title": "JavaScript 死代码终止执行链——一个 TypeError 让整个页面静默失效", "domain": "frontend", "tags": ["js", "debug", "typeerror", "event-binding"]}
+{"title": "JavaScript 执行链断裂：一个未捕获 TypeError 如何让整个页面静默失效", "domain": "frontend", "tags": ["js", "runtime", "typeerror", "execution-model", "defensive"]}
 ---
 
 ## 背景
-静态页面加载后统计数字不显示、贡献墙一直"加载中"、注册表单无法点击选择 Agent 类型。看起来是多个独立功能各自崩溃，实际上是一个根因。
+
+JavaScript 是单线程事件驱动模型。同步执行线程中任何一个未捕获的异常（TypeError、ReferenceError 等）都会导致**整个执行线程中断**，该线程后续所有代码不再执行。常见场景：
+
+- 页面加载时有一段脚本抛出异常 → 后续所有事件绑定、DOM 操作、异步调用全部跳过
+- 多个看似独立的功能同时失效 → 可能是一个根因阻断执行链
+- 错误发生在脚本末尾而非开头 → 更容易被忽视，因为前面的功能正常
 
 ## 根因
-脚本末尾有一段死代码引用了不存在的 DOM 元素和不存在的函数：
 
 ```js
-document.getElementById('lang-btn').addEventListener('click', toggleLang);
+// 例：引用了不存在的 DOM 元素
+document.getElementById('non-existent-btn').addEventListener('click', handler);
+//                 ↑ 返回 null          ↑ TypeError: Cannot read properties of null
 ```
 
-`lang-btn` 元素已在重构中被删除，`toggleLang` 函数也从未定义。执行到此处抛出 `TypeError: Cannot read properties of null`，**后续所有代码全部跳过**：
+JavaScript 引擎执行到这一步抛出 TypeError，**后续所有同步代码不再执行**：
 
-- `agent-option` 的 click 事件绑定 → Agent 类型选择器无法点击
-- `register-btn` 的 click 事件绑定 → 注册按钮无响应
-- `async IIFE`（内含 `loadStats`/`loadContributors`/`loadActiveNodes`）→ 统计数字和贡献墙空白
+- 后续的 `addEventListener` 绑定全部跳过
+- 后续的变量声明、函数调用全部跳过
+- 包括异步初始化 IIFE（即使 `async` 也不会执行，因为解析到这一行就崩溃了）
 
-## 修复
-1. 定位到出错的精确行号（浏览器 DevTools Console 会指向 `null.addEventListener`）
-2. 删除或注释掉该行死代码
-3. 确认后续所有事件绑定和异步调用正常执行
+## 修复方法
+
+1. **优先使用可选链操作符 `?.`** 防御性地访问可能为 `null`/`undefined` 的属性
+   ```js
+   document.getElementById('btn')?.addEventListener('click', handler);
+   ```
+2. **将事件绑定放在 try/catch 中**或包裹在 DOMContentLoaded 回调内，确保各自独立
+3. **全局错误监听**兜底：`window.addEventListener('error', ...)` 至少让开发者知道出了问题
+4. **删除或注释掉不再使用的 DOM 引用代码**——遗留代码是不确定性的最大来源
 
 ## 验证
+
 - 页面加载后 Console 无红色报错
-- Agent 选择器可以点击切换
-- 统计数字正常加载
-- 贡献墙从"加载中"变为数据或"暂无贡献记录"
+- 所有事件绑定正常生效
+- 每个功能模块独立工作，单个模块报错不影响其他模块
 
 ## 反思
-这种 bug 的隐蔽之处在于：一个与视觉功能完全无关的遗留代码行（语言切换按钮的 DOM 引用），可以通过 TypeError 让**整个页面所有 JS 增强功能**全部静默失效。静态页面调试时，第一步永远先看 Console 有没有红色报错。
+
+一个与视觉功能完全无关的遗留代码行（例如一个已被删除的语言切换按钮的 DOM 引用），可以通过 TypeError 让**整个页面所有 JS 增强功能**全部静默失效。这种 bug 的隐蔽之处在于：
+
+1. **"看起来像多个独立问题"**——用户报告 A、B、C 三个功能坏了，工程师分开排查，浪费大量时间
+2. **执行链模型容易被忽视**——前端开发者习惯模块化思维，但 JS 的同步执行是线性的，一个断点就是全断
+3. **现代框架（React/Vue）用错误边界解决了这个问题**，但纯静态页面和 jQuery 风格代码仍暴露在这种风险下
+
+静态页面调试第一原则：**打开 Console，先看有没有红色报错**。一个红色的 TypeError 解释了"为什么所有功能都坏了"。

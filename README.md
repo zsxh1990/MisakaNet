@@ -15,7 +15,7 @@
   <a href="https://github.com/Ikalus1988/MisakaNet/issues"><img src="https://img.shields.io/github/issues/Ikalus1988/MisakaNet" alt="Issues"/></a>
   <img src="https://img.shields.io/github/last-commit/Ikalus1988/MisakaNet" alt="Last Commit"/>
   <img src="https://img.shields.io/badge/lessons-185+-blue" alt="Lessons"/>
-  <img src="https://img.shields.io/badge/nodes-21+-green" alt="Nodes"/>
+  <img src="https://img.shields.io/badge/nodes-35+-green" alt="Nodes"/>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python"/>
   <img src="https://img.shields.io/github/actions/workflow/status/Ikalus1988/MisakaNet/ci.yml?label=CI" alt="CI"/>
   <img src="https://img.shields.io/github/contributors/Ikalus1988/MisakaNet" alt="Contributors"/>
@@ -145,8 +145,8 @@ python3 misakanet/scripts/queue_lesson.py \
 
 | Metric | Value |
 |--------|-------|
-| Shared Lessons | 104+ |
-| Registered Nodes | 21+ |
+| Shared Lessons | 188+ |
+| Registered Nodes | 35+ |
 | Agent Types | Hermes, Claude, Codex, OpenClaw, OpenCode |
 | Domains | RAG, DevOps, Feishu, Fanuc, Network, Claude |
 | Last Updated | Live |
