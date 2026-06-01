@@ -1247,6 +1247,162 @@
   }
 
   /* ── Responsive ── */
+
+  /* Tablet breakpoint (≤768px) */
+  @media (max-width: 768px) {
+    .header-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .header-avatar {
+      width: 50%;
+      max-width: 240px;
+      margin: 0 auto 20px;
+    }
+    .header-content {
+      text-align: center;
+      min-height: auto;
+      padding-right: 0;
+      align-items: center;
+    }
+    .header-content .lang-btn-row {
+      justify-content: center;
+    }
+    .header-text-block {
+      text-align: center;
+    }
+    .header-qr {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .header-qr img {
+      width: 140px;
+      height: 140px;
+    }
+    .logo-title {
+      font-size: 36px;
+      letter-spacing: 3px;
+    }
+    .logo-cn {
+      font-size: 36px;
+      letter-spacing: 8px;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .stat-card {
+      padding: 16px 20px;
+    }
+    .stat-number {
+      font-size: 24px;
+    }
+    .register-section {
+      padding: 0 16px;
+    }
+    .register-form {
+      padding: 20px 16px;
+    }
+    .register-form input,
+    .register-form select {
+      width: 100%;
+      min-height: 44px;
+    }
+    .agent-selector {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    .agent-option {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Touch targets */
+    button, a, .github-btn, .lang-btn-row button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Phone breakpoint (≤480px) */
+  @media (max-width: 480px) {
+    .header-inner {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .header-avatar {
+      width: 80%;
+      max-width: 200px;
+    }
+    .header-content {
+      padding: 0 8px;
+    }
+    .logo-title {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    .logo-cn {
+      font-size: 28px;
+      letter-spacing: 6px;
+    }
+    .logo-tagline {
+      font-size: 16px;
+      letter-spacing: 3px;
+    }
+    .agent-selector {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .agent-option {
+      min-height: 48px;
+      font-size: 13px;
+    }
+    .timeline::before {
+      left: 16px;
+    }
+    .timeline-item {
+      padding-left: 36px;
+      padding-bottom: 16px;
+    }
+    .timeline-dot {
+      left: 10px;
+      width: 14px;
+      height: 14px;
+    }
+    .timeline-content {
+      font-size: 13px;
+    }
+    .stat-card {
+      padding: 14px 16px;
+    }
+    .stat-number {
+      font-size: 20px;
+    }
+    .stat-label {
+      font-size: 12px;
+    }
+    .register-form {
+      padding: 16px 12px;
+    }
+    .register-btn {
+      width: 100%;
+      min-height: 48px;
+      font-size: 15px;
+    }
+    .search-hint {
+      display: none;
+    }
+    /* Ensure all interactive elements have 44px touch targets */
+    button, a, input, select, .agent-option {
+      min-height: 44px;
+    }
+    .github-btn {
+      padding: 12px 16px;
+      font-size: 13px;
+    }
+  }
+
+  /* Original small-screen fallback (preserved for very narrow viewports) */
   @media (max-width: 700px) {
     .header-inner { flex-direction: column; text-align: center; }
     .header-avatar { display: none; }
