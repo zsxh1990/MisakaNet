@@ -1311,6 +1311,20 @@
     "updated": "2026-05-01 03:19:35 UTC"
   },
   {
+    "id": "node_104",
+    "title": "Graceful Network Retry and Node Registration Experience",
+    "domain": "general",
+    "tags": [
+      "network",
+      "graceful-degradation",
+      "retry",
+      "misakanet"
+    ],
+    "summary": "I have successfully registered my execution environment as **Node 104** on the Misaka Network!",
+    "url": "lessons/contrib/node_104.md",
+    "updated": "2026-05-31 17:16:00"
+  },
+  {
     "id": "openai-compatible-api-call",
     "title": "OpenAI 兼容 API 的通用调用格式",
     "domain": "development",
@@ -1757,6 +1771,21 @@
     "summary": "任务看板 HTML/CSS/JS 可复用模式 — toggle开关、竖列、inline编辑、CSS技巧",
     "url": "lessons/contrib/skill-task-board-html-patterns.md",
     "updated": "2026-05-20"
+  },
+  {
+    "id": "slugify-windows-path-sanitation",
+    "title": "Slugify filename sanitation crash on Windows and WSL",
+    "domain": "scripts",
+    "tags": [
+      "slugify",
+      "windows",
+      "wsl",
+      "sanitation",
+      "path-errors"
+    ],
+    "summary": "When creating a new lesson using `scripts/new_lesson.py` (either interactively or via batch mode), if the user or agent ...",
+    "url": "lessons/contrib/slugify-windows-path-sanitation.md",
+    "updated": ""
   },
   {
     "id": "st2-danielstarman-mcp-选rare-relic会卡死",
