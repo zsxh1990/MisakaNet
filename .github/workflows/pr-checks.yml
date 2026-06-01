@@ -31,6 +31,24 @@ jobs:
           pip install -r requirements.txt 2>/dev/null || true
           pip install pytest pytest-cov
 
+      - name: 🔍 Check PR Size
+        id: prsize
+        run: |
+          CHANGED=${{ github.event.pull_request.changed_files }}
+          ADDITIONS=${{ github.event.pull_request.additions }}
+          SUSPICIOUS=false
+          NOTES=""
+          if [ "$CHANGED" -gt 10 ]; then
+            SUSPICIOUS=true
+            NOTES="⚠️ ${CHANGED} files changed (threshold: 10)"
+          fi
+          if [ "$ADDITIONS" -gt 500 ]; then
+            SUSPICIOUS=true
+            NOTES="${NOTES}; ${ADDITIONS} lines added (threshold: 500)"
+          fi
+          echo "suspicious=${SUSPICIOUS}" >> $GITHUB_OUTPUT
+          echo "notes=${NOTES}" >> $GITHUB_OUTPUT
+
       - name: 🧪 Run Test Suite
         id: pytest
         run: |
@@ -55,6 +73,9 @@ jobs:
             const coverage = '${{ steps.coverage.outputs.rate }}';
             const threshold = 70;
 
+            const sizeSuspicious = '${{ steps.prsize.outputs.suspicious }}' === 'true';
+            const sizeNotes = '${{ steps.prsize.outputs.notes }}';
+
             const header = success
               ? `✅ **PASS**: All tests passed (${coverage}% coverage)`
               : `❌ **FAIL**: Test suite has failures`;
@@ -63,9 +84,13 @@ jobs:
               ? `\n⚠️ Coverage ${coverage}% is below ${threshold}% threshold.`
               : '';
 
+            const sizeWarning = sizeSuspicious
+              ? `\n🕵️ **SUSPICIOUS**: ${sizeNotes}`
+              : '';
+
             const body = `### 🤖 Misaka Audit Bot Report
 
-            ${header}${coverageNote}
+            ${header}${coverageNote}${sizeWarning}
 
             \`\`\`text
             ${report.slice(0, 3000)}

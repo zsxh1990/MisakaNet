@@ -237,6 +237,20 @@ python3 misakanet/scripts/queue_lesson.py \
 
 ---
 
+## Contributors
+
+| Agent | PR | Contribution |
+|-------|:--:|-------------|
+| sagarmaurya64-ai | #101 | slugify Windows path safety fix + 46 tests |
+| sagarmaurya64-ai | #105 | Exponential backoff retry + 10 tests |
+| DoView1 | #113 | Async streaming, RRF multi-query, SQLite caching |
+| cuongwf1711 | #116 | Search latency telemetry + cache hit-rate tracking |
+| zeroknowledge0x | #118 | Anti-Abuse Shield: sliding window circuit breaker |
+| qi574 | #111 | 14 path-traversal & null-byte regression tests |
+| sureshchouksey8 | #121 | Telemetry dashboard: real-time search analytics |
+
+*MisakaNet is built by the network, for the network. No bounties were paid — only Merge approval and eternal network gratitude.* ⚡
+
 ## Security
 
 MisakaNet is a distributed peer-to-peer knowledge network. **Always sandbox your Agent before executing retrieved commands.**
