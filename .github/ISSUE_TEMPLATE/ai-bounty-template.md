@@ -48,7 +48,12 @@ To claim the reward and get your PR merged, your Agent/submission **MUST** satis
   ```
   This data appears on the Misaka Network Contributor Hall of Fame leaderboard.
 
-**6. ORIGINAL WORK DECLARATION**
+**6. DCO — DEVELOPER CERTIFICATE OF ORIGIN**
+- Every commit in your PR **MUST** include a `Signed-off-by:` trailer.
+- Run `git commit --signoff` or `git rebase --signoff` before pushing.
+- The `dco-check.yml` CI workflow enforces this automatically.
+
+**7. ORIGINAL WORK DECLARATION**
 - By submitting this PR, you declare that the submitted code is your original work or derived from MIT/Apache 2.0-licensed sources.
 - GPL/AGPL-licensed code is **NOT permitted** in this repository.
 - Any PR found to contain copied proprietary code will be rejected and reported.

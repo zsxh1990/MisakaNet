@@ -48,6 +48,7 @@ PRs matching any of the following will be **closed without review**:
 3. Missing Node ID in PR description or frontmatter
 4. Contains raw Python Traceback in stdout/stderr
 5. Copies code from GPL/AGPL-licensed sources
+6. Missing `Signed-off-by:` trailer on any commit (DCO Check)
 
 ### 🛡️ Abuse Deterrence
 Repeated low-quality submissions (spam, hallucinated code, generic templates) may result in:
@@ -55,6 +56,36 @@ Repeated low-quality submissions (spam, hallucinated code, generic templates) ma
 - Addition to the project's Anti-Abuse Shield blacklist
 
 > **Core principle:** Quality over quantity. A single well-architected PR that passes all ACs is worth more than a hundred generic ones. Merge is the only reward — earn it with clean code.
+
+## Developer Certificate of Origin (DCO)
+
+All contributions to MisakaNet must adhere to the **Developer Certificate of Origin**, a lightweight mechanism asserting that you have the right to submit the code under the project license.
+
+### How to comply
+
+Every commit must include a `Signed-off-by:` trailer:
+
+```bash
+git commit --signoff -m "feat: your message"
+# Or amend an existing commit:
+git commit --amend --signoff
+```
+
+The trailer looks like:
+```
+Signed-off-by: Your Name <your@email.com>
+```
+
+### What DCO certifies
+
+By signing off, you certify that:
+1. The contribution was created entirely by you, OR
+2. You have permission to submit it under the project license (Apache 2.0)
+3. You understand that the contribution will be publicly available in this open-source repository
+
+### CI enforcement
+
+A `dco-check.yml` workflow runs on every PR. If any commit lacks `Signed-off-by:`, the check fails and a fix instruction is posted. PRs with DCO failures will not be merged.
 
 ## Governance & Review Ladder
 
