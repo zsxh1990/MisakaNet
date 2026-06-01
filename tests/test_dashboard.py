@@ -3,6 +3,7 @@ import tempfile
 import threading
 import time
 import unittest
+from http.server import ThreadingHTTPServer
 from pathlib import Path
 from urllib.request import urlopen
 
@@ -38,6 +39,7 @@ class TestTelemetryDashboard(unittest.TestCase):
                 )
 
             server = create_server(port=0, telemetry_path=telemetry_path)
+            self.assertIsInstance(server, ThreadingHTTPServer)
             thread = threading.Thread(target=server.handle_request)
             thread.start()
             try:

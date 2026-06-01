@@ -7,7 +7,7 @@ import html
 import sqlite3
 import time
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
@@ -255,8 +255,8 @@ def create_server(
     host: str = "127.0.0.1",
     port: int = 8080,
     telemetry_path: str | Path = DEFAULT_TELEMETRY_PATH,
-) -> HTTPServer:
-    return HTTPServer((host, port), make_handler(telemetry_path))
+) -> ThreadingHTTPServer:
+    return ThreadingHTTPServer((host, port), make_handler(telemetry_path))
 
 
 def main() -> None:
