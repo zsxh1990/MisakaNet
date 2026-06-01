@@ -3,8 +3,29 @@
 import sys
 import time
 from misakanet.search.engine import *
+from misakanet.tools.lesson_scorer import DEFAULT_TELEMETRY, format_lesson_scores, score_lessons
 
 def main():
+    args = sys.argv[1:]
+    if "--score" in args:
+        top_k = None
+        telemetry_path = DEFAULT_TELEMETRY
+        for i, arg in enumerate(args):
+            if arg.startswith("--top="):
+                try:
+                    top_k = int(arg.split("=", 1)[1])
+                except ValueError:
+                    pass
+            elif arg == "--top" and i + 1 < len(args):
+                try:
+                    top_k = int(args[i + 1])
+                except ValueError:
+                    pass
+            elif arg.startswith("--telemetry="):
+                telemetry_path = arg.split("=", 1)[1]
+        print(format_lesson_scores(score_lessons(telemetry_path), limit=top_k))
+        return
+
     if len(sys.argv) < 2:
         print(__doc__)
         sys.exit(1)
@@ -33,11 +54,11 @@ def main():
                 pass
         elif arg == "--semantic":
             use_semantic = True
-    args = sys.argv[2:]
-    for i, arg in enumerate(args):
-        if arg == "--top" and i + 1 < len(args):
+    search_args = sys.argv[2:]
+    for i, arg in enumerate(search_args):
+        if arg == "--top" and i + 1 < len(search_args):
             try:
-                top_k = int(args[i + 1])
+                top_k = int(search_args[i + 1])
             except ValueError:
                 pass
     t0 = time.time()
