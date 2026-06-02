@@ -1,18 +1,5 @@
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 
-// Minimal DOM shim
-function setupDOM() {
-  let innerHTML = '';
-  const el = {
-    get innerHTML() { return innerHTML; },
-    set innerHTML(v) { innerHTML = String(v); },
-    style: { display: '' },
-    getElementById: () => el,
-  };
-  globalThis.document = { getElementById: () => el };
-  return el;
-}
-
 // Inline the functions under test (mirrors docs/js/core.js logic)
 async function safeFetchLessons(url, errorUI) {
   try {
@@ -46,14 +33,26 @@ describe('🛡️ MisakaNet Frontend Shield', () => {
   let searchEl;
 
   beforeAll(() => {
-    searchEl = setupDOM();
+    const container = document.createElement('div');
+    container.id = 'lessons-container';
+    document.body.appendChild(container);
+    searchEl = container;
 
     globalThis.DOMPurify = {
       sanitize: (html) => {
         if (typeof html !== 'string') return '';
         return String(html)
+          // Strip dangerous tags
           .replace(/<script[^>]*>([\s\S]*?)<\/script>/gi, '')
-          .replace(/\bon\w+\s*=\s*"[^"]*"/gi, '');
+          .replace(/<iframe[^>]*>([\s\S]*?)<\/iframe>/gi, '')
+          .replace(/<object[^>]*>([\s\S]*?)<\/object>/gi, '')
+          .replace(/<embed[^>]*>([\s\S]*?)<\/embed>/gi, '')
+          // Strip event handlers: "foo", 'foo', foo=unquoted
+          .replace(/\bon\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+          // Block javascript: protocol in links
+          .replace(/href\s*=\s*(?:"javascript:[^"]*"|'javascript:[^']*'|javascript:[^\s>]+)/gi, 'href="#"')
+          // Strip srcdoc (can embed scripts inside iframe)
+          .replace(/\bsrcdoc\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
       },
     };
 
@@ -103,7 +102,50 @@ describe('🛡️ MisakaNet Frontend Shield', () => {
     expect(safe).toContain('RAG Exploit');
   });
 
-  it('🧹 场景四：isValidLesson 正确校验', () => {
+  it('🧹 场景四：onerror 事件句柄（双引号/单引号/无引号）被拦截', () => {
+    const vectors = [
+      '<img src=x onerror="alert(1)">',
+      "<img src=x onerror='alert(1)'>",
+      '<img src=x onerror=alert(1)>',
+      '<body onload=alert(1)>',
+      '<svg onload="alert(1)">',
+    ];
+    vectors.forEach(v => {
+      const safe = DOMPurify.sanitize(v);
+      expect(safe).not.toContain('onerror');
+      expect(safe).not.toContain('onload');
+    });
+  });
+
+  it('🧹 场景五：javascript: URL 协议被拦截', () => {
+    const vectors = [
+      '<a href="javascript:alert(1)">click</a>',
+      "<a href='javascript:alert(1)'>click</a>",
+      '<a href=javascript:alert(1)>click</a>',
+    ];
+    vectors.forEach(v => {
+      const safe = DOMPurify.sanitize(v);
+      expect(safe).toContain('href="#"');
+    });
+  });
+
+  it('🧹 场景六：<iframe>/<object>/<embed> 等危险标签被拦截', () => {
+    const vectors = [
+      '<iframe src="https://evil.com"></iframe>',
+      '<iframe srcdoc="<script>alert(1)</script>"></iframe>',
+      '<object data="https://evil.com"></object>',
+      '<embed src="https://evil.com"></embed>',
+    ];
+    vectors.forEach(v => {
+      const safe = DOMPurify.sanitize(v);
+      // srcdoc should be stripped; dangerous tags removed
+      expect(safe).not.toContain('<iframe');
+      expect(safe).not.toContain('<object');
+      expect(safe).not.toContain('<embed');
+    });
+  });
+
+  it('🧹 场景七：isValidLesson 正确校验', () => {
     expect(isValidLesson({ title: 'a', domain: 'b' })).toBe(true);
     expect(isValidLesson({ title: '', domain: 'b' })).toBe(true);
     expect(isValidLesson({ title: 'a' })).toBe(false);
@@ -111,7 +153,7 @@ describe('🛡️ MisakaNet Frontend Shield', () => {
     expect(isValidLesson({})).toBe(false);
   });
 
-  it('🚨 场景五：网络错误时触发错误边界', async () => {
+  it('🚨 场景八：网络错误时触发错误边界', async () => {
     globalThis.fetch.mockRejectedValue(new Error('Network failure'));
 
     const errorUI = (msg) => {
@@ -123,7 +165,7 @@ describe('🛡️ MisakaNet Frontend Shield', () => {
     expect(searchEl.innerHTML).toContain('Frontend Shield');
   });
 
-  it('🧹 场景六：buildErrorHTML 不含未转义内容', () => {
+  it('🧹 场景九：buildErrorHTML 不含未转义内容', () => {
     const html = buildErrorHTML('test <script> malicious');
     expect(html).toContain('test');
     expect(html).not.toContain('<script>');

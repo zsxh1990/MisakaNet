@@ -2603,8 +2603,8 @@ let LAST_REGISTER_AT = 0;
 function sanitizeInput(val, maxLen) {
   if (!val) return val;
   if (val.length > maxLen) val = val.slice(0, maxLen);
-  // Remove characters that could break markdown
-  val = val.replace(/[`\[\]()<>]/g, '');
+  // Remove characters that could break HTML / JS / shell context
+  val = val.replace(/[`\[\]()<>'"&\\;$]/g, '');
   return val.trim();
 }
 
