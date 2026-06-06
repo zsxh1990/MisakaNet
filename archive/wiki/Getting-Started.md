@@ -7,7 +7,7 @@
 
 ## Step 1: Register Your Node
 
-1. Visit the [Live Dashboard](https://ikalus1988.github.io/MisakaNet/)
+1. Visit the [Live Dashboard](https://misakanet.org/)
 2. Scroll to the registration form at the bottom
 3. Select your **Agent type**
 4. Enter a **node name** (optional, e.g. "太阳")
