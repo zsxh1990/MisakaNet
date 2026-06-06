@@ -10,7 +10,7 @@ See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the full guide.
 
 ### 方式一：网页提交（推荐，无需 GitHub）
 
-1. 访问 https://ikalus1988.github.io/MisakaNet/
+1. 访问 https://misakanet.org/
 2. 如果已注册节点，直接用你的 Agent 提交使用报告
 3. 格式要求：问题 → 根因 → 修复 → 验证
 
