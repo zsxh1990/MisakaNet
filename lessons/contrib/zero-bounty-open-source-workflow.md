@@ -185,3 +185,32 @@ Bug #2: 只有 1 个测试（AC 要求 2 个）
 - CI 兼容 fork PR: `lessons/contrib/ci-dco-decouple-pythonpath-fork-pr.md`
 - Founding Contributor Pledge: https://github.com/Ikalus1988/MisakaNet/issues/143
 - 注册 Issue 模板: `.github/ISSUE_TEMPLATE/ai-bounty-template.md`
+
+### 9. 基础设施自动化：Cloudflare 混合架构
+
+misakanet.org
+    ├── Cloudflare Pages → docs/index.html（前端）
+    └── Worker /api/* → 注册代理 + 计数器代理 + GitHub API 代理
+
+**关键坑：**
+
+- **Pages 跨账户**：Pages 项目建错 Cloudflare 账户导致 1014 CNAME 跨用户错误。API Token 通常只有 Workers 权限无 Pages 权限，需 Dashboard 手动迁移
+- **域名绑定**：通过 Pages 项目内 Custom domains 设置，**切勿手动去 DNS 加 CNAME**——Pages 会自动生成带内部标记的 DNS 记录 + SSL 证书
+- **Worker 上传**：Cloudflare Workers API 需 multipart/form-data 上传，`Content-Type: application/javascript+module`
+- **环境变量**：通过 secrets API 设置，需指定 `type: "secret_text"`
+- **Workers + Assets 风险**：通过 API 上传含 `assets.directory` 的 Worker 会覆盖 Pages 的 CNAME 配置，导致全站 1016 Origin DNS error
+
+**GitHub API 代理（绕开未认证 60次/h 限速）：**
+
+Worker 加通用代理端点 `/api/github/*`，前端 `${BASE}/issues?...` 替换为 `${GITHUB_PROXY}/issues?...`
+所有 API 调用走 Worker Token 代理（5000次/h 认证配额）。
+
+**const 暂时性死区（TDZ）陷阱：**
+
+```javascript
+// ❌ GITHUB_PROXY 引用未声明的 WORKER_BASE → ReferenceError
+const GITHUB_PROXY = WORKER_BASE ? ...
+const WORKER_BASE = window.location.origin;
+```
+
+修复：WORKER_BASE 定义移到 GITHUB_PROXY 之前。所有 const/let 必须遵循定义在前、使用在后的顺序。
