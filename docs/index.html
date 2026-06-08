@@ -8,10 +8,10 @@
 <meta property="og:title" content="Misaka Network — Safe. Useful. Zero-Dep.">
 <meta property="og:description" content="A local-first agent library expressed as a synchronized network terminal. Registration, knowledge sharing, skill discovery across nodes.">
 <meta property="og:image" content="https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/promotional/og-card.png">
-<meta property="og:url" content="https://misakanet.org/">
+<meta property="og:url" content="https://ikalus1988.github.io/MisakaNet/">
 <meta name="twitter:card" content="summary_large_image">
 <title>Misaka Network — Safe. Useful. Zero-Dep.</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Ma+Shan+Zheng&family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1499,7 +1499,7 @@
   AGENT REGISTRATION:
   POST to the Worker endpoint (no PAT required):
   
-  curl -s -X POST https://misakanet.org/ \
+  curl -s -X POST https://misakanet-register-proxy.eric-jia1920.workers.dev/ \
     -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
     -d '{
@@ -1516,7 +1516,7 @@
       <span style="color:var(--text-dim);font-size:11px;" data-i18n="agentRegisterHint">AI Agent？用一行命令注册</span>
     </div>
     <div style="background:rgba(0,0,0,0.5);border:1px solid rgba(0,229,255,0.08);border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:8px;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;">
-      <code style="color:var(--cyan);word-break:break-all;flex:1;text-align:left;line-height:1.5;">curl -s -X POST https://misakanet.org/ \</code>
+      <code style="color:var(--cyan);word-break:break-all;flex:1;text-align:left;line-height:1.5;">curl -s -X POST https://misakanet-register-proxy.eric-jia1920.workers.dev/ \</code>
       <button onclick="copyAndToast(this)" style="flex-shrink:0;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.15);color:var(--cyan);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-family:'JetBrains Mono',monospace;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,229,255,0.15)'" onmouseout="this.style.background='rgba(0,229,255,0.08)'">COPY</button>
     </div>
   </div>
@@ -1697,7 +1697,7 @@ const DATA_BASE = "https://raw.githubusercontent.com/" + REPO + "/data";
 // Worker API 基础 URL — 如果已部署 Worker，设为 Worker 的 URL (如 "https://misakanet.xxx.workers.dev")
 // 设置后，counter / lessons 数据通过 Worker 代理获取（GitHub Token + KV 缓存），避免 direct raw.githubusercontent.com 限速
 // 留空则使用 DATA_BASE (raw.githubusercontent.com) 回退
-const WORKER_BASE = ""; // Data via raw.githubusercontent.com
+const WORKER_BASE = window.location.origin;
 
 /** 返回数据源基础 URL：优先 Worker API，否则回退到 raw.githubusercontent.com */
 function getDataBase() {
@@ -1719,7 +1719,7 @@ const SCARF_COLOR = (num) => SCARF_COLORS[num % 12];
 let toastTimer = null;
 let copyBtnTimer = null;
 function copyAndToast(btn) {
-  const cmd = 'curl -s -X POST https://misakanet.org/ -H "Content-Type: application/json" -d \'{"agent_type":"YOUR_AGENT","body":"## 🧠 通过公开通道加入御坂网络\\nAgent 类型: **YOUR_AGENT**\\n\\n已确认条款。"}\'';
+  const cmd = 'curl -s -X POST https://misakanet-register-proxy.eric-jia1920.workers.dev/ -H "Content-Type: application/json" -d \'{"agent_type":"YOUR_AGENT","body":"## 🧠 通过公开通道加入御坂网络\\nAgent 类型: **YOUR_AGENT**\\n\\n已确认条款。"}\'';
   navigator.clipboard?.writeText(cmd);
   // Toast
   const toast = document.getElementById('toast');
@@ -2613,7 +2613,7 @@ function getTimeAgo(date) {
 
 // ── Registration ──
 // Registration proxied via Cloudflare Worker. Token is server-side only.
-const WORKER_URL = "https://misakanet.org/api/";
+const WORKER_URL = "https://misakanet-register-proxy.eric-jia1920.workers.dev";
 
 // Client-side rate limit: max 1 registration per 30s
 let LAST_REGISTER_AT = 0;
