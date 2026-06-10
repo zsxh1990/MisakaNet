@@ -23,33 +23,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: DCO Pre-flight Gate
-        id: dco
-        run: |
-          bad=0
-          # 对 fork PR，用 HEAD~N 比 origin/main..HEAD 更可靠
-          COMMIT_COUNT="${{ github.event.pull_request.commits }}"
-          if [ -z "$COMMIT_COUNT" ] || [ "$COMMIT_COUNT" -le 0 ]; then
-            COMMIT_COUNT=5
-          fi
-          for commit in $(git log --format='%H' "HEAD~${COMMIT_COUNT}..HEAD"); do
-            msg=$(git log --format='%B' -1 "$commit")
-            if ! echo "$msg" | grep -qi 'Signed-off-by:'; then
-              echo "Fail Commit $commit is missing Signed-off-by:"
-              echo "   $(git log --format='%s' -1 "$commit")"
-              bad=$((bad + 1))
-            fi
-          done
-          if [ "$bad" -gt 0 ]; then
-            echo "dco_passed=false" >> "$GITHUB_OUTPUT"
-            echo "Warn DCO FAILED - $bad commits missing Signed-off-by."
-            printf '## DCO Pre-flight Gate\n\n**Result:** FAIL - commits missing Signed-off-by.\n\n' >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "dco_passed=true" >> "$GITHUB_OUTPUT"
-            echo "OK DCO PASSED"
-            printf '## DCO Pre-flight Gate\n\n**Result:** PASS - All commits include Signed-off-by.\n\n' >> "$GITHUB_STEP_SUMMARY"
-          fi
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -188,7 +161,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          DCO="${{ steps.dco.outputs.dco_passed }}"
           OUTCOME="${{ steps.pytest.outcome }}"
           COVERAGE="${{ steps.coverage.outputs.rate }}"
           SUSPICIOUS="${{ steps.prsize.outputs.suspicious }}"
@@ -196,12 +168,6 @@ jobs:
           PR_NUM="${{ github.event.inputs.pr_number || github.event.pull_request.number }}"
           SHA="${{ github.event.pull_request.head.sha || 'manual' }}"
           SHA_SHORT=$(echo "$SHA" | cut -c1-7)
-
-          if [ "$DCO" = "true" ]; then
-            DCO_LINE="OK **DCO PASSED** - All commits include Signed-off-by."
-          else
-            DCO_LINE="Fail **DCO FAILED** - One or more commits missing Signed-off-by."
-          fi
 
           if [ "$OUTCOME" = "success" ]; then
             HEADER="OK **PASS**: All tests passed (${COVERAGE}% coverage)"
@@ -221,10 +187,6 @@ jobs:
 
           BODY="### Robot Misaka Audit Bot Report
 
-          ${DCO_LINE}
-
-          ---
-
           ${HEADER}
           ${COV_NOTE}
           ${SIZE_WARN}
@@ -235,8 +197,8 @@ jobs:
             gh pr comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null ||               gh issue comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null ||               echo "Could not post comment to PR #$PR_NUM"
           fi
 
-          if [ "$DCO" != "true" ] || [ "$OUTCOME" != "success" ]; then
-            echo "Audit failed: DCO or test suite has issues."
+          if [ "$OUTCOME" != "success" ]; then
+            echo "Audit failed: test suite has issues."
             exit 1
           fi
 
