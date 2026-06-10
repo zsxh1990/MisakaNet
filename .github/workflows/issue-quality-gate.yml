@@ -1,0 +1,67 @@
+name: Issue Quality Gate
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Issue & Apply Labels
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUM="${{ github.event.issue.number }}"
+          BODY="${{ github.event.issue.body }}"
+          TITLE="${{ github.event.issue.title }}"
+
+          echo "=== Issue Quality Gate: #$ISSUE_NUM ==="
+
+          # 检查是否包含 AC 清单（硬性验收标准）
+          HAS_AC=false
+          HAS_CHECKBOX=false
+
+          # 检测 AC 标记
+          if echo "$BODY" | grep -qi "acceptance criteria\|AC\|验收标准\|MANDATORY"; then
+            HAS_AC=true
+            echo "  ✅ AC section found"
+          fi
+
+          # 检测复选框
+          if echo "$BODY" | grep -q "\[ \]\|\[x\]\|\[X\]"; then
+            HAS_CHECKBOX=true
+            echo "  ✅ Checkboxes found"
+          fi
+
+          # 检测是否包含 Bounty 标签
+          HAS_BOUNTY=false
+          if echo "$TITLE" | grep -qi "\[bounty\]"; then
+            HAS_BOUNTY=true
+            echo "  ✅ Bounty tag found in title"
+          fi
+
+          # 应用标签
+          if [ "$HAS_AC" = true ] && [ "$HAS_CHECKBOX" = true ]; then
+            # 完整 Issue → 标记为 ready
+            gh issue edit "$ISSUE_NUM" --repo Ikalus1988/MisakaNet \
+              --add-label "status: ready" 2>/dev/null || true
+            echo "  → Label: status: ready"
+          else
+            # 缺少 AC → 标记为 needs-triage
+            gh issue edit "$ISSUE_NUM" --repo Ikalus1988/MisakaNet \
+              --add-label "status: needs-triage" 2>/dev/null || true
+            echo "  → Label: status: needs-triage (missing AC or checkboxes)"
+          fi
+
+          if [ "$HAS_BOUNTY" = true ]; then
+            gh issue edit "$ISSUE_NUM" --repo Ikalus1988/MisakaNet \
+              --add-label "bounty" 2>/dev/null || true
+          fi
+
+          echo "=== Gate complete ==="

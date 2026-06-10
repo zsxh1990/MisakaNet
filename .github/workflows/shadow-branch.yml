@@ -1,0 +1,54 @@
+name: Shadow Branch - External Agent Isolation
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  isolate:
+    # 仅对外部贡献者（非 OWNER / MEMBER）启用影子分支
+    if: >
+      github.event.pull_request.author_association != 'OWNER' &&
+      github.event.pull_request.author_association != 'MEMBER'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror PR to Shadow Branch
+        env:
+          GH_TOKEN: ${{ secrets.SHELDON_PAT }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          SHADOW_REF="refs/heads/shadow/pr-${PR_NUM}"
+
+          echo "=== Shadow Branch: PR #$PR_NUM ==="
+          echo "  head SHA: ${HEAD_SHA:0:7}"
+          echo "  shadow ref: $SHADOW_REF"
+
+          # 创建或更新 shadow 分支镜像
+          if gh api repos/Ikalus1988/MisakaNet/git/refs/"$SHADOW_REF" --jq '.ref' &>/dev/null; then
+            # 已存在 → 更新
+            gh api repos/Ikalus1988/MisakaNet/git/refs/"$SHADOW_REF" \
+              --method PATCH \
+              --field sha="$HEAD_SHA" \
+              --field force=true > /dev/null
+            echo "  → Shadow branch updated"
+          else
+            # 新建
+            gh api repos/Ikalus1988/MisakaNet/git/refs \
+              --method POST \
+              --field ref="$SHADOW_REF" \
+              --field sha="$HEAD_SHA" > /dev/null
+            echo "  → Shadow branch created"
+          fi
+
+          # 在 PR 上标记 shadow 标签
+          gh pr edit "$PR_NUM" --repo Ikalus1988/MisakaNet \
+            --add-label "shadow-isolated" 2>/dev/null || true
+          echo "  → Label 'shadow-isolated' applied"
