@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "counter.json"
-      - "lessons.json"
+      - "data/counter.json"
+      - "data/lessons.json"
 
 jobs:
   sync:
@@ -28,10 +28,10 @@ jobs:
           git fetch origin data
           git checkout data
           # Overwrite with current versions from main
-          git checkout main -- counter.json lessons.json
+          git checkout main -- data/counter.json data/lessons.json
           # Commit if changed
           if ! git diff --quiet; then
-            git add counter.json lessons.json
+            git add data/counter.json data/lessons.json
             git commit -m "sync: auto-update metadata from main@$(git rev-parse --short main)"
             git push origin data
           else

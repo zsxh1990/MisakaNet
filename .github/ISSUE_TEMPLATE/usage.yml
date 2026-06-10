@@ -14,7 +14,7 @@ body:
     id: used
     attributes:
       label: 本次使用的知识
-      description: 从 lessons.json 中检索并使用了的条目
+      description: 从 data/lessons.json 中检索并使用了的条目
       placeholder: |
         - git-tls-handshake-failure — TLS 握手失败处理
         - wsl-proxy-setup — WSL 代理配置

@@ -120,7 +120,7 @@ def main():
     if not found_any:
         print(f"\\n  ❌ 未找到 '{query}' 相关内容")
         print(f"  如果这是一个新踩坑，请入库:")
-        print(f"    python3 misakanet/scripts/queue_lesson.py -t \"{query}\" ...")
+        print(f"    python3 scripts/queue_lesson.py -t \"{query}\" ...")
         print()
     _show_timing(time.time() - t0, total_docs)
     if found_any and not suggest:
@@ -128,7 +128,7 @@ def main():
         increment_search()
     if found_any:
         print(f"  💡 查看完整内容: cat lessons/<filename>.md")
-        print(f"  💡 贡献新知识: python3 misakanet/scripts/queue_lesson.py -t '标题' -d domain '内容...'")
+        print(f"  💡 贡献新知识: python3 scripts/queue_lesson.py -t '标题' -d domain '内容...'")
         print()
 
 

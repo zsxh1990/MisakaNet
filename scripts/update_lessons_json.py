@@ -7,7 +7,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 LESSONS_DIR = REPO / "lessons"
-OUTPUT = REPO / "lessons.json"
+OUTPUT = REPO / "data" / "lessons.json"
 
 
 def parse_frontmatter(text: str) -> dict:

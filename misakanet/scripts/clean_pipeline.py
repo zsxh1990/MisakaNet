@@ -36,7 +36,7 @@ from pathlib import Path
 from difflib import SequenceMatcher
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-STAGING_DIR = PROJECT_ROOT / "staging"
+STAGING_DIR = PROJECT_ROOT / ".nodes" / "staging"
 LESSONS_DIR = PROJECT_ROOT / "lessons"
 INDEX_PATH = LESSONS_DIR / "index.md"
 
@@ -315,7 +315,7 @@ def step_output(lessons: list[dict]):
     print("输出到 lessons/ (via queue_lesson.py --file)")
     print('='*50)
 
-    script = PROJECT_ROOT / "misakanet" / "scripts" / "queue_lesson.py"
+    script = PROJECT_ROOT / "scripts" / "queue_lesson.py"
     written = 0
     failed = 0
 

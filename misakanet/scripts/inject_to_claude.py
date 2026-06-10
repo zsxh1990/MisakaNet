@@ -116,7 +116,7 @@ def inject_to_claudemd(lessons, clean=False):
     block_marker_start = "<!-- MISAKANET_LESSONS_START -->"
     block_marker_end = "<!-- MISAKANET_LESSONS_END -->"
 
-    static_header = "## 跨节点 Lessons (来自 MisakaNet)\n\n> 每次有价值的对话结束时，自问\"有什么值得跨节点共享？\"\n> 如果有，运行: `python3 ~/Agent-Medici/misakanet/scripts/queue_lesson.py --title \"...\" --domain \"...\" --content \"问题/修复/验证\"`\n> 或告诉用户：\"要把这个经验写成 lesson 吗？\"\n"
+    static_header = "## 跨节点 Lessons (来自 MisakaNet)\n\n> 每次有价值的对话结束时，自问\"有什么值得跨节点共享？\"\n> 如果有，运行: `python3 scripts/queue_lesson.py --title \"...\" --domain \"...\" --content \"问题/修复/验证\"`\n> 或告诉用户：\"要把这个经验写成 lesson 吗？\"\n"
 
     lesson_lines = [block_marker_start, ""]
     for l in lessons:

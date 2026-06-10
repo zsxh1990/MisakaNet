@@ -155,7 +155,7 @@ def interactive():
     increment_lesson()
     print(f"  ✅ lesson 已创建: {filepath}")
     print(f"\n  查看: cat {filepath}")
-    print(f"  同步: python3 misakanet/scripts/queue_lesson.py --file {filepath}")
+    print(f"  同步: python3 scripts/queue_lesson.py --file {filepath}")
     return True
 
 

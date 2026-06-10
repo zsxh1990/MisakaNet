@@ -34,8 +34,9 @@ from pathlib import Path
 # 项目根
 REPO_ROOT = Path(__file__).parent / ".." / ".."
 sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
-from misakanet.scripts.queue_lesson import write_lesson
+from queue_lesson import write_lesson
 from misakanet.scripts.queue_hook_stats import cmd_trigger, CATEGORIES
 
 NODE_ID = "cc_haha"

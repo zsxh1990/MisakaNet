@@ -22,7 +22,7 @@ PROJECT_ROOT = Path(__file__).parent.parent.parent
 LESSONS_DIR = PROJECT_ROOT / "lessons"
 ARCHIVE_DIR = LESSONS_DIR / "_archive"
 INDEX_PATH = LESSONS_DIR / "index.md"
-JSON_PATH = PROJECT_ROOT / "lessons.json"
+JSON_PATH = PROJECT_ROOT / "data" / "lessons.json"
 
 # ── Domain 映射 ──────────────────────────────────────────
 

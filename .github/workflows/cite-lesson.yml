@@ -61,7 +61,7 @@ jobs:
             # Load lessons
             lessons = []
             try:
-                with open('lessons.json') as f:
+                with open('data/lessons.json') as f:
                     lessons = json.load(f)
             except:
                 print("Could not load lessons.json")

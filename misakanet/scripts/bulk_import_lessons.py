@@ -35,7 +35,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-STAGING_DIR = PROJECT_ROOT / "staging"
+STAGING_DIR = PROJECT_ROOT / ".nodes" / "staging"
 LESSONS_DIR = PROJECT_ROOT / "lessons"
 
 VALID_NODES = ["node1_hermes", "node2_wsl2", "node3_cc", "node6_cloud"]

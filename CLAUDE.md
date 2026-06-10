@@ -4,7 +4,7 @@
 未命中时再走 queue_lesson.py 入库。
 
 > 每次有价值的对话结束时，自问"有什么值得跨节点共享？"
-> 如果有，运行: `python3 ~/Agent-Medici/misakanet/scripts/queue_lesson.py --title "..." --domain "..." --content "问题/修复/验证"`
+> 如果有，运行: `python3 scripts/queue_lesson.py --title "..." --domain "..." --content "问题/修复/验证"`
 > 或告诉用户："要把这个经验写成 lesson 吗？"
 
 ## 核心规则

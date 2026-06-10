@@ -6,18 +6,18 @@ MisakaNet Queue Lesson (节点侧)
 
 用法:
   # 方式 1: 从参数创建
-  python3 misakanet/scripts/queue_lesson.py \
+  python3 scripts/queue_lesson.py \
     --title "FANUC R-2000iC 检索混淆修复" \
     --domain rag-retrieval \
     --tags fanuc,r-2000ic \
     --content "根因: 跨品牌型号字符串 \"2000\" 同时匹配 KUKA 和 FANUC..."
 
   # 方式 2: 简化版
-  python3 misakanet/scripts/queue_lesson.py \
+  python3 scripts/queue_lesson.py \
     -t "标题" -d rag-retrieval "内容..."
 
   # 方式 3: 已编辑好的 md 文件 (clean_pipeline 输出、手动编辑等)
-  python3 misakanet/scripts/queue_lesson.py --file path/to/lesson.md
+  python3 scripts/queue_lesson.py --file path/to/lesson.md
 """
 
 import argparse
@@ -30,15 +30,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # 自动更新 lessons.json（make sure scripts/ 在 sys.path 里）
-_SCRIPTS_DIR = Path(__file__).resolve().parent.parent.parent / "scripts"
+_SCRIPTS_DIR = Path(__file__).resolve().parent
 if _SCRIPTS_DIR.exists() and str(_SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_DIR))
 
 REPO = "Ikalus1988/MisakaNet"
 NODE_ID = os.environ.get("MISAKANET_NODE_ID", "hermes_wsl2")
 LESSONS_DIR = Path(os.environ.get("LESSONS_DIR",
-                  Path(__file__).parent / ".." / ".." / "lessons"))
-REPO_ROOT = Path(__file__).parent / ".." / ".."
+                  Path(__file__).parent / ".." / "lessons"))
+REPO_ROOT = Path(__file__).parent / ".."
 
 
 def _get_token():

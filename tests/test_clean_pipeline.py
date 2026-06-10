@@ -31,7 +31,7 @@ class TestCleanPipeline(unittest.TestCase):
             "content": "---\ntitle: Docker build error\ndomain: general\nstatus: draft\n---\n\nUsing docker-compose we hit an issue when downloading the base image.",
             "fm": {"title": "Docker build error", "domain": "general", "status": "draft"},
             "body": "Using docker-compose we hit an issue when downloading the base image.",
-            "relpath": "staging/node2/test-docker.md"
+            "relpath": ".nodes/staging/node2/test-docker.md"
         }
         
         lessons = [lesson]
@@ -46,7 +46,7 @@ class TestCleanPipeline(unittest.TestCase):
             "content": "---\ntitle: WSL terminal setup\ndomain: general\nstatus: draft\n---\n\nConfiguring bash shell environment in wsl.",
             "fm": {"title": "WSL terminal setup", "domain": "general", "status": "draft"},
             "body": "Configuring bash shell environment in wsl.",
-            "relpath": "staging/node2/test-devops.md"
+            "relpath": ".nodes/staging/node2/test-devops.md"
         }
         
         lessons = [lesson]

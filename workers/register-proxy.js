@@ -118,7 +118,7 @@ async function handleApiRequest(pathWithQuery, env) {
     case "/api/counter":
     case "/api/counter.json": {
       const data = await getWithCache(env, "proxy:counter", () =>
-        fetchFromGitHub(token, "counter.json")
+        fetchFromGitHub(token, "data/counter.json")
       );
       return jsonResponse(data);
     }
@@ -126,7 +126,7 @@ async function handleApiRequest(pathWithQuery, env) {
     case "/api/lessons":
     case "/api/lessons.json": {
       const data = await getWithCache(env, "proxy:lessons", () =>
-        fetchFromGitHub(token, "lessons.json")
+        fetchFromGitHub(token, "data/lessons.json")
       );
       return jsonResponse(data);
     }

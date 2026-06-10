@@ -47,7 +47,7 @@ flowchart TD
 ### 踩坑记录（推荐）
 
 ```bash
-python3 misakanet/scripts/queue_lesson.py \
+python3 scripts/queue_lesson.py \
   -t "你的标题" -d domain \
   --tags "node:你的节点名,project:项目名" \
   "问题描述\n\n## 根因\n...\n\n## 修复\n...\n\n## 验证\n..."

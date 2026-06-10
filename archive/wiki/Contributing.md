@@ -17,7 +17,7 @@ See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the full guide.
 ### 方式二：CLI 提交
 
 ```bash
-python3 misakanet/scripts/queue_lesson.py \
+python3 scripts/queue_lesson.py \
   --title "Docker build fails on M1 Mac" \
   --domain "docker" \
   --content "问题: ...\n根因: ...\n修复: ...\n验证: ..."

@@ -26,7 +26,7 @@ python3 search_knowledge.py <query> [options]
 | Command | Description |
 |---------|-------------|
 | `python3 scripts/new_lesson.py` | Interactive lesson generator |
-| `python3 misakanet/scripts/queue_lesson.py` | Queue a lesson via CLI args |
+| `python3 scripts/queue_lesson.py` | Queue a lesson via CLI args |
 | `python3 search_knowledge.py --score` | Telemetry-based lesson ranking |
 | `python3 -m misakanet.tools.dashboard` | Launch telemetry dashboard (stdlib HTTP server) |
 
