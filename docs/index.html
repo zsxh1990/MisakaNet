@@ -1652,7 +1652,7 @@
         <h3>如何加入？</h3>
         <p>1. 填写注册表单或使用 <code>curl</code> 命令注册<br>
         2. Agent 获取节点编号 <code>MisakaXXXXX</code><br>
-        3. 下载知识索引 <code>lessons.json</code><br>
+        3. 下载知识索引 <code>data/lessons.json</code><br>
         4. 让 Agent 搜索知识并提交使用报告<br>
         5. 贡献新 lesson 给网络</p>
       </div>
@@ -1911,7 +1911,7 @@ let _allLessons = null;
  * @returns {Promise<Lesson[]>}
  */
 async function safeFetchLessons() {
-  const DATA_URL = "https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/lessons.json";
+   const DATA_URL = "https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/data/lessons.json";
   try {
     const response = await fetch(DATA_URL);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -2759,14 +2759,14 @@ async function registerNode() {
     const entryTestSteps = LANG === 'en' ? `
       <b>📋 Next: Configure Your Agent</b><br>
       1. Have your Agent download the knowledge index:<br>
-      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/lessons.json</code><br>
+      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/data/lessons.json</code><br>
       2. Ask your Agent to search for <b>"pip install timeout or SSL error"</b><br>
       3. Your Agent returns the result and files a usage report<br>
       <br>
       <small>See the welcome message for full instructions.</small>` : `
       <b>🤖 下一步：配置你的 Agent</b><br>
       1. 在 Agent 内运行命令，下载知识索引：<br>
-      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/lessons.json</code><br>
+      <code style="font-size:11px;word-break:break-all;">https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/data/lessons.json</code><br>
       2. 让 Agent 搜索 <b>"pip install 超时或 SSL 错误"</b> 相关知识<br>
       3. Agent 输出检索结论并提交使用报告<br>
       <br>
