@@ -1,4 +1,4 @@
----{"title": "开源项目重构复盘 — 从功能堆砌到减法优先", "domain": "development", "tags": ["refactor", "architecture", "lessons", "open-source"], "status": "published", "source": "deepseek", "created": "2026-05-30 04:00:00 UTC", "updated": "2026-05-30 04:00:00 UTC"}---
+---{"title": "开源项目重构复盘 — 从功能堆砌到减法优先", "domain": "development", "tags": ["refactor", "architecture", "lessons", "open-source", "cleanup", "focus", "repository-management"], "status": "published", "source": "deepseek", "created": "2026-05-30 04:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}---
 
 ## 背景
 
@@ -41,6 +41,32 @@
 **概念压缩** — 10+ 概念压缩到 3 个后，README 100 字说清项目。
 
 **i18n 迁移教训** — 旧系统 `applyI18n()` 和新系统 `switchLang()` 共存时，const 暂时性死区导致 ReferenceError，整个页面停摆。两套系统比没有系统更糟。
+
+## 仓库清理与技术专注度
+
+### 问题
+
+个人/组织 GitHub 主页积累了 30+ 仓库，包含大量早期 fork、零贡献存档、废弃实验项目。潜在贡献者或合作方打开主页时，看到混杂的仓库列表会稀释项目的专业可信度。
+
+### 清理策略
+
+1. **分类审计**：按 `fork`、`archived`、`active`、`stale` 四个维度遍历所有仓库
+
+2. **归档零贡献 fork**：对没有独立 commit、open issue 或 PR 的 fork，执行：
+   ```bash
+   curl -X PATCH "https://api.github.com/repos/<owner>/<repo>" \
+     -d '{"archived": true, "allow_forking": true}'
+   ```
+
+3. **明确"技术地图"**：在个人主页或组织 README 中将仓库归类，标注哪些是核心项目、哪些是实验性、哪些是归档存档
+
+4. **消除命名冲突**：避免同名仓库在不同组织间造成混淆（如将分叉仓库重命名或加前缀）
+
+### 指标
+
+- 清理前：33 个公开仓库，20 个零贡献 fork
+- 清理后：13 个活跃仓库
+- 技术专注度：fork 占比从 60% 降至 0%
 
 ## 教训
 

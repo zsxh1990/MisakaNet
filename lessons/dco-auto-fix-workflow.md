@@ -1,10 +1,38 @@
 ---
-{"title": "DCO 自动修复工作流 — /fix-dco 命令设计与实现", "domain": "devops", "tags": ["github-actions", "dco", "signoff", "issue_comment", "auto-fix", "fork-pr"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
+{"title": "DCO 自动修复工作流 — /fix-dco 命令设计与实现", "domain": "devops", "tags": ["github-actions", "dco", "signoff", "issue_comment", "auto-fix", "fork-pr", "plan-b", "supply-chain"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}
 ---
 
 ## 背景
 
 贡献者提交 PR 后 DCO（Signed-off-by）检查失败是最常见的阻塞原因之一。尤其是 AI Agent 自动提交的 PR，经常缺签。需要在 PR 评论区提供一键自动修复能力。
+
+## 上游 PR 被拒后的 Plan B 独立部署
+
+### 场景
+
+项目向 `pre-commit/pre-commit-hooks` 官方上游提交原生 `check-dco` 钩子（PR #1262），通过了全部 CI（flake8、mypy、tox 矩阵、pre-commit.ci），但仍被核心维护者以"可用内置 pygrep 替代"为由拒绝合入。
+
+### 教训
+
+依赖单一上游的审核周期来驱动自身核心合规门禁是危险的。上游的拒绝是对供应链哲学的一次检验——它暴露的不是技术缺陷，而是信任模型的风险。
+
+### 独立部署策略
+
+当原生提交被拒后，应立刻执行以下步骤：
+
+1. **提取核心资产**：将 5 个关键文件（`.pre-commit-hooks.yaml`、`setup.cfg`、`setup.py`、`check_dco.py`、`tests/`）从 Fork 仓库抽离，推送到全新独立仓库。
+2. **锁定版本**：使用固定 Commit SHA（而非分支名）作为 `.pre-commit-config.yaml` 中的 `rev` 值，确保供应链可控。
+3. **补全 ADR**：记录决策过程，供后续审计。
+4. **发布公告**：在追踪 Issue 中向所有节点交代迁移方案。
+
+### 比官方建议更好的理由
+
+| 维度 | 独立 Python 钩子 | pygrep 方案 |
+|---------|---------------|------------|
+| 报错体验 | 精准 stderr 引导 | 粗暴整行匹配 |
+| 多签名支持 | 原生 Python | 跨行正则脆弱 |
+| 测试覆盖 | 16 个 pytest 用例 | 无测试 |
+| 供应链可控 | 自主仓库 | 依赖上游 |
 
 ## 方案
 
