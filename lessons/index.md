@@ -14,6 +14,9 @@
 - [Chroma 建库无 Checkpoint — 进程一死全部丢失](chroma-建库无-checkpoint-进程一死全部丢失.md) | rag |  | bootstrap
 - [ChromaDB 不能放在 NTFS 文件系统](chromadb-不能放在-ntfs-文件系统.md) | rag | "project:self-grow-wiki", "severity:critical", "platform:wsl", "node:hermes_wsl" | bootstrap
 - [CodeWhale 中 git push 的正确方式 — YOLO task + gh CLI](codewhale-git-push-yolo-task.md) | devops | "codewhale", "git", "yolo", "push", "lesson" | 2026-06-04
+- [DCO 自动修复工作流 — /fix-dco 命令设计与实现](dco-auto-fix-workflow.md) | devops | "github-actions", "dco", "signoff", "issue_comment", "auto-fix", "fork-pr" | 2026-06-13
+- [PR 仓库清理 SOP — 过时/重复/已解决 PR 的处置策略](pr-cleanup-sop.md) | devops | "github-actions", "pr-management", "cleanup", "maintenance", "sop" | 2026-06-13
+- [PR Welcome 未触发排查 — author_association NONE vs FIRST_TIMER 陷阱](pull-request-welcome-trigger-trap.md) | devops | "github-actions", "pull_request_target", "author_association", "first-time-contributor", "welcome", "debug" | 2026-06-13
 - [Cronjob One-Shot Race Condition - Duplicate Execution](cronjob-one-shot-race-condition-duplicate-execution.md) | agent-network | node:ZKA, project:Hermes-Agent, severity:critical | hermes_wsl2
 - [FANUC KL: 1086 是代码行号而非错误码](fanuc-kl-1086-是代码行号而非错误码.md) | fanuc |  | bootstrap
 - [FANUC KL: BYTES_AHEAD 是 Karel 内置 Procedure](fanuc-kl-bytes-ahead-是-karel-内置-procedure.md) | fanuc |  | bootstrap

@@ -32,70 +32,20 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt 2>/dev/null || true
-          # 递归安装所有子模块依赖（hub/, scripts/ 等）
           find . -path ./venv -prune -o -name "requirements.txt" \
             -exec pip install -r {} \; 2>/dev/null || true
           pip install pytest pytest-cov
           echo "PYTHONPATH=$(pwd):$PYTHONPATH" >> "$GITHUB_ENV"
 
+      # ── Quality Score Gate ──
       - name: Agent Quality Score
         id: score
-        env:
-          GH_TOKEN: ${{ secrets.SHELDON_PAT || secrets.GITHUB_TOKEN }}
-        run: |
-          PR_NUM="${{ github.event.pull_request.number || github.event.inputs.pr_number }}"
-          echo "PR_NUM=$PR_NUM" >> "$GITHUB_OUTPUT"
-
-          # fork PR 无 SHELDON_PAT 时的降级处理
-          if [ -z "$GH_TOKEN" ] || [ "$GH_TOKEN" = "" ]; then
-            echo "score=100" >> "$GITHUB_OUTPUT"
-            echo "verdict=pass" >> "$GITHUB_OUTPUT"
-            echo "  SKIP: GH_TOKEN not available"
-            exit 0
-          fi
-
-          # 仅在首次提交（opened）或 DCO 已通过时执行评分
-          if [ -z "$PR_NUM" ] || [ "$PR_NUM" = "null" ]; then
-            echo "score=100" >> "$GITHUB_OUTPUT"
-            echo "verdict=pass" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # ── 1. Diff 噪占比 ──
-          DIFF=$(gh api repos/Ikalus1988/MisakaNet/pulls/$PR_NUM/files --paginate \
-            --jq '[.[].patch // ""] | join("\n")')
-          TOTAL=$(echo "$DIFF" | grep -c '^[+-]' || true)
-          NOISE=$(echo "$DIFF" | grep -cE '^[+-]\s*$|^[+-]\s*[}\]>\]]' || true)
-          SCORE=100
-          REASONS=""
-
-          if [ "$TOTAL" -gt 0 ]; then
-            RATIO=$(echo "scale=4; ${NOISE} / ${TOTAL}" | bc 2>/dev/null || echo 0)
-            echo "  Noise ratio: $RATIO"
-            if [ "$(echo "${RATIO} > 0.5" | bc 2>/dev/null || echo 0)" -eq 1 ]; then
-              SCORE=$((SCORE - 50))
-              REASONS="${REASONS}High noise (>50%): -50\n"
-            fi
-          fi
-
-          # ── 2. 标题语义检测 ──
-          TITLE=$(gh api repos/Ikalus1988/MisakaNet/pulls/$PR_NUM --jq '.title')
-          if echo "$TITLE" | grep -qi "automated.*submit\|auto.*pr\|auto.*commit"; then
-            SCORE=$((SCORE - 20))
-            REASONS="${REASONS}Generic title: -20\n"
-          fi
-
-          [ "$SCORE" -lt 0 ] && SCORE=0
-          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
-          echo "reasons=$REASONS" >> "$GITHUB_OUTPUT"
-
-          if [ "$SCORE" -ge 40 ]; then
-            echo "verdict=pass" >> "$GITHUB_OUTPUT"
-            echo "  Score: $SCORE → PASS"
-          else
-            echo "verdict=fail" >> "$GITHUB_OUTPUT"
-            echo "  Score: $SCORE → FAIL (low quality)"
-          fi
+        uses: ./.github/actions/score-agent
+        with:
+          pr-number: ${{ github.event.pull_request.number || github.event.inputs.pr_number }}
+          repo: "Ikalus1988/MisakaNet"
+          threshold: "40"
+          gh-token: ${{ secrets.SHELDON_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Reject Low-Quality PR
         if: steps.score.outputs.verdict == 'fail'
@@ -116,6 +66,24 @@ jobs:
           Please clean up formatting noise and resubmit."
           exit 1
 
+      # ── DCO Audit Gate ──
+      - name: DCO Audit
+        id: dco
+        uses: Ikalus1988/dco-audit@v1
+        with:
+          base-sha: ${{ github.event.pull_request.base.sha }}
+          head-sha: ${{ github.event.pull_request.head.sha }}
+          token: ${{ secrets.SHELDON_PAT || secrets.GITHUB_TOKEN }}
+          repo: "Ikalus1988/MisakaNet"
+          pr-number: ${{ github.event.pull_request.number || '' }}
+
+      - name: Fail on DCO Violation
+        if: steps.dco.outputs.dco-passed == 'false'
+        run: |
+          echo "DCO check failed: ${{ steps.dco.outputs.failed-count }} commit(s) without sign-off."
+          exit 1
+
+      # ── PR Size Check ──
       - name: Check PR Size
         id: prsize
         run: |
@@ -135,6 +103,7 @@ jobs:
           echo "notes=${NOTES}" >> "$GITHUB_OUTPUT"
           printf '## PR Size Check\n\n| Metric | Value |\n|--------|-------|\n| Files Changed | %s |\n| Lines Added | %s |\n| Suspicious | %s |\n\n' "${CHANGED}" "${ADDITIONS}" "${SUSPICIOUS}" >> "$GITHUB_STEP_SUMMARY"
 
+      # ── Test Suite ──
       - name: Run Test Suite
         id: pytest
         run: |
@@ -156,6 +125,7 @@ jobs:
           fi
           printf '## Test Suite\n\n| Metric | Value |\n|--------|-------|\n| Outcome | %s |\n| Coverage | %s%% |\n\n' "${RESULT}" "${coverage}" >> "$GITHUB_STEP_SUMMARY"
 
+      # ── Audit Report ──
       - name: Post Audit Report
         if: always()
         env:
@@ -194,7 +164,9 @@ jobs:
           *Triggered by: ${SHA_SHORT}*"
 
           if [ -n "$PR_NUM" ]; then
-            gh pr comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null ||               gh issue comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null ||               echo "Could not post comment to PR #$PR_NUM"
+            gh pr comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null || \
+              gh issue comment "$PR_NUM" --repo Ikalus1988/MisakaNet --body "$BODY" 2>/dev/null || \
+              echo "Could not post comment to PR #$PR_NUM"
           fi
 
           if [ "$OUTCOME" != "success" ]; then
@@ -202,6 +174,7 @@ jobs:
             exit 1
           fi
 
+      # ── Auto-Merge Gate ──
       - name: Auto-Merge Gate
         if: success() && github.event_name == 'pull_request'
         env:
@@ -210,24 +183,20 @@ jobs:
           PR_NUM="${{ github.event.pull_request.number }}"
           echo "=== Auto-Merge Gate for PR #$PR_NUM ==="
 
-          # fork PR 无 GH_TOKEN → 跳过 auto-merge
           if [ -z "$GH_TOKEN" ] || [ "$GH_TOKEN" = "" ]; then
             echo "  SKIP: GH_TOKEN not available for fork PR"
             exit 0
           fi
 
-          # 1. 检查是否可合并
           MERGEABLE=$(gh api repos/Ikalus1988/MisakaNet/pulls/$PR_NUM --jq '.mergeable')
           echo "Mergeable: $MERGEABLE"
           [ "$MERGEABLE" != "MERGEABLE" ] && { echo "Not mergeable. Skipping."; exit 0; }
 
-          # 2. 检查 AC 是否全勾选
           BODY=$(gh api repos/Ikalus1988/MisakaNet/pulls/$PR_NUM --jq '.body')
           UNCHECKED=$(echo "$BODY" | grep -c "\[ \]" || true)
           echo "Unchecked AC items: $UNCHECKED"
           [ "$UNCHECKED" -gt 0 ] && { echo "AC not all checked. Skipping."; exit 0; }
 
-          # 3. 设置 auto-merge
           gh pr merge "$PR_NUM" --repo Ikalus1988/MisakaNet --merge --auto \
             --subject "Auto-merge #$PR_NUM: ${{ github.event.pull_request.title }}"
           echo "Auto-merge enabled for PR #$PR_NUM"
