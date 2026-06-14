@@ -164,6 +164,12 @@ def compute_leaderboard():
         cursor = history["pageInfo"]["endCursor"]
         time.sleep(0.5)  # 限速保护
 
+    # 排除自产自销账号
+    EXCLUDE_LOGINS = {"misakanet-bot", "ikalus1988", "sheldonisspark-lab", "claude",
+                      "actions-user", "cloudflare-workers-and-pages[bot]",
+                      "dependabot[bot]", "pre-commit-ci[bot]"}
+    contrib = {k: v for k, v in contrib.items() if k not in EXCLUDE_LOGINS}
+
     # 排序
     sorted_contrib = sorted(contrib.items(), key=lambda x: -x[1])
     return [{"login": login, "score": round(score, 2)} for login, score in sorted_contrib]

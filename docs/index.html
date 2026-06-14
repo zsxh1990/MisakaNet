@@ -2532,8 +2532,8 @@ async function loadContributors() {
     }
 
     const badges = ["🥇", "🥈", "🥉"];
-    // Skip repo owner from contributor wall (自产自销不计入排行)
-    const SKIP_OWNER = new Set(["Ikalus1988", "ikalus1988"]);
+    // Skip owner accounts from contributor wall (自产自销不计入排行)
+    const SKIP_OWNER = new Set(["misakanet-bot", "Ikalus1988", "ikalus1988", "sheldonisspark-lab", "claude"]);
 
     title.style.display = "";
     title.innerHTML = `🏆 ${t('contribSection')} <span>${sorted.length}</span>`;
