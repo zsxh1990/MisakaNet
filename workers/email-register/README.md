@@ -67,6 +67,7 @@ Contact: admin@example.com
 
 | Secret | Required | Description |
 |--------|----------|-------------|
+| `TURNSTILE_SECRET` | Yes | Turnstile secret key for CAPTCHA verification (set via `wrangler secret put`) |
 | `GH_TOKEN` | No | GitHub PAT for creating registration Issues |
 | `MISAKANET_KV` | Yes (binding) | KV namespace for node counter + registrations |
 

@@ -139,14 +139,26 @@ def _get_embedding_model(model_name: str = "BAAI/bge-base-zh-v1.5"):
         print(f"[Embedding] Loaded model: {model_name}")
         return _embedding_model
     except ImportError:
-        print("[Embedding] sentence-transformers not installed, falling back to hash-based embedding")
+        print("[Embedding] sentence-transformers not installed — semantic search unavailable")
         return None
+
+
+# Dev-mode fallback flag: set to True to allow SHA256 pseudo-embeddings for testing
+# In production, this MUST remain False so semantic search fails closed.
+_ALLOW_HASH_FALLBACK = False
+
+
+def _enable_hash_fallback():
+    """Enable SHA256 pseudo-embedding fallback for development use only."""
+    global _ALLOW_HASH_FALLBACK
+    _ALLOW_HASH_FALLBACK = True
 
 
 def generate_embedding(text: str, model: str = "BAAI/bge-base-zh-v1.5") -> list[float]:
     """
     Generate embedding for text using sentence-transformers.
-    Falls back to hash-based pseudo-embedding if model not available.
+    Default: fail-closed if model is unavailable (raises RuntimeError).
+    Dev-only: call _enable_hash_fallback() to allow SHA256 pseudo-embedding.
 
     Args:
         text: Input text to embed
@@ -154,6 +166,9 @@ def generate_embedding(text: str, model: str = "BAAI/bge-base-zh-v1.5") -> list[
 
     Returns:
         Normalized embedding vector as list[float]
+
+    Raises:
+        RuntimeError: If embedding model is unavailable and hash fallback is not enabled
     """
     import numpy as np
 
@@ -168,12 +183,18 @@ def generate_embedding(text: str, model: str = "BAAI/bge-base-zh-v1.5") -> list[
             return emb
         except Exception as e:
             import logging
-            logging.warning(f"[Embedding] Model inference failed: {e}, falling back to hash — SEMANTIC SEARCH WILL RETURN NONSENSE")
-            # ⚠️ 降级为伪向量 — 相似度结果无意义，生产环境应阻止静默降级
-            print(f"[Embedding] ⚠️ FALLBACK: SHA256 hash pseudo-embedding activated. Semantic search is BROKEN until model is restored.")
+            logging.error(f"[Embedding] Model inference failed: {e}")
 
-    # Fallback: hash-based pseudo-embedding (for development only)
-    # WARNING: This produces meaningless similarity scores — upgrade to real embedding ASAP
+    # Fail-closed by default
+    if not _ALLOW_HASH_FALLBACK:
+        raise RuntimeError(
+            "Semantic embedding unavailable (model failed to load or is not installed). "
+            "For development, call _enable_hash_fallback() before generate_embedding()."
+        )
+
+    # Dev fallback: hash-based pseudo-embedding (meaningless similarity — for testing only)
+    import logging as _log
+    _log.warning("[Embedding] ⚠️ Using SHA256 hash pseudo-embedding (dev mode). Semantic search results are NOT meaningful.")
     import hashlib
     hash_bytes = hashlib.sha256(text.encode()).digest()
     arr = np.frombuffer(hash_bytes, dtype=np.float32)

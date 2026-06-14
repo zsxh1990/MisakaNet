@@ -96,8 +96,10 @@ class ArbitrationQueue:
         if notify_fn:
             try:
                 notify_fn(case_id, skill_name, versions)
-            except Exception:
-                pass
+            except Exception as e:
+                import warnings
+                warnings.warn(f"[Arbitration] 通知失败 (案例 {case_id}): {e}")
+                print(f"[Arbitration] ⚠️ 通知失败: {e}")
         return case
 
     def get_pending_cases(self) -> list[ArbitrationCase]:

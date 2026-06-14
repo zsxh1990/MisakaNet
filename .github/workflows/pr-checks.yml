@@ -130,8 +130,11 @@ jobs:
         id: schema
         continue-on-error: true
         run: |
-          python3 scripts/validate_lessons.py 2>&1 || echo "schema_result=warnings" >> "$GITHUB_OUTPUT"
-          echo "schema_result=pass" >> "$GITHUB_OUTPUT"
+          if python3 scripts/validate_lessons.py; then
+            echo "schema_result=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "schema_result=warnings" >> "$GITHUB_OUTPUT"
+          fi
 
       # ── Audit Report ──
       - name: Post Audit Report

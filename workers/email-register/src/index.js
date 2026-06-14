@@ -18,8 +18,8 @@ const TEMP_EMAIL_DOMAINS = new Set([
   'burner.email', 'emailondeck.com', 'spamgourmet.com',
 ]);
 
-// ── Turnstile 密钥（Cloudflare Dashboard → Turnstile 获取） ──
-const TURNSTILE_SECRET = '0x4AAAAAADkC2b_nfxVsAha6C1G2VSqM-rg';
+// ── Turnstile 密钥 ──
+// 从 env.TURNSTILE_SECRET 读取，不得硬编码在源码中
 
 export default {
   async email(message, env, ctx) {
@@ -66,9 +66,14 @@ export default {
 
       // 防御 1: Turnstile 验证
       if (turnstileToken) {
+        if (!env.TURNSTILE_SECRET) {
+          return new Response(renderPage('error', 'Server configuration error: Turnstile secret not configured.'), {
+            status: 500, headers: { 'Content-Type': 'text/html;charset=utf-8' }
+          });
+        }
         const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
           method: 'POST',
-          body: `secret=${TURNSTILE_SECRET}&response=${turnstileToken}`,
+          body: `secret=${env.TURNSTILE_SECRET}&response=${turnstileToken}`,
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         const outcome = await verify.json();

@@ -29,7 +29,7 @@ class TokenManager:
         self._load_tokens()
 
     def _load_tokens(self):
-        """Load tokens — try keyring first, fall back to encrypted file"""
+        """Load tokens — try keyring first, fall back to plaintext file with restricted permissions."""
         if self._keyring_available:
             import keyring
             try:
@@ -54,7 +54,7 @@ class TokenManager:
             self._tokens = {}
 
     def _save_tokens(self):
-        """Save tokens — use keyring if available, else plain file with restricted perms"""
+        """Save tokens — use keyring if available, else plaintext file with restricted permissions."""
         if self._keyring_available:
             import keyring
             try:
@@ -181,8 +181,6 @@ class AuditLogger:
             actor: Who performed the action (token prefix for security)
             details: Additional details
         """
-        import keyring  # Optional dependency
-
         entry = {
             "timestamp": datetime.now().isoformat(),
             "action": action,

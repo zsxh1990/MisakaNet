@@ -196,8 +196,26 @@ class FederationSync:
                         local_frontmatter = parse_lesson_frontmatter(local_content)
                         peer_frontmatter = parse_lesson_frontmatter(content)
 
-                        local_updated = local_frontmatter.get("last_updated", "")
-                        peer_updated = peer_frontmatter.get("last_updated", "")
+                        # Parse timestamps as datetime for correct comparison
+                        def _parse_ts(value: str) -> datetime:
+                            if not value:
+                                return datetime.min.replace(tzinfo=timezone.utc)
+                            for fmt in (
+                                "%Y-%m-%dT%H:%M:%S%z",
+                                "%Y-%m-%dT%H:%M:%S.%f%z",
+                                "%Y-%m-%dT%H:%M:%SZ",
+                                "%Y-%m-%d %H:%M:%S",
+                                "%Y-%m-%d",
+                            ):
+                                try:
+                                    return datetime.strptime(value, fmt).replace(tzinfo=timezone.utc)
+                                except ValueError:
+                                    continue
+                            logger.warning("Unparseable timestamp: %s, treating as oldest", value)
+                            return datetime.min.replace(tzinfo=timezone.utc)
+
+                        local_updated = _parse_ts(local_frontmatter.get("last_updated", ""))
+                        peer_updated = _parse_ts(peer_frontmatter.get("last_updated", ""))
 
                         if peer_updated > local_updated:
                             self._atomic_move(stage_path, local_lesson_path)

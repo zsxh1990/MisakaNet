@@ -49,7 +49,7 @@ SENSITIVE_PATTERNS = [
 # ─── 自动替换模式 (程序化脱敏) ──────────────────────────────────
 AUTO_REPLACE = [
     (r'/mnt/c/Users/\w+/',           '<project-path>/'),
-    (r'C:\\Users\\\w+\\',            '<project-path>\\'),
+    (r'C:\\Users\\\w+\\',            '<project-path>\\\\'),
     (r'\bzsxh1990\b',                '<user>'),
     (r'\bcc_haha\b',                 '<agent>'),
     (r'\bIkalus1988\b(?![A-Z])',     '<org>'),
@@ -139,7 +139,7 @@ def deduplicate(path: Path) -> list[str]:
     new_hash = hashlib.md5(content.encode()).hexdigest()
 
     for f in sorted(CONTRIB.glob("*.md")):
-        if f == path:
+        if f.resolve() == path.resolve():
             continue
         fc = f.read_text(encoding='utf-8')
         m2 = re.match(r'^---\s*\n(.*?)\n---', fc, re.DOTALL)
@@ -180,7 +180,7 @@ def auto_sanitize(content: str) -> tuple[str, bool]:
 def process_file(filepath: Path, dry_run: bool = False) -> bool:
     """处理单个文件: 检查 → 脱敏 → (可选提交)."""
     print(f"\n{'='*60}")
-    print(f"  📄 {filepath.relative_to(REPO)}")
+    print(f"  📄 {filepath.resolve().relative_to(REPO)}")
     print(f"{'='*60}")
 
     # 1. 检查
@@ -228,7 +228,7 @@ def commit_and_push(files: list[Path], message: str | None):
     remote_url = f"https://ikalus:{pat}@github.com/Ikalus1988/MisakaNet.git"
 
     # add
-    paths = [str(f.relative_to(REPO)) for f in files]
+    paths = [str(f.resolve().relative_to(REPO)) for f in files]
     subprocess.run(["git", "add", *paths], cwd=REPO, capture_output=True)
 
     # commit

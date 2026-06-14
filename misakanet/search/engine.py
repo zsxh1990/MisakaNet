@@ -175,18 +175,23 @@ def _load_docs_cached(directory: Path, is_lesson: bool = True) -> list[CachedDoc
     return docs
 
 
+def _doc_cache_id(doc: CachedDoc) -> str:
+    return str(doc.filepath.relative_to(REPO))
+
+
+
 def _search_cached(query: str, docs: list[CachedDoc],
                    titles_only: bool = False,
                    broad_only: bool = False) -> list[tuple[float, CachedDoc]]:
     """L1缓存 — 相同 query 直接返回上次结果。"""
     key = f"{query}_{titles_only}_{broad_only}"
     if key in _L1_CACHE:
-        doc_map = {d.filename: d for d in docs}
+        doc_map = {_doc_cache_id(d): d for d in docs}
         result = [(s, doc_map[fid]) for s, fid in _L1_CACHE[key] if fid in doc_map]
         if len(result) == len(_L1_CACHE[key]):
             return result
     result = _rank_docs_impl(query, docs, titles_only, broad_only)
-    _L1_CACHE[key] = [(s, d.filename) for s, d in result[:20]]
+    _L1_CACHE[key] = [(s, _doc_cache_id(d)) for s, d in result[:20]]
     if len(_L1_CACHE) > _L1_MAX:
         del _L1_CACHE[next(iter(_L1_CACHE))]
     return result

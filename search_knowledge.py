@@ -127,10 +127,19 @@ def main():
     ref_docs = _load_docs(REFERENCES, is_lesson=False) if mode in ("all", "ref") else []
     if use_semantic:
         try:
-            from storage.vector_store import generate_embedding
-            print("  🔬 Semantic search enabled")
+            from hub.storage.vector_store import generate_embedding
+            from hub.storage.vector_store import embedding_service_health
+            health = embedding_service_health()
+            if health.get("status") == "ok":
+                print("  🔬 Semantic search enabled")
+            else:
+                print(f"  ⚠️ --semantic degraded: {health.get('message', 'backend unavailable')}")
+                print("  ⚠️ Falling back to BM25 — semantic search is not available")
+                use_semantic = False
         except ImportError:
-            print("  ⚠️ --semantic requires sentence-transformers, falling back to BM25")
+            print("  ⚠️ --semantic requires sentence-transformers and hub.storage.vector_store")
+            print("  ⚠️ Falling back to BM25")
+            use_semantic = False
     if lessons_docs:
         ranked = _rank_docs(query, lessons_docs, titles_only, broad_only)
         found = _format_output(ranked, titles_only, top_k,
