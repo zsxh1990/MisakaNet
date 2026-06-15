@@ -48,6 +48,11 @@ def _l2():
                 title TEXT, domain TEXT, status TEXT,
                 reference TEXT, scope TEXT, source TEXT, tags TEXT, language TEXT
             )""")
+        # Migration: add language column if upgrading from older schema
+        try:
+            _L2_CONN.execute("ALTER TABLE file_cache ADD COLUMN language TEXT")
+        except sqlite3.OperationalError:
+            pass  # column already exists
         _L2_CONN.commit()
     return _L2_CONN
 

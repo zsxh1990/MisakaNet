@@ -86,15 +86,43 @@ def _read_log(source: str = "") -> str:
     return "".join(lines)
 
 
+def _extract_all_signatures(log_text: str) -> list[str]:
+    """Extract ALL error signatures from log (not just the last one)."""
+    text = _strip_ansi(log_text)
+    sigs = []
+
+    # Level 1: all traceback exceptions
+    tb_matches = re.findall(r'(?:[a-zA-Z0-9_]+Error|Exception|RuntimeError|Fault):\s*.+', text)
+    sigs.extend(tb_matches)
+
+    # Level 2: ERROR / FATAL / CRITICAL markers
+    err_matches = re.findall(r'(?:^|\n)(?:\[?\s*(?:Error|ERROR|FATAL|CRITICAL)\s*\]?):\s*(.+)', text)
+    sigs.extend([f"ERROR: {m.strip()}" for m in err_matches])
+
+    # Level 3: exit codes
+    exit_match = re.search(r'(?:exit code\s*|status\s*|returned\s*)(-?\d+)', text, re.IGNORECASE)
+    if exit_match:
+        sigs.append(f"Process failed with exit code {exit_match.group(1)}")
+
+    # Fallback: if nothing found, use raw last lines
+    if not sigs:
+        lines = [l.strip() for l in text.splitlines() if l.strip()]
+        sigs.append(" ".join(lines[-5:]) if lines else text[:500])
+
+    # Deduplicate while preserving order
+    seen = set()
+    return [s for s in sigs if not (s in seen or seen.add(s))]
+
+
 def heal(raw_log: str):
-    """Diagnose error log: extract signature → search lessons → output."""
-    # Step 1: Extract error signature
-    query = _parse_error_signature(raw_log)
-    if not query or len(query.strip()) < 3:
-        print("[MisakaNet] ❌ No valid error pattern captured from input.")
+    """Diagnose error log: extract signatures → search lessons → coverage report."""
+    # Step 1: Extract all error signatures
+    signatures = _extract_all_signatures(raw_log)
+    if not signatures or all(len(s.strip()) < 3 for s in signatures):
+        print("[MisakaNet] ❌ No valid error patterns captured from input.")
         return
 
-    print(f"\n[MisakaNet] 🔍 Error signature: {query}")
+    print(f"\n[MisakaNet] 🔍 Extracted {len(signatures)} error signature(s)")
     print("-" * 50)
 
     # Step 2: Search lessons using existing BM25 engine
@@ -108,22 +136,61 @@ def heal(raw_log: str):
     ref_docs = _load_docs(REFERENCES, is_lesson=False)
     all_docs = lessons_docs + ref_docs
 
-    ranked = _rank_docs(query, all_docs, titles_only=False, broad_only=True)
+    # ⑤ Coverage dashboard: track matched vs unmatched signatures
+    import os
+    import hashlib
+
+    matched_count = 0
+    unmatched_count = 0
+    fixture_dir = "tests/fixtures/openclaw"
+
+    for sig in signatures:
+        ranked = _rank_docs(sig, all_docs, titles_only=False, broad_only=True)
+        has_match = ranked and ranked[0][0] > 0.15  # meaningful match threshold
+
+        if has_match:
+            matched_count += 1
+            top_score = ranked[0][0]
+            top_title = ranked[0][1].title
+            print(f"  ✅ [{top_score:.0%}] {sig[:80]}")
+            print(f"      → matched: {top_title}")
+        else:
+            unmatched_count += 1
+            print(f"  ❌ [uncovered] {sig[:80]}")
+
+            # ⑥ Auto-generate fixture for unmatched signatures
+            sig_hash = hashlib.md5(sig.encode()).hexdigest()[:8]
+            os.makedirs(fixture_dir, exist_ok=True)
+            fixture_path = os.path.join(fixture_dir, f"unmatched_{sig_hash}.log")
+            with open(fixture_path, "w") as f:
+                f.write(raw_log)
+            print(f"      → fixture: {fixture_path}")
+
+    # Coverage summary
+    total = matched_count + unmatched_count
+    coverage = (matched_count / total * 100) if total > 0 else 0
+    print()
+    print(f"  📊 Coverage: {matched_count}/{total} signatures matched ({coverage:.1f}%)")
+    if coverage < 50:
+        print(f"     ⚠️  Low coverage — consider submitting lessons for the unmatched signatures")
+    print("-" * 50)
+
+    # Show top results for primary signature
+    primary_sig = signatures[0]
+    ranked = _rank_docs(primary_sig, all_docs, titles_only=False, broad_only=True)
     found = _format_output(ranked, titles_only=False, top_k=5,
                            mode_label=f"lessons+reference  (All {len(all_docs)} items)",
-                           query=query)
+                           query=primary_sig)
     _show_timing(time.time() - t0, len(all_docs))
 
-    if found:
-        print()
-        print(f"  💡 Did this resolve your issue? If you applied a new fix,")
-        print(f"     contribute back to the swarm:")
-        print(f"     python3 scripts/queue_lesson.py -t 'your title' -d <domain> 'content...'")
-    else:
-        print(f"\n  📝 No matching lesson found for this error.")
-        print(f"     This means your issue hasn't been documented yet.")
-        print(f"     Contribute it to help others:")
-        print(f"     python3 scripts/queue_lesson.py -t 'your title' -d <domain> 'content...'")
+    if unmatched_count > 0:
+        print(f"\n  📝 {unmatched_count} unmatched signature(s) — auto-generated fixtures in {fixture_dir}/")
+        print(f"     Submit a lesson to improve coverage:")
+        print(f"     python3 scripts/queue_lesson.py -t 'your title' -d openclaw -f {fixture_dir}/unmatched_*.log")
+    elif found:
+        print(f"\n  ✅ All signatures covered by swarm knowledge.")
+        print(f"     💡 Contribute back if you applied a new fix:")
+        print(f"        python3 scripts/queue_lesson.py -t 'your title' -d <domain> 'content...'")
 
     print()
 
