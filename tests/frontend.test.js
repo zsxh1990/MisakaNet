@@ -23,7 +23,7 @@ describe('🛡️ MisakaNet Frontend Shield', () => {
     searchEl = setupDOM();
 
     globalThis.DOMPurify = {
-      sanitize: (html) => {  // nosem: test mock, not production code
+      sanitize: (html) => {  // lgtm[js/incomplete-multi-char-sanitization] test mock, not production
         if (typeof html !== 'string') return '';
         return String(html)
           .replace(/<script[^>]*>[\s\S]*?<\/script\s*>/gi, '')  // nosem: test mock
