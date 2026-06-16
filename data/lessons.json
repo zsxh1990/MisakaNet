@@ -1326,6 +1326,25 @@
     "updated": ""
   },
   {
+    "id": "openclaw-fatal-error-hook-protocol",
+    "title": "OPENCLAW_ERROR_HANDLER — Standard protocol for CLI fatal error external hooks",
+    "domain": "development",
+    "tags": [
+      "openclaw",
+      "fatal-error",
+      "child-process",
+      "spawn",
+      "argv",
+      "shell-injection",
+      "fire-and-forget",
+      "protocol",
+      "heal"
+    ],
+    "summary": "---{\"title\": \"OPENCLAW_ERROR_HANDLER — Standard protocol for CLI fatal error external hooks\", \"domain\": \"development\", \"...",
+    "url": "lessons/contrib/openclaw-fatal-error-hook-protocol.md",
+    "updated": "2026-06-16"
+  },
+  {
     "id": "openclaw-gateway-dynamic-module-missing",
     "title": "OpenClaw Gateway 动态模块缺失 — 飞书消息分发失败",
     "domain": "feishu",
