@@ -23,8 +23,8 @@ Add support for `OPENCLAW_ERROR_HANDLER` — an environment variable that lets u
 
 | Revision | Change |
 |----------|--------|
-| v1 (Gemini) | `shell: true` + stdin pipe + RAW fields. Blocking: shell injection via env var + stdin flush race with `process.exit()`. |
-| v2 (minimax M3 audit) | `shell: false` + argv[1] delivery + RAW opt-in (`OPENCLAW_ERROR_HANDLER_RAW=1`). Resolved injection and flush race. 7-field extended payload behind opt-in gate. |
+| v1 (initial proposal) | `shell: true` + stdin pipe + RAW fields. Blocking: shell injection via env var + stdin flush race with `process.exit()`. |
+| v2 (audited) | `shell: false` + argv[1] delivery + RAW opt-in (`OPENCLAW_ERROR_HANDLER_RAW=1`). Resolved injection and flush race. 7-field extended payload behind opt-in gate. |
 | **v3 (current)** | **Removed RAW=1 entirely.** Payload fixed to 4 non-sensitive fields (`schemaVersion`, `reason`, `timestamp`, `pid`). Rationale: (1) argv visibility — 4-field payload contains no sensitive diagnostic data; (2) untestable — RAW path couldn't be verified without a full OpenClaw build (≥12GB RAM); (3) simplicity — removed ~15 lines of conditional branching; (4) extensibility — RAW opt-in can be added via follow-up PR if community requests it. |
 
 ---

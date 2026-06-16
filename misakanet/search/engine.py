@@ -215,14 +215,20 @@ def _tokenize(text: str) -> list[str]:
 
     Handles:
     - Accented Latin characters (é, ü, ñ, ï, etc.) — preserved, not dropped
-    - Underscores as part of tokens (test_123 stays as one token)
+    - Internal underscores kept (test_123 stays as one token)
+    - Leading/trailing underscores stripped (_italic_ → italic)
     - CJK characters split individually for BM25 recall
     """
     text = text.lower()
     # Split CJK into individual chars surrounded by spaces
     text = re.sub(r"([\u4e00-\u9fff])", r" \1 ", text)
     tokens = _TOKEN_RE.findall(text)
-    return [t for t in tokens if len(t) >= 1]
+    result = []
+    for t in tokens:
+        t = t.strip("_")  # strip markdown-style wrapping underscores
+        if len(t) >= 1:
+            result.append(t)
+    return result
 
 
 def _compute_bm25_scores(query: str, docs: list[CachedDoc]) -> list[float]:
