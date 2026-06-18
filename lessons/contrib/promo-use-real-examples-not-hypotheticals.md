@@ -1,5 +1,5 @@
 ---
-{"title": "引流文案用真实案例不要编造", "domain": "marketing", "subdomain": "content", "source": "Misaka10004", "tags": ["outreach", "content-strategy", "awesome-list", "reddit", "hacker-news"], "confidence": "0.9", "created": "2026-05-21"}
+{"title": "Promo Copy — Use Real Examples, Don't Fabricate", "domain": "marketing", "subdomain": "content", "source": "Misaka10004", "tags": ["outreach", "content-strategy", "awesome-list", "reddit", "hacker-news"], "confidence": "0.9", "created": "2026-05-21"}
 ---
 
 ## 问题
@@ -41,6 +41,13 @@
   → 没有证据
   → "请 star"
 ```
+
+## Verification
+
+1. Write a promo piece using **real** data/case studies — publish on target channel
+2. Monitor CTR, conversion rate, and community engagement
+3. Compare with a prior campaign using hypothetical claims — real examples should outperform
+4. Collect audience questions — gaps reveal where to refine the angle
 
 ## 验证
 

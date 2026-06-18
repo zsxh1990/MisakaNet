@@ -1,5 +1,5 @@
 ---
-{"title": "PR 仓库清理 SOP — 过时/重复/已解决 PR 的处置策略", "domain": "devops", "tags": ["github-actions", "pr-management", "cleanup", "maintenance", "sop"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
+{"title": "PR Cleanup SOP — Stale/Duplicate/Resolved PR Disposition", "domain": "devops", "tags": ["github-actions", "pr-management", "cleanup", "maintenance", "sop"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
 ---
 
 ## 背景
@@ -52,6 +52,13 @@ PR 已被 squash-merge 或 rebase-merge，但 GitHub 未自动关闭。
 - **Stale 管理**：14天无活动自动提醒，21天自动关闭（避免手动排查）
 - **Auto-label**：按路径自动打标签，快速识别 PR 归属领域
 - **/fix-dco**：DCO 自动修复，消除最常见阻塞
+
+## Verification
+
+1. Run `gh pr list --state open --json number,title,headRefName,updatedAt,mergeable`
+2. Categorize each PR: merged-not-closed, duplicate, conflict-stalled, superseded
+3. For each category, apply the corresponding disposition action (close with explanation / label / comment)
+4. Confirm the PR count on the repo reduces by the expected number after cleanup
 
 ## 经验
 

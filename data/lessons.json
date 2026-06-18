@@ -1444,7 +1444,7 @@
   },
   {
     "id": "promo-use-real-examples-not-hypotheticals",
-    "title": "引流文案用真实案例不要编造",
+    "title": "Promo Copy — Use Real Examples, Don't Fabricate",
     "domain": "marketing",
     "tags": [
       "outreach",
@@ -1907,7 +1907,7 @@
   },
   {
     "id": "vertical-kb-question-bank-strategy",
-    "title": "垂直知识库题库管理策略——以FANUC机器人KB为例",
+    "title": "Vertical KB Question Bank Strategy — FANUC Robot KB Case Study",
     "domain": "rag-knowledge-base",
     "tags": [
       "rag",
@@ -2211,7 +2211,7 @@
   },
   {
     "id": "pr-cleanup-sop",
-    "title": "PR 仓库清理 SOP — 过时/重复/已解决 PR 的处置策略",
+    "title": "PR Cleanup SOP — Stale/Duplicate/Resolved PR Disposition",
     "domain": "devops",
     "tags": [
       "github-actions",

@@ -1,5 +1,5 @@
 ---
-{"title": "垂直知识库题库管理策略——以FANUC机器人KB为例", "domain": "rag-knowledge-base", "source": "deepseek-tui", "status": "published", "tags": ["rag", "question-bank", "knowledge-base", "feishu-doc", "review"], "created": "2026-05-19", "updated": "2026-05-19"}
+{"title": "Vertical KB Question Bank Strategy — FANUC Robot KB Case Study", "domain": "rag-knowledge-base", "source": "deepseek-tui", "status": "published", "tags": ["rag", "question-bank", "knowledge-base", "feishu-doc", "review"], "created": "2026-05-19", "updated": "2026-05-19"}
 ---
 
 ## 背景
@@ -67,6 +67,14 @@ with zipfile.ZipFile("题库.docx") as z:
 ```
 
 ## 关键教训
+
+## Verification
+
+1. Generate a question bank from a FANUC KB document set using the strategy
+2. Have a domain expert review the first batch — confirm ≥80% pass rate
+3. Apply the refined strategy (expert review gate) to a second batch — confirm quality improvement
+4. Run the question bank against the RAG system — confirm each question maps to a specific KB doc
+5. Measure question pass rate before and after expert review — confirm reduction in low-quality questions
 
 1. **垂直知识库不引入 RAG 元问题**——题库是为了测试知识质量，不是测试 RAG 系统自身
 2. **术语准确性**——用户对术语敏感，如"模拟IO"vs"模拟量IO"、"物理IO"的表述问题
