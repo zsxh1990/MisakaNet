@@ -1,6 +1,4 @@
----
-{"title": "Permission Denied / WSL NTFS 跨文件系统权限修复", "domain": "devops", "tags": ["permission", "wsl", "ntfs", "eacces", "filesystem"]}
----
+---{"title": "Permission Denied / WSL NTFS 跨文件系统PermissionFix", "domain": "devops", "tags": ["permission", "wsl", "ntfs", "eacces", "filesystem"]}---
 
 ## 背景
 
@@ -27,6 +25,13 @@ sudo mount -t drvfs C: /mnt/c -o metadata,uid=$(id -u),gid=$(id -g),umask=22
 # 4. 修复单个文件
 sudo chown -R $(whoami):$(whoami) ~/project  # 只在 Linux 文件系统有效
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 经验
 

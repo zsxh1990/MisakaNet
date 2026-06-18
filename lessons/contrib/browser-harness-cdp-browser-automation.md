@@ -1,6 +1,4 @@
----
-{"title": "browser-harness — AI 直连 Chrome 的 CDP 浏览器自动化", "domain": "devops", "source": "skill-harvest", "status": "draft", "confidence": "0.6", "created": "2026-05-20"}
----
+---{"title": "browser-harness — AI 直连 Chrome 的 CDP 浏览器Automation", "domain": "devops", "source": "skill-harvest", "status": "draft", "confidence": "0.6", "created": "2026-05-20"}---
 
 # browser-harness — AI 直连 Chrome 的 CDP 浏览器自动化
 
@@ -131,6 +129,13 @@ ws.send(json.dumps({"type": "batch", "actions": [
 - browser-harness：连 OpenClaw Chromium `http://127.0.0.1:18800`
 
 可以同时跑，互不干扰。Chrome Relay 也支持连外部 Chrome（需 `--no-chrome` + 配置 `cdpUrl`）。
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 文档
 

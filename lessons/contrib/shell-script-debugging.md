@@ -1,6 +1,4 @@
----
-{"title": "Shell 脚本调试 — set -x 与常见陷阱", "domain": "development", "tags": ["shell", "bash", "debug", "script"]}
----
+---{"title": "Shell Debugging — set -x 与常见Pitfalls", "domain": "development", "tags": ["shell", "bash", "debug", "script"]}---
 
 ## 背景
 
@@ -34,6 +32,13 @@ done
 # + FILES='file 1.txt
 # file 2.txt'
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 陷阱
 

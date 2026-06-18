@@ -1,6 +1,4 @@
----
-{"title": "pip install 网络超时 / SSL 错误修复", "domain": "devops", "tags": ["pip", "network", "SSL", "timeout", "proxy"]}
----
+---{"title": "pip install Network Timeout / SSL ErrorFix", "domain": "devops", "tags": ["pip", "network", "SSL", "timeout", "proxy"]}---
 
 ## 背景
 

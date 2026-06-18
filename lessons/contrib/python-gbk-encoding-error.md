@@ -1,6 +1,4 @@
----
-{"title": "Python GBK 编码错误 — Windows/WSL 跨平台", "domain": "devops", "tags": ["python", "encoding", "gbk", "windows", "wsl"]}
----
+---{"title": "Python GBK Encoding Error — Windows/WSL 跨平台", "domain": "devops", "tags": ["python", "encoding", "gbk", "windows", "wsl"]}---
 
 ## 背景
 

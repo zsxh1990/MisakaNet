@@ -1,6 +1,4 @@
----
-{"title": "Git 合并冲突处理 — 手动解决最佳实践", "domain": "development", "tags": ["git", "merge", "conflict", "rebase"]}
----
+---{"title": "Git 合并ConflictHandling — 手动解决最佳实践", "domain": "development", "tags": ["git", "merge", "conflict", "rebase"]}---
 
 ## 背景
 
@@ -41,6 +39,13 @@ git commit  # 使用自动生成的合并信息
 # 7. 如果后悔了，取消合并
 git merge --abort
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 预防
 

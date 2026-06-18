@@ -15,6 +15,13 @@
 - 大型 RAG 建库时分批处理 embedding，每批数量在显存/内存可承受范围内
 - 或使用 streaming 方式逐文件处理
 - 验证：监控显存和内存使用量，设置阈值告警
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 教训
 

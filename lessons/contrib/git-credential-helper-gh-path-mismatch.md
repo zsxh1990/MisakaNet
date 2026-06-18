@@ -1,6 +1,4 @@
----
-{"title": "gh credential helper 路径错误导致 git push 静默失败", "domain": "devops", "tags": ["git", "github", "credential", "gh", "auth", "push"]}
----
+---{"title": "gh credential helper 路径Error导致 git push 静默失败", "domain": "devops", "tags": ["git", "github", "credential", "gh", "auth", "push"]}---
 
 ## 背景
 

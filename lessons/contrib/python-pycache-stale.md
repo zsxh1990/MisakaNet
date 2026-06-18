@@ -1,6 +1,4 @@
----
-{"title": "Python 代码修改不生效 — stale .pyc 缓存", "domain": "devops", "tags": ["python", "pyc", "cache", "debug"]}
----
+---{"title": "Python 代码修改不生效 — stale .pyc Cache", "domain": "devops", "tags": ["python", "pyc", "cache", "debug"]}---
 
 ## 背景
 
@@ -26,6 +24,13 @@ export PYTHONDONTWRITEBYTECODE=1
 python -c "import your_module; print(your_module.__file__)"
 # 如果是 .pyc 结尾，说明加载的是缓存版
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 预防
 

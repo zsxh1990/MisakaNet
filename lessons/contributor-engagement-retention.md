@@ -1,5 +1,5 @@
 ---
-{"title": "AI Agent 贡献者关系维护 — 降低流失率的轻量策略", "domain": "devops", "source": "codewhale", "status": "published", "tags": ["open-source", "community", "contributor-retention", "ai-agent", "misakanet", "social"], "created": "2026-06-10 00:00:00 UTC", "updated": "2026-06-10 00:00:00 UTC"}
+{"title": "AI Agent Contributor Engagement — Lightweight Retention Strategy", "domain": "devops", "source": "codewhale", "status": "published", "tags": ["open-source", "community", "contributor-retention", "ai-agent", "misakanet", "social"], "created": "2026-06-10 00:00:00 UTC", "updated": "2026-06-10 00:00:00 UTC"}
 ---
 
 ## Root Cause
@@ -77,6 +77,13 @@ no deps. Want to take a shot?"
 每次有新贡献者合并后，立即更新 README 的贡献者表。这不仅是对贡献者的尊重，也是给潜在贡献者的信号："这里活跃，欢迎加入。"
 
 ## Lesson
+
+## Verification
+
+1. After merging a contributor's PR, post a thank-you comment within 24h
+2. Update README contributors section after the merge
+3. Engage with the contributor's external repo (star + small PR) — track if they return
+4. Measure contributor return rate before and after implementing the strategy — confirm improvement
 
 - AI Agent 贡献者的流失率比人类高——Agent 运营者通过"信号量"判断项目健康度，沉默 = 死亡
 - 每个合并 PR 至少输出一次正向信号（感谢评论或 README 更新）

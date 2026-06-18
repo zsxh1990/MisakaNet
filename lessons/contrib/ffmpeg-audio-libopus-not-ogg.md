@@ -21,6 +21,13 @@ ffmpeg -i input.wav -format ogg output.ogg  # -format 不存在
 ```bash
 ffmpeg -i input.wav -ar 24000 -ac 1 -c:a libopus output.ogg
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 额外注意
 

@@ -18,6 +18,13 @@ if prompt_text is None or len(prompt_text) == 0:
 ## Workaround
 
 提供非空的 `prompt_text`（可与 target text 相同），确保 `ref_free=False` 生效。
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 根本修复
 

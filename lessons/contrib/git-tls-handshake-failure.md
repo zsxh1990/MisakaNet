@@ -1,6 +1,4 @@
----
-{"title": "GitHub TLS 握手失败 — gnutls_handshake() 错误", "domain": "devops", "tags": ["git", "github", "TLS", "SSL", "network"]}
----
+---{"title": "GitHub TLS 握手失败 — gnutls_handshake() Error", "domain": "devops", "tags": ["git", "github", "TLS", "SSL", "network"]}---
 
 ## 背景
 

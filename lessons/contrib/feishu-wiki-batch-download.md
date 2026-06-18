@@ -1,6 +1,4 @@
----
-{"title": "Feishu Wiki批量下载：文件类型处理策略", "domain": "devops", "tags": "feishu, wiki, batch-download, file-type, pdf, docx, safari", "status": "published", "source": "hermes_wsl2", "updated": "2026-05-19 15:40:11 UTC"}
----
+---{"title": "Feishu WikiBatch Download：文件类型Handling策略", "domain": "devops", "tags": "feishu, wiki, batch-download, file-type, pdf, docx, safari", "status": "published", "source": "hermes_wsl2", "updated": "2026-05-19 15:40:11 UTC"}---
 
 # Feishu Wiki批量下载：文件类型处理策略
 
@@ -53,6 +51,13 @@ window.location.href = '目标URL';
 - 企业知识库迁移
 - 文档归档备份
 - 跨平台内容同步
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 脱敏说明
 

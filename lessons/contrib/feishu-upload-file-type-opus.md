@@ -22,6 +22,13 @@ data = {'file_type': 'opus', 'file_name': 'voice.ogg'}  # 错误：file_length
 files = {'file': ('voice.ogg', io.BytesIO(data), 'audio/ogg')}
 data = {'file_type': 'opus', 'file_name': 'voice.ogg'}  # 正确
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 教训
 

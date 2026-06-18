@@ -35,6 +35,13 @@ feishu:
 master:
   shared_secret: "looF ehT"
 ```
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 关键点
 

@@ -1,6 +1,11 @@
----
-{"title": "飞书机器人完整配置指南", "domain": "feishu", "source": "bootstrap", "status": "published", "confidence": "0.95", "created": "2026-05-19"}
----
+---{"title": "飞书机器人完整SetupGuide", "domain": "feishu", "source": "bootstrap", "status": "published", "confidence": "0.95", "created": "2026-05-19"}---
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 飞书机器人完整配置指南
 

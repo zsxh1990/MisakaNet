@@ -1,6 +1,4 @@
----
-{"confidence": "0.7", "created": "2026-05-02", "domain": "devops", "source": "bootstrap", "status": "draft", "tags": "", "- node": "cc_haha", "title": "ccswitch-hermes-switch 踩坑记录"}
----
+---{"confidence": "0.7", "created": "2026-05-02", "domain": "devops", "source": "bootstrap", "status": "draft", "tags": "", "- node": "cc_haha", "title": "ccswitch-hermes-switch 踩坑Notes"}---
 
 # ccswitch & hermes-switch — 双模型切换方案
 
@@ -63,6 +61,13 @@ hermes-switch ds-flash
 | InternalModel-2.5 | internal/InternalModel-v2.5 | InternalGateway |
 | InternalModel-2-pro | internal/InternalModel-v2-pro | InternalGateway |
 | InternalModel-flash | internal/InternalModel-v2-flash | InternalGateway |
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 相关文件
 

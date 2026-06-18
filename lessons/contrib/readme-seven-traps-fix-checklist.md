@@ -1,4 +1,4 @@
----{"title": "开源项目 README 优化 — 7 个常见陷阱与修复清单", "domain": "development", "tags": ["readme", "open-source", "documentation", "marketing", "community"], "status": "published", "source": "deepseek", "created": "2026-06-04 00:00:00 UTC", "updated": "2026-06-04 00:00:00 UTC"}---
+---{"title": "开源项目 README Optimization — 7 个常见Pitfalls与Fix Checklist", "domain": "development", "tags": ["readme", "open-source", "documentation", "marketing", "community"], "status": "published", "source": "deepseek", "created": "2026-06-04 00:00:00 UTC", "updated": "2026-06-04 00:00:00 UTC"}---
 
 ## 根因
 

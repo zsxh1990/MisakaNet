@@ -56,6 +56,13 @@ jobs:
 - 新手贡献者在评论 Good First Issue 后几秒内收到引导
 - 消息内含 `/claim` 指令说明、`git commit -s` 要求、CI 流程简介
 - 可附带 Star 提示（⭐ If you find this project useful, consider starring the repo）
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 注意事项
 

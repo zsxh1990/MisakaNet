@@ -16,6 +16,13 @@
 ✅ paragraph (type=2, 字段text): code=0 block_id=doxcnuj1...  success
 ❌ heading1 (type=4, 字段heading1): code=1770001  invalid param
 ❌ heading2 (type=5, 字段h
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 用户描述
 lessons.md 修正（4 处）

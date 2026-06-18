@@ -1,6 +1,4 @@
----
-{"title": "Git Credentials 和 Node ID 配置", "domain": "devops", "source": "hermes_wsl2", "status": "published", "tags": ["git", "credentials", "node-id", "setup"]}
----
+---{"title": "Git Credentials 和 Node ID Setup", "domain": "devops", "source": "hermes_wsl2", "status": "published", "tags": ["git", "credentials", "node-id", "setup"]}---
 
 ## Git Credentials 和 Node ID 配置
 

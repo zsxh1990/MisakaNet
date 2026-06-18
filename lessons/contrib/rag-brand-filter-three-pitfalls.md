@@ -1,6 +1,4 @@
----
-{"title": "RAG 品牌过滤三坑：条件触发、文件正则、BM25 缓存", "domain": "rag", "tags": ["rag", "brand-filter", "architecture", "chromadb", "bm25", "pitfall"], "confidence": 0.88, "created": "2026-05-29"}
----
+---{"title": "RAG 品牌Filter三坑：条件触发、文件正则、BM25 Cache", "domain": "rag", "tags": ["rag", "brand-filter", "architecture", "chromadb", "bm25", "pitfall"], "confidence": 0.88, "created": "2026-05-29"}---
 
 ## 背景
 
@@ -65,6 +63,13 @@ def search(self, query, n_results, where_filter=None):
 - 修改 ChromaDB 元数据后必须删除 BM25 缓存文件并重建索引
 - 或在 `_build_chunk_v2()` 中添加兜底：如果 meta 没有 brand 字段，从 ChromaDB 实时查询
 - 缓存文件通常较大（500MB+），重建需 2-5 分钟
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 总结
 

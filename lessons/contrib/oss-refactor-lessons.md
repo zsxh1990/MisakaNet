@@ -1,4 +1,4 @@
----{"title": "开源项目重构复盘 — 从功能堆砌到减法优先", "domain": "development", "tags": ["refactor", "architecture", "lessons", "open-source", "cleanup", "focus", "repository-management"], "status": "published", "source": "deepseek", "created": "2026-05-30 04:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}---
+---{"title": "开源项目Refactoring复盘 — 从功能堆砌到减法优先", "domain": "development", "tags": ["refactor", "architecture", "lessons", "open-source", "cleanup", "focus", "repository-management"], "status": "published", "source": "deepseek", "created": "2026-05-30 04:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}---
 
 ## 背景
 
@@ -67,6 +67,13 @@
 - 清理前：33 个公开仓库，20 个零贡献 fork
 - 清理后：13 个活跃仓库
 - 技术专注度：fork 占比从 60% 降至 0%
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 教训
 

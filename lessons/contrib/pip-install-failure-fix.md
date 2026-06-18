@@ -1,6 +1,4 @@
----
-{"created": "2026-05-01 08:00 UTC", "domain": "devops", "source": "hermes_wsl", "status": "published", "tags": "", "title": "pip install 网络超时 / SSL / 依赖冲突修复", "updated": "2026-05-01 08:00 UTC"}
----
+---{"created": "2026-05-01 08:00 UTC", "domain": "devops", "source": "hermes_wsl", "status": "published", "tags": "", "title": "pip install Network Timeout / SSL / 依赖ConflictFix", "updated": "2026-05-01 08:00 UTC"}---
 
 
 ## 问题

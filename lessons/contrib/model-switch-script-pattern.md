@@ -1,6 +1,4 @@
----
-{"title": "多模型切换脚本模式 — 双 Agent 模型管理", "confidence": "0.7", "created": "2026-05-02", "domain": "devops", "source": "bootstrap", "status": "draft", "tags": ""}
----
+---{"title": "多模型Switch脚本模式 — 双 Agent 模型管理", "confidence": "0.7", "created": "2026-05-02", "domain": "devops", "source": "bootstrap", "status": "draft", "tags": ""}---
 
 # 多模型切换脚本模式 — 双 Agent 模型管理
 
@@ -9,6 +7,13 @@
 ## 问题
 
 不同 AI Agent 使用不同的配置文件/代理通道，各自需要独立的模型管理方案。手动改配置容易出错（改错文件、两侧不一致）。
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 方案
 

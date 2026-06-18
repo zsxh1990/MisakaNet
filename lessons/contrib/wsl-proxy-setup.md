@@ -1,6 +1,4 @@
----
-{"title": "WSL 代理配置 — 通过 Windows 梯子访问外网", "domain": "devops", "tags": ["wsl", "proxy", "network", "windows"]}
----
+---{"title": "WSL 代理Setup — 通过 Windows 梯子Access外网", "domain": "devops", "tags": ["wsl", "proxy", "network", "windows"]}---
 
 ## 背景
 

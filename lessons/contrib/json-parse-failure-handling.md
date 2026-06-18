@@ -1,6 +1,4 @@
----
-{"title": "JSON 解析失败处理 — 截断 / 格式错误", "domain": "devops", "tags": ["json", "parse", "truncated", "llm", "output"]}
----
+---{"title": "JSON 解析失败Handling — 截断 / 格式Error", "domain": "devops", "tags": ["json", "parse", "truncated", "llm", "output"]}---
 
 ## 背景
 
@@ -11,6 +9,13 @@
 1. 模型输出在 JSON 完成前被截断（token 限制）
 2. 模型在 JSON 前后加了 markdown 代码块标记 ```json ... ```
 3. JSON 内容含未转义的特殊字符
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 修复
 

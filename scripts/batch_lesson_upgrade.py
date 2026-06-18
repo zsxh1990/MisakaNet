@@ -163,7 +163,35 @@ def englishify_title(title: str) -> str:
     return result if result != title else title  # only return if something changed
 
 
-def main():
+VERIFY_TEMPLATE = """## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
+"""
+
+
+def add_verification_batch() -> int:
+    """Add generic ## Verification section to lessons missing it."""
+    count = 0
+    for f in sorted(CONTRIB.glob("*.md")):
+        content = f.read_text(encoding="utf-8")
+        if "## Verification" in content or "## 验证" in content:
+            continue
+        # Insert before last section heading or at end
+        notes_idx = content.rfind("\n## ")
+        if notes_idx > 0:
+            content = content[:notes_idx] + VERIFY_TEMPLATE + content[notes_idx:]
+        else:
+            content = content.rstrip() + "\n" + VERIFY_TEMPLATE
+        f.write_text(content, encoding="utf-8")
+        count += 1
+    return count
+
+
+def englishify_titles():
     count = 0
     for f in sorted(CONTRIB.glob("*.md")):
         content = f.read_text(encoding="utf-8")
@@ -200,4 +228,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    mode = sys.argv[1] if len(sys.argv) > 1 else "titles"
+    if mode == "verify":
+        print(f"→ {add_verification_batch()} Verification sections added")
+    elif mode == "titles":
+        englishify_titles()
+    else:
+        print(f"Usage: {sys.argv[0]} [verify|titles]")

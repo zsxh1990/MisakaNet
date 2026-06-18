@@ -1,6 +1,4 @@
----
-{"title": "RAG 知识库品牌污染检测与治理", "domain": "rag", "tags": ["rag", "chromadb", "brand-contamination", "data-quality", "metadata"], "confidence": 0.9, "created": "2026-05-29"}
----
+---{"title": "RAG 知识库品牌污染Detection与治理", "domain": "rag", "tags": ["rag", "chromadb", "brand-contamination", "data-quality", "metadata"], "confidence": 0.9, "created": "2026-05-29"}---
 
 ## 背景
 
@@ -80,6 +78,13 @@ else:
 - 品牌污染从 100% 降为 0%（过滤前 ABB/KUKA 文档全部被排除）
 - 已知的品牌文档全部正确标记
 - 应急退退策略保证在无合格文档时仍有回答，但 LLM 不会在答案中提及竞品品牌
+## Verification
+
+1. Follow the solution steps in order
+2. Run any relevant commands or tests to confirm the fix
+3. Verify the symptom no longer occurs
+4. Check related logs or outputs for expected behavior
+
 
 ## 注意事项
 
