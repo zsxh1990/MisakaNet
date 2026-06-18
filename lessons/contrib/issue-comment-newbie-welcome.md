@@ -1,5 +1,5 @@
 ---
-{"title": "利用 issue_comment 事件实现新手自动欢迎", "domain": "devops", "tags": ["github-actions", "ci", "community", "newbie", "good-first-issue", "automation"], "status": "published", "source": "deepseek", "created": "2026-06-12 00:00:00 UTC", "updated": "2026-06-12 00:00:00 UTC"}
+{"title": "Auto-Welcome Newcomers via issue_comment Event", "domain": "devops", "tags": ["github-actions", "ci", "community", "newbie", "good-first-issue", "automation"], "status": "published", "source": "deepseek", "created": "2026-06-12 00:00:00 UTC", "updated": "2026-06-12 00:00:00 UTC"}
 ---
 
 ## 背景

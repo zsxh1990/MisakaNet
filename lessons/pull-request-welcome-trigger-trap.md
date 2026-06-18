@@ -1,5 +1,5 @@
 ---
-{"title": "PR Welcome 未触发排查 — author_association NONE vs FIRST_TIMER 陷阱", "domain": "devops", "tags": ["github-actions", "pull_request_target", "author_association", "first-time-contributor", "welcome", "debug"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
+{"title": "PR Welcome Not Triggering — author_association NONE vs FIRST_TIMER Trap", "domain": "devops", "tags": ["github-actions", "pull_request_target", "author_association", "first-time-contributor", "welcome", "debug"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
 ---
 
 ## 现象
@@ -51,6 +51,13 @@ if: github.event_name == 'pull_request_target' && github.event.action == 'opened
 ## 验证
 
 PR 创建后 10 秒内检查 `gh api repos/owner/repo/issues/<num>/comments`，确认 bot 评论已发出。
+
+## Verification
+
+1. Open a PR from a brand-new GitHub user (no prior issues/PRs) — confirm `author_association` is `NONE`
+2. Check `pr-welcome.yml` triggers for `NONE` association — if not, add `NONE` to the condition
+3. Open a second PR from the same user — confirm `author_association` changes to `FIRST_TIMER` or `CONTRIBUTOR`
+4. Verify welcome message still fires for the second PR if designed to
 
 ## 关联
 

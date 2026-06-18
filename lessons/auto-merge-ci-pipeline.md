@@ -105,6 +105,14 @@ Standalone DCO check (`dco-check.yml`) is authoritative. The audit workflow's in
 
 ## Lesson
 
+## Verification
+
+1. Submit a quality-scored PR (score ≥ threshold) that passes all CI — confirm auto-merge triggers
+2. Submit a low-quality PR (score below threshold) — confirm it is rejected before test suite runs
+3. Submit a fork PR with all CI green — confirm manual merge is required (auto-merge skipped)
+4. Verify the shadow branch auto-syncs with base branch after merge
+5. Check `deps.lock` is updated alongside the shadow branch diff
+
 - Manual merge doesn't scale with AI agent contributors — automate everything after the test suite
 - Fork PR secrets restriction means auto-merge only works for same-repo PRs; fork PRs fall back to manual merge
 - Quality scoring before tests saves CI minutes on low-effort submissions

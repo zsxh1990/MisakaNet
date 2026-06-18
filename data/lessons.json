@@ -1181,7 +1181,7 @@
   },
   {
     "id": "issue-comment-newbie-welcome",
-    "title": "利用 issue_comment 事件实现新手自动欢迎",
+    "title": "Auto-Welcome Newcomers via issue_comment Event",
     "domain": "devops",
     "tags": [
       "github-actions",
@@ -2143,7 +2143,7 @@
   },
   {
     "id": "dco-auto-fix-workflow",
-    "title": "DCO 自动修复工作流 — /fix-dco 命令设计与实现",
+    "title": "DCO Auto-Fix Workflow — /fix-dco Command Design & Implementation",
     "domain": "devops",
     "tags": [
       "github-actions",
@@ -2174,7 +2174,7 @@
   },
   {
     "id": "github-actions-code-injection",
-    "title": "GitHub Actions Script Injection — 通过 env 变量替代内联插值",
+    "title": "GitHub Actions Script Injection — Use env Variables Instead of Inline Interpolation",
     "domain": "security",
     "tags": [
       "github-actions",
@@ -2226,7 +2226,7 @@
   },
   {
     "id": "pull-request-welcome-trigger-trap",
-    "title": "PR Welcome 未触发排查 — author_association NONE vs FIRST_TIMER 陷阱",
+    "title": "PR Welcome Not Triggering — author_association NONE vs FIRST_TIMER Trap",
     "domain": "devops",
     "tags": [
       "github-actions",

@@ -1,5 +1,5 @@
 ---
-{"title": "DCO 自动修复工作流 — /fix-dco 命令设计与实现", "domain": "devops", "tags": ["github-actions", "dco", "signoff", "issue_comment", "auto-fix", "fork-pr", "plan-b", "supply-chain"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}
+{"title": "DCO Auto-Fix Workflow — /fix-dco Command Design & Implementation", "domain": "devops", "tags": ["github-actions", "dco", "signoff", "issue_comment", "auto-fix", "fork-pr", "plan-b", "supply-chain"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-14 00:00:00 UTC"}
 ---
 
 ## 背景
@@ -89,6 +89,13 @@ jobs:
 ## 验证
 
 在 PR 评论区输入 `/fix-dco`，等待 30 秒内 bot 回复修复结果。
+
+## Verification
+
+1. Open a test PR with a commit missing `Signed-off-by:` — confirm the `/fix-dco` comment triggers the workflow
+2. Run the workflow on a same-repo PR — confirm it auto-amends and force-pushes with sign-off
+3. Run the workflow on a fork PR — confirm it posts manual instructions instead of force-pushing
+4. Verify the `pr-welcome.yml` output includes the copy-paste `git rebase --signoff` commands
 
 ## 关联
 
