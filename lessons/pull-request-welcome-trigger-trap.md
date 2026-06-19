@@ -1,5 +1,5 @@
 ---
-{"title": "PR Welcome Not Triggering — author_association NONE vs FIRST_TIMER Trap", "domain": "devops", "tags": ["github-actions", "pull_request_target", "author_association", "first-time-contributor", "welcome", "debug"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC"}
+{"title": "PR Welcome Not Triggering — author_association NONE vs FIRST_TIMER Trap", "domain": "devops", "tags": ["github-actions", "pull_request_target", "author_association", "first-time-contributor", "welcome", "debug"], "status": "published", "source": "codewhale", "created": "2026-06-13 00:00:00 UTC", "updated": "2026-06-13 00:00:00 UTC", "domain_expert": "codewhale", "verified_date": "2026-06-13"}
 ---
 
 ## 现象

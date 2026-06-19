@@ -1,5 +1,5 @@
 ---
-{"title": "OpenAI 兼容 API 的通用调用格式", "domain": "development", "tags": ["api", "openai", "llm", "inference", "chat"]}
+{"title": "OpenAI 兼容 API 的通用调用格式", "domain": "development", "tags": ["api", "openai", "llm", "inference", "chat"], "domain_expert": "unknown"}
 ---
 
 ## 背景

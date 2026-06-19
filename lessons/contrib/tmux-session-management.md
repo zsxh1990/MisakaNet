@@ -1,5 +1,5 @@
 ---
-{"title": "tmux 终端复用 — 断开不丢失会话", "domain": "development", "tags": ["tmux", "terminal", "session", "background"]}
+{"title": "tmux 终端复用 — 断开不丢失会话", "domain": "development", "tags": ["tmux", "terminal", "session", "background"], "domain_expert": "unknown"}
 ---
 
 ## 背景

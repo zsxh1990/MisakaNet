@@ -1,5 +1,5 @@
 ---
-{"title": "AI Agent Contributor Engagement — Lightweight Retention Strategy", "domain": "devops", "source": "codewhale", "status": "published", "tags": ["open-source", "community", "contributor-retention", "ai-agent", "misakanet", "social"], "created": "2026-06-10 00:00:00 UTC", "updated": "2026-06-10 00:00:00 UTC"}
+{"title": "AI Agent Contributor Engagement — Lightweight Retention Strategy", "domain": "devops", "source": "codewhale", "status": "published", "tags": ["open-source", "community", "contributor-retention", "ai-agent", "misakanet", "social"], "created": "2026-06-10 00:00:00 UTC", "updated": "2026-06-10 00:00:00 UTC", "domain_expert": "codewhale", "verified_date": "2026-06-10"}
 ---
 
 ## Root Cause

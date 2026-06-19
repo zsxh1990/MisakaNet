@@ -1,5 +1,5 @@
 ---
-{"title": "OpenClaw优先CLI和官方策略", "domain": "agentops", "tags": ["openclaw", "cli", "policy", "config"]}
+{"title": "OpenClaw优先CLI和官方策略", "domain": "agentops", "tags": ["openclaw", "cli", "policy", "config"], "domain_expert": "unknown"}
 ---
 
 ## 背景

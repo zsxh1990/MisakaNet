@@ -1,5 +1,5 @@
 ---
-{"title": "Game MCP: Rare Relic Selection Freeze", "domain": "mcp", "source": "hanged-man", "status": "published"}
+{"title": "Game MCP: Rare Relic Selection Freeze", "domain": "mcp", "source": "hanged-man", "status": "published", "domain_expert": "hanged-man"}
 ---
 
 ## Game MCP: Rare Relic Selection Freeze

@@ -1,5 +1,5 @@
 ---
-{"title": "Promo Copy — Use Real Examples, Don't Fabricate", "domain": "marketing", "subdomain": "content", "source": "Misaka10004", "tags": ["outreach", "content-strategy", "awesome-list", "reddit", "hacker-news"], "confidence": "0.9", "created": "2026-05-21"}
+{"title": "Promo Copy — Use Real Examples, Don't Fabricate", "domain": "marketing", "subdomain": "content", "source": "Misaka10004", "tags": ["outreach", "content-strategy", "awesome-list", "reddit", "hacker-news"], "confidence": "0.9", "created": "2026-05-21", "domain_expert": "Misaka10004", "verified_date": "2026-05-21"}
 ---
 
 ## 问题

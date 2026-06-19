@@ -1,5 +1,5 @@
 ---
-{"title": "静态页面多组件宽度一致性——各自定义 max-width 导致视觉割裂", "domain": "frontend", "tags": ["css", "layout", "ux", "responsive"]}
+{"title": "静态页面多组件宽度一致性——各自定义 max-width 导致视觉割裂", "domain": "frontend", "tags": ["css", "layout", "ux", "responsive"], "domain_expert": "unknown"}
 ---
 
 ## 背景

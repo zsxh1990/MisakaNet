@@ -1,5 +1,5 @@
 ---
-{"title": "共享JSON状态需要原子写入", "domain": "devops", "tags": ["json", "atomic", "race-condition", "runtime"]}
+{"title": "共享JSON状态需要原子写入", "domain": "devops", "tags": ["json", "atomic", "race-condition", "runtime"], "domain_expert": "unknown"}
 ---
 
 ## 背景

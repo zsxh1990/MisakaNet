@@ -1,5 +1,5 @@
 ---
-{"title": "openclaw-multi-instance-config", "domain": "feishu", "source": "skill-harvest", "status": "draft", "confidence": "0.6", "created": "2026-05-20"}
+{"title": "openclaw-multi-instance-config", "domain": "feishu", "source": "skill-harvest", "status": "draft", "confidence": "0.6", "created": "2026-05-20", "domain_expert": "skill-harvest", "verified_date": "2026-05-20"}
 ---
 
 # openclaw-multi-instance-config

@@ -1,5 +1,5 @@
 ---
-{"title": "CodeWhale 中 git push 的正确方式 — YOLO task + gh CLI", "domain": "devops", "tags": ["codewhale", "git", "yolo", "push", "lesson"]}
+{"title": "CodeWhale 中 git push 的正确方式 — YOLO task + gh CLI", "domain": "devops", "tags": ["codewhale", "git", "yolo", "push", "lesson"], "domain_expert": "unknown"}
 ---
 
 ## 背景

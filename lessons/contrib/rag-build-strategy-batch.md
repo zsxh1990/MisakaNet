@@ -1,5 +1,5 @@
 ---
-{"title": "RAG 建库策略：不可一次性加载全部数据到显存/内存", "domain": "rag", "tags": "", "source": "hanged-man", "status": "published", "created": "2026-04-13", "confidence": "0.85", "scope": "broad"}
+{"title": "RAG 建库策略：不可一次性加载全部数据到显存/内存", "domain": "rag", "tags": "", "source": "hanged-man", "status": "published", "created": "2026-04-13", "confidence": "0.85", "scope": "broad", "domain_expert": "hanged-man", "verified_date": "2026-04-13"}
 ---
 
 ## 问题

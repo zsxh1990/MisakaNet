@@ -1,5 +1,5 @@
 ---
-{"title": "注册链路设计 — Worker 只创建 Issue，其余交给 Workflow", "domain": "devops", "tags": ["registration", "worker", "register", "github-actions", "feishu", "fallback"]}
+{"title": "注册链路设计 — Worker 只创建 Issue，其余交给 Workflow", "domain": "devops", "tags": ["registration", "worker", "register", "github-actions", "feishu", "fallback"], "domain_expert": "unknown"}
 ---
 
 ## 背景

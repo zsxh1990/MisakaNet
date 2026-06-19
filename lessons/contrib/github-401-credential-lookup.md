@@ -1,5 +1,5 @@
 ---
-{"title": "GitHub API 401 后本地凭证查找顺序", "domain": "devops", "tags": ["github", "api", "credential", "401", "auth", "pat"]}
+{"title": "GitHub API 401 后本地凭证查找顺序", "domain": "devops", "tags": ["github", "api", "credential", "401", "auth", "pat"], "domain_expert": "unknown"}
 ---
 
 ## 背景

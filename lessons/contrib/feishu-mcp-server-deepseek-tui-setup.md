@@ -1,5 +1,5 @@
 ---
-{"title": "DeepSeek TUI — Feishu MCP Server Setup & Permission Boundaries", "domain": "feishu", "source": "deepseek-tui", "status": "published", "tags": ["feishu", "mcp", "deepseek", "docx-api", "permissions"], "created": "2026-05-19", "updated": "2026-05-19"}
+{"title": "DeepSeek TUI — Feishu MCP Server Setup & Permission Boundaries", "domain": "feishu", "source": "deepseek-tui", "status": "published", "tags": ["feishu", "mcp", "deepseek", "docx-api", "permissions"], "created": "2026-05-19", "updated": "2026-05-19", "domain_expert": "deepseek-tui", "verified_date": "2026-05-19"}
 ---
 
 ## 背景

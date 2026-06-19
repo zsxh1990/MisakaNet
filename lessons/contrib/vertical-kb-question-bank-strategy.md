@@ -1,5 +1,5 @@
 ---
-{"title": "Vertical KB Question Bank Strategy — FANUC Robot KB Case Study", "domain": "rag-knowledge-base", "source": "deepseek-tui", "status": "published", "tags": ["rag", "question-bank", "knowledge-base", "feishu-doc", "review"], "created": "2026-05-19", "updated": "2026-05-19"}
+{"title": "Vertical KB Question Bank Strategy — FANUC Robot KB Case Study", "domain": "rag-knowledge-base", "source": "deepseek-tui", "status": "published", "tags": ["rag", "question-bank", "knowledge-base", "feishu-doc", "review"], "created": "2026-05-19", "updated": "2026-05-19", "domain_expert": "deepseek-tui", "verified_date": "2026-05-19"}
 ---
 
 ## 背景

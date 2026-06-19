@@ -1,5 +1,5 @@
 ---
-{"title": "Game MCP: GAME OVER Restart Flow", "domain": "mcp", "source": "hanged-man", "status": "published"}
+{"title": "Game MCP: GAME OVER Restart Flow", "domain": "mcp", "source": "hanged-man", "status": "published", "domain_expert": "hanged-man"}
 ---
 
 ## Game MCP: GAME OVER Restart Flow

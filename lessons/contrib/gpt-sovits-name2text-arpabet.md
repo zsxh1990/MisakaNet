@@ -1,5 +1,5 @@
 ---
-{"title": "GPT-SoVITS 训练：2-name2text 格式必须用 ARPABET 音素而非中文原文", "domain": "tts", "tags": "", "source": "hanged-man", "status": "published", "created": "2026-04-06", "confidence": "0.9", "scope": "narrow"}
+{"title": "GPT-SoVITS 训练：2-name2text 格式必须用 ARPABET 音素而非中文原文", "domain": "tts", "tags": "", "source": "hanged-man", "status": "published", "created": "2026-04-06", "confidence": "0.9", "scope": "narrow", "domain_expert": "hanged-man", "verified_date": "2026-04-06"}
 ---
 
 ## 问题
