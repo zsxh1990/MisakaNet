@@ -34,9 +34,16 @@ function buildPayload(reason) {
   });
 }
 
-/** Fire-and-forget external handler invocation */
+/** Fire-and-forget external handler invocation (supports env var fallback chain) */
 function runHandler(reason) {
-  const handler = (process.env.FATAL_HANDLER || '').trim();
+  const handler = (
+    process.env.FATAL_HANDLER ||
+    process.env.MISAKANET_ERROR_HANDLER ||
+    process.env.VITE_ERROR_HANDLER ||
+    process.env.E2B_ERROR_HANDLER ||
+    process.env.OPENCLAW_ERROR_HANDLER ||
+    ''
+  ).trim();
   if (!handler) return;
 
   try {

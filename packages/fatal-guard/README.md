@@ -14,6 +14,25 @@ One env var. No source code changes.
 
 ## Quick start
 
+### Wrapper mode (no code changes needed)
+
+```bash
+# Wrap any Node.js CLI — automatically detects crashes via stderr + exit code
+FATAL_HANDLER=/usr/bin/logger npx @misaka-net/fatal-guard -- node app.js
+
+# Works with any CLI tool — Vite, E2B, OpenClaw, tsdown, etc.
+FATAL_HANDLER=/usr/bin/logger npx @misaka-net/fatal-guard -- ./node_modules/.bin/vite build
+```
+
+### Preload mode (`node -r`)
+
+```bash
+npm i @misaka-net/fatal-guard
+FATAL_HANDLER=/usr/bin/logger node -r @misaka-net/fatal-guard/register ./app.js
+```
+
+Both modes produce identical 4-field payloads in syslog on crash.
+
 ```bash
 # 1. Install
 npm i @misaka-net/fatal-guard

@@ -39,17 +39,25 @@ function buildPayload(reason) {
 
 /**
  * Fire-and-forget external handler invocation.
- * Reads FATAL_HANDLER env var, spawns with 4-field JSON payload as argv[1].
+ * Reads FATAL_HANDLER env var (or fallback chain), spawns with JSON payload as argv[1].
  * Never throws. Never blocks shutdown.
  *
  * @param {string} reason
+ * @param {string} [customPayload] — optional pre-built JSON payload (wrapper mode passes extra fields)
  */
-function runHandler(reason) {
-  const handler = (process.env.FATAL_HANDLER || '').trim();
+function runHandler(reason, customPayload) {
+  const handler = (
+    process.env.FATAL_HANDLER ||
+    process.env.MISAKANET_ERROR_HANDLER ||
+    process.env.VITE_ERROR_HANDLER ||
+    process.env.E2B_ERROR_HANDLER ||
+    process.env.OPENCLAW_ERROR_HANDLER ||
+    ''
+  ).trim();
   if (!handler) return;
 
   try {
-    const payload = buildPayload(reason);
+    const payload = customPayload || buildPayload(reason);
     const child = spawn(handler, [payload], {
       stdio: 'ignore',
       detached: true,

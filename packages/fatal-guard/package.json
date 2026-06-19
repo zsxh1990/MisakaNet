@@ -1,8 +1,11 @@
 {
   "name": "@misaka-net/fatal-guard",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Zero-dependency non-invasive fatal error guard — capture uncaught exceptions and unhandled rejections, route structured 4-field payload to external handler via process.env.FATAL_HANDLER",
   "main": "index.js",
+  "bin": {
+    "fatal-guard": "./bin/fatal-guard.js"
+  },
   "exports": {
     ".": "./index.js",
     "./register": "./register.js"
@@ -11,6 +14,7 @@
     "index.js",
     "register.js",
     "index.d.ts",
+    "bin/fatal-guard.js",
     "README.md"
   ],
   "repository": {
