@@ -200,17 +200,27 @@ def main():
     _ensure_utf8_stdout()
     args = sys.argv[1:]
     if "--harvest" in args or args[:1] == ["harvest"]:
-        print("🌾 misaka harvest: Knowledge Harvester (planned)")
-        print()
-        print("  Auto-generate SKP-compliant lessons from terminal history or logs.")
-        print()
-        print("  Planned interfaces:")
-        print("    misaka harvest --bash-history    Scan $HISTFILE")
-        print("    misaka harvest --from-file <path>  Parse a log file")
-        print("    misaka harvest --pipe             Accept stdin")
-        print()
-        print("  See misaka-protocol.json → ecosystem.tools.harvester for spec.")
-        print("  Status: planned — not yet implemented.")
+        # Parse --from-file
+        harvest_file = ""
+        for i, arg in enumerate(args):
+            if arg.startswith("--from-file="):
+                harvest_file = arg.split("=", 1)[1]
+            elif arg == "--from-file" and i + 1 < len(args):
+                harvest_file = args[i + 1]
+
+        if harvest_file:
+            _harvest_from_file(harvest_file)
+        else:
+            print("🌾 misaka harvest: Knowledge Harvester")
+            print()
+            print("  Usage:")
+            print("    python3 search_knowledge.py --harvest --from-file <path>")
+            print()
+            print("  Planned interfaces:")
+            print("    misaka harvest --bash-history    Scan $HISTFILE")
+            print("    misaka harvest --pipe             Accept stdin")
+            print()
+            print("  See misaka-protocol.json → ecosystem.tools.harvester for spec.")
         return
     # ── Heal mode: diagnose error logs ──
     use_heal = "--heal" in args
@@ -420,6 +430,93 @@ def main():
         print(f"  💡 View full content: cat lessons/<filename>.md")
         print(f"  💡 Contribute new knowledge: python3 scripts/queue_lesson.py -t 'title' -d domain 'content...'")
         print()
+
+
+def _harvest_from_file(filepath: str):
+    """Log Harvester prototype — parse error log and generate lesson draft."""
+    from pathlib import Path
+    import datetime as _dt
+    path = Path(filepath)
+    if not path.exists():
+        print(f"❌ File not found: {filepath}")
+        return
+    text = path.read_text(encoding="utf-8", errors="replace")
+    lines = text.split("\n")
+
+    # Extract lines that look like errors
+    error_patterns = [
+        r"(error|exception|traceback|failed|failure|fatal|crash|timeout|denied|not\s+found)",
+        r"(killed|segfault|oom|out\s+of\s+memory|disk\s+full|permission\s+denied)",
+        r"(exit\s+code\s+[1-9]|returned\s+non-zero|signal\s+\d+)",
+        r"(traceback|most recent call last)",
+    ]
+    combined = re.compile("|".join(error_patterns), re.IGNORECASE)
+    
+    error_lines = []
+    for i, line in enumerate(lines, 1):
+        if combined.search(line):
+            # Include a few lines of context
+            start = max(0, i - 2)
+            context = lines[start:i]
+            error_lines.append((i, line.strip(), context))
+    
+    if not error_lines:
+        print(f"⚠️  No error patterns found in {filepath}")
+        print("   Try with a log file, error output, or stack trace.")
+        return
+    
+    # Generate lesson draft
+    query = path.stem.replace("-", " ").replace("_", " ")
+    print("🌾 Harvest complete!")
+    print()
+    
+    # Show first 10 errors
+    print(f"📋 Found {len(error_lines)} error lines (showing first 10):")
+    for lineno, line, _ in error_lines[:10]:
+        print(f"  L{lineno}: {line[:120]}")
+    print()
+    
+    # Generate SKP-compliant lesson draft
+    print("=" * 50)
+    print("📝 Generated Lesson Draft")
+    print("=" * 50)
+    print(f"""---
+{{"title": "Fix: {query[:80]}", "domain": "general", "tags": ["harvester", "auto-generated"], "status": "draft", "created": "{_dt.datetime.now(_dt.timezone.utc).strftime('%Y-%m-%d %H:%M:%S')}", "source": "harvester"}}
+---
+
+## Problem
+
+Error encountered during `{query[:60]}`.
+
+## Root Cause
+
+"""
+    )
+    
+    # Show first error as context
+    first_line = error_lines[0][1]
+    print(f"```text")
+    for ctx_line in error_lines[0][2]:
+        print(ctx_line[:200])
+    print(error_lines[0][1][:200])
+    print(f"```")
+    print()
+    print("## Solution")
+    print()
+    print("<!-- TODO: describe the fix -->")
+    print()
+    print("## Verification")
+    print()
+    print("<!-- TODO: add verification steps -->")
+    print()
+    print("## Notes")
+    print()
+    print(f"Auto-harvested from: {filepath}")
+    print()
+    print("=" * 50)
+    print("💡 Save to lessons/ with:")
+    print(f'   mv <this-output> lessons/contrib/{path.stem}.md')
+    print("   Then run: python3 scripts/contribute.py lessons/contrib/<file>.md")
 
 
 if __name__ == "__main__":
