@@ -8,6 +8,9 @@ on:
     paths:
       - 'packages/fatal-guard/**'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
