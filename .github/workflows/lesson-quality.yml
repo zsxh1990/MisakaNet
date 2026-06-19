@@ -47,6 +47,18 @@ jobs:
             echo "verdict=pass" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Quality Score v0
+        id: qscore
+        continue-on-error: true
+        run: |
+          python3 scripts/score_lessons.py --threshold 0.6 2>&1 | tee qscore_report.txt
+          echo "qscore_summary=$(grep 'Below threshold' qscore_report.txt || echo '0 below threshold')" >> "$GITHUB_OUTPUT"
+          if grep -q "Below threshold: [1-9]" qscore_report.txt; then
+            echo "qscore_verdict=warn" >> "$GITHUB_OUTPUT"
+          else
+            echo "qscore_verdict=ok" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Post quality report on PR
         if: always() && github.event_name == 'pull_request'
         env:
@@ -54,21 +66,33 @@ jobs:
         run: |
           VERDICT="${{ steps.check.outputs.verdict }}"
           SUMMARY="${{ steps.check.outputs.summary }}"
+          QS_VERDICT="${{ steps.qscore.outputs.qscore_verdict }}"
+          QS_SUMMARY="${{ steps.qscore.outputs.qscore_summary }}"
           PR_NUM="${{ github.event.pull_request.number }}"
           REPORT_BODY=$(cat quality_report.txt)
+
+          QS_SECTION=""
+
+          if [ "$QS_VERDICT" = "warn" ]; then
+            QS_SECTION="
+
+          ### ⚠️ Quality Score v0
+          Some lessons scored below the 0.6 threshold. See details in the CI log.
+          "
+          fi
 
           if [ "$VERDICT" = "pass" ]; then
             gh pr comment "$PR_NUM" --repo "${{ github.repository }}" \
               --body "### ✅ Lesson Quality Gate Passed
 
-            ${SUMMARY}
+            ${SUMMARY}${QS_SECTION}
 
             All lessons meet the naming, frontmatter, and content standards."
           else
             gh pr comment "$PR_NUM" --repo "${{ github.repository }}" \
               --body "### ❌ Lesson Quality Gate Failed
 
-            ${SUMMARY}
+            ${SUMMARY}${QS_SECTION}
 
             <details>
             <summary>Details</summary>
