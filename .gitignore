@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 .cache/
 misakanet/profile.json
+misakanet/.quota.json
 *.pyo
 venv/
 *.egg-info/

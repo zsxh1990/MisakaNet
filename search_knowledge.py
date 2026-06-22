@@ -309,6 +309,16 @@ def main():
             env_filter = arg.split("=", 1)[1].lower()
         elif arg == "--env" and i + 1 < len(search_args):
             env_filter = search_args[i + 1].lower()
+    # ── 轻量配额检查 ──
+    from misakanet.profile import check_quota as _check_quota
+    allowed, quota_msg = _check_quota()
+    if not allowed:
+        print(quota_msg, file=sys.stderr)
+        sys.exit(1)
+    if quota_msg:
+        print(quota_msg, file=sys.stderr)
+        print("", file=sys.stderr)
+
     t0 = time.time()
     found_any = False
 
@@ -424,8 +434,9 @@ def main():
         print()
     _show_timing(time.time() - t0, total_docs)
     if found_any and not suggest:
-        from misakanet.profile import increment_search
+        from misakanet.profile import increment_search, consume_quota
         increment_search()
+        consume_quota()
     if found_any:
         print(f"  💡 View full content: cat lessons/<filename>.md")
         print(f"  💡 Contribute new knowledge: python3 scripts/queue_lesson.py -t 'title' -d domain 'content...'")
