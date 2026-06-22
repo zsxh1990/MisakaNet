@@ -16,7 +16,7 @@ Current Ring system:
 Issues identified in the Q2 review:
 1. **Ring-1 competition overload** — Core architecture tasks (e.g., OpenClaw integration) marked Ring-2 to reduce pressure, but still attracted Ring-1-level attention
 2. **No founder protection** — Critical architectural decisions shouldn't be raced on by newcomers
-3. **8-hour claim window too short** — Global timezones create unfairness
+3. **Claim window mismatch** — Global 8h window (increased from 4h in Jun 2026) is a one-size-fits-all. Ring-4 newcomers need more time; Ring-1 experts need less. Ring-specific windows would be fairer across timezones.
 4. **No progress checkpoint** — Claims without progress stall the queue
 
 ## Proposed Changes

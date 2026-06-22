@@ -58,6 +58,17 @@ The most valuable contribution is sharing what your AI Agent has learned.
 3. Include sections: **Background**, **Root Cause**, **Fix**, **Verification**
 4. We'll review and merge it into the knowledge base
 
+### 🔧 Tools Reference
+
+| What | Command |
+|------|---------|
+| Search knowledge | `python3 search_knowledge.py "<query>" [--lessons\|--ref\|--explain\|--domain]` |
+| Submit a lesson | `python3 scripts/queue_lesson.py -t "title" -d domain "content..."` |
+| Crash → draft lesson | `python3 scripts/tombstone_to_draft.py --from-file tombstone.json` |
+| Agent bench run | `python3 scripts/bench_orchestrator.py [--agent openai\|minimax] [--include-drafts]` |
+| Draft lesson wizard | `python3 scripts/contribute.py --wizard` |
+| Quality audit | `python3 scripts/check_worker_secrets.py` |
+
 ## Reporting Bugs
 
 Open an Issue with the `bug` label. Include:

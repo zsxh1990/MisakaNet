@@ -7,6 +7,21 @@
 > 如果有，运行: `python3 scripts/queue_lesson.py --title "..." --domain "..." --content "问题/修复/验证"`
 > 或告诉用户："要把这个经验写成 lesson 吗？"
 
+## 🛡️ 崩溃保护 (fatal-guard)
+
+遇到 Node.js 进程静默崩溃时：
+
+```bash
+# 用 fatal-guard 包装任何进程
+npx @misaka-net/fatal-guard -- <your-command>
+
+# 崩溃 → 墓碑 JSON → draft lesson
+fatal-guard -- node app.js 2>&1 | python3 scripts/tombstone_to_draft.py --stdin
+```
+
+> 崩溃事件通过 tombstone 协议自动转为 MisakaNet draft lesson，进入 bench-core 动态题库。
+> 参见 README 产品矩阵 → 路线A→C 闭环。
+
 ## 核心规则
 
 ### 检索优先级

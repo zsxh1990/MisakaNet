@@ -18,6 +18,12 @@ python3 search_knowledge.py <query> [options]
 | `--semantic` | Mode | Use sentence-transformers _(optional dep)_ | `--semantic` |
 | `--score` | Mode | Lesson quality scoring from telemetry | `--score --top=5` |
 | `--telemetry=<path>` | Scoring | Custom telemetry DB path | `--telemetry=/tmp/t.db --score` |
+| `--explain` | Search | Show BM25/Meta/Base score breakdown | `--explain` |
+| `--env=<env>` | Filter | Filter by environment tag (wsl2, docker, ...) | `--env=wsl2` |
+| `--domain=<d>` | Filter | Filter by domain (devops, rag, ...) | `--domain=devops` |
+| `--lang=<lang>` | Filter | Filter by language | `--lang=zh` |
+| `--heal` | Mode | Diagnose error logs from file/stdin | `--heal error.log` |
+| `--harvest --from-file=<f>` | Mode | Parse log for errors → draft lesson | `--harvest --from-file=crash.log` |
 
 **Exit codes:** `0` = results found, `1` = no results or error.
 
@@ -27,6 +33,10 @@ python3 search_knowledge.py <query> [options]
 |---------|-------------|
 | `python3 scripts/new_lesson.py` | Interactive lesson generator |
 | `python3 scripts/queue_lesson.py` | Queue a lesson via CLI args |
+| `python3 scripts/tombstone_to_draft.py --from-file <f>` | fatal-guard tombstone → draft lesson |
+| `python3 scripts/bench_orchestrator.py [--include-drafts]` | Agent benchmark runner (Phase B/C) |
+| `python3 scripts/contribute.py --wizard` | 7-step interactive lesson creation wizard |
+| `python3 scripts/check_worker_secrets.py` | Scan workers/ for hardcoded secrets |
 | `python3 search_knowledge.py --score` | Telemetry-based lesson ranking |
 | `python3 -m misakanet.tools.dashboard` | Launch telemetry dashboard (stdlib HTTP server) |
 

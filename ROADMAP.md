@@ -9,11 +9,13 @@
 
 | Area | Item | Priority | Depends On |
 |------|------|----------|------------|
-| **Quality scoring** | Add `quality_score` to lesson schema + auto-calculate in CI | P0 | [#210](https://github.com/Ikalus1988/MisakaNet/issues/210) |
+| **Quality scoring** | ✅ Phase A complete — 141 lessons scored, CI integrated | P0 | ~~[#210](https://github.com/Ikalus1988/MisakaNet/issues/210)~~ |
+| **A→C 闭环** | fatal-guard tombstone → draft lesson pipeline, bench-core dynamic tasks | P0 | fatal-guard v0.2.0 |
+| **Proof of Access** | Lightweight quota system — 5 free searches, contribution refill | P1 | profile.py |
 | **Governance** | Define trust tiers in machine-readable config (misaka-protocol.json) | P0 | [#211](https://github.com/Ikalus1988/MisakaNet/issues/211) |
 | **Contributor wall** | Fix time-decay formula — cap per-PR weight, remove contributor disappearance | P0 | [#212](https://github.com/Ikalus1988/MisakaNet/issues/212) |
 | **Trust system** | Formalize GitHub-verified vs mail-verified vs web-verified tiers | P1 | [#213](https://github.com/Ikalus1988/MisakaNet/issues/213) |
-| **Log Harvester CLI** | `misaka harvest` — stdin/bash-history → auto-generate SKP lesson | P1 | [#214](https://github.com/Ikalus1988/MisakaNet/issues/214) |
+| **Log Harvester CLI** | `misaka harvest` — stdin/bash-history → auto-generate SKP lesson (prototype in search_knowledge.py) | P1 | [#214](https://github.com/Ikalus1988/MisakaNet/issues/214) |
 | **Ecosystem config** | Harvest tool interface declared in misaka-protocol.json | P1 | [#215](https://github.com/Ikalus1988/MisakaNet/issues/215) |
 | **Asset isolation** | Move docs/frontend assets to sidecar repository or `/web` | P1 | [#216](https://github.com/Ikalus1988/MisakaNet/issues/216) |
 
