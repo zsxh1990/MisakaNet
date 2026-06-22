@@ -2261,6 +2261,15 @@
     "title": "README",
     "domain": "uncategorized",
     "tags": [],
+    "summary": "> ⚠️ 此目录下的 lesson 为自动生成或未经审核的草稿。",
+    "url": "lessons/drafts/README.md",
+    "updated": ""
+  },
+  {
+    "id": "README",
+    "title": "README",
+    "domain": "uncategorized",
+    "tags": [],
     "summary": "MisakaNet supports multi-language lessons. Each lesson file carries a `language` field",
     "url": "lessons/locales/README.md",
     "updated": ""
