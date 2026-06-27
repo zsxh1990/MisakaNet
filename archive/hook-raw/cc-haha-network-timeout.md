@@ -74,7 +74,7 @@ def ws_connect():
     ws = websocket.WebSocket()
     ws.settimeout(30)
     ws.connect("ws://localhost:9333", timeout=5)
-    ws.send(json.dumps({"type": "auth", "token": "crly_4edff66bcd5b5ffe3207f068608199704e51b40de64f04f4", "agent_id": "hermes"}))
+    ws.send(json.dumps({"type": "auth", "token": "[REDACTED]", "agent_id": "hermes"}))
     ws.recv()
     return ws
 

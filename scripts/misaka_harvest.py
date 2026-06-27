@@ -24,82 +24,36 @@ CONTRIB = REPO / "lessons" / "contrib"
 
 
 def extract_content(html_text: str) -> dict:
-    """从 HTML 中提取结构化内容用于 lesson 生成。
-
-    兼容 scrapling 0.4.9+（.text 属性，非 .text() 方法）。
-    回退到内置 html.parser + regex 提取。
-    """
-    title_text = ""
-    body_text = ""
-    code_blocks = []
-
-    # ── 方式 1: scrapling Selector ──
+    """从 HTML 中提取结构化内容用于 lesson 生成。"""
     try:
         from scrapling.parser import Selector
-        # 兼容 bytes / str
-        html_str = html_text.decode("utf-8", errors="replace") if isinstance(html_text, bytes) else html_text
-        nav = Selector(html_str)
+    except ImportError:
+        print("Error: 'scrapling' is required. Run: pip install scrapling")
+        sys.exit(1)
 
-        # 标题
-        t = nav.css("h1")
-        if t:
-            title_text = str(t[0].text or "").strip()
-        if not title_text:
-            t = nav.css("title")
-            if t:
-                title_text = str(t[0].text or "").strip()
+    nav = Selector(html_text)
 
-        # 段落
-        paragraphs = nav.css("p")
-        parts = []
-        for p in paragraphs:
-            txt = str(p.text or "").strip()
-            if txt:
-                parts.append(txt)
-        body_text = "\n".join(parts)
+    # 提取标题
+    title_el = nav.css("h1::text").get()
+    title_text = str(title_el).strip() if title_el else ""
 
-        # 代码块
-        codes = nav.css("pre code, code")
-        for c in codes:
-            txt = str(c.text or "").strip()
-            if txt and len(txt) > 20:
-                code_blocks.append(txt)
-
-        if body_text:
-            return {
-                "title": title_text[:120] if title_text else "Untitled",
-                "body": body_text[:5000],
-                "code_blocks": code_blocks[:5],
-            }
-    except Exception:
-        pass
-
-    # ── 方式 2: regex 回退 ──
-    import re as _re
-    html_str2 = html_text.decode("utf-8", errors="replace") if isinstance(html_text, bytes) else html_text
-    m = _re.search(r'<h1[^>]*>(.*?)</h1>', html_str2, _re.S | _re.I)
-    if m:
-        title_text = _re.sub(r'<[^>]+>', '', m.group(1)).strip()
-    if not title_text:
-        m = _re.search(r'<title[^>]*>(.*?)</title>', html_text, _re.S | _re.I)
-        if m:
-            title_text = _re.sub(r'<[^>]+>', '', m.group(1)).strip()
-
-    paragraphs = _re.findall(r'<p[^>]*>(.*?)</p>', html_str2, _re.S | _re.I)
+    # 提取段落
+    paragraphs = nav.css("p")
     body_text = "\n".join(
-        _re.sub(r'<[^>]+>', '', p).strip() for p in paragraphs
-        if _re.sub(r'<[^>]+>', '', p).strip()
-    )
+        str(p).strip() for p in paragraphs if str(p).strip()
+    ) if paragraphs else ""
 
-    code_raw = _re.findall(r'<(?:pre|code)[^>]*>(.*?)</(?:pre|code)>', html_str2, _re.S | _re.I)
-    for c in code_raw:
-        txt = _re.sub(r'<[^>]+>', '', c).strip()
-        if txt and len(txt) > 20:
-            code_blocks.append(txt)
+    # 提取代码块
+    codes = nav.css("pre code, code")
+    code_blocks = []
+    for c in codes:
+        text = str(c).strip()
+        if text and len(text) > 20:
+            code_blocks.append(text)
 
     return {
         "title": title_text[:120] if title_text else "Untitled",
-        "body": body_text[:5000],
+        "body": body_text[:5000] if body_text else "",
         "code_blocks": code_blocks[:5],
     }
 
@@ -117,7 +71,7 @@ def generate_lesson(url: str, domain: str, title: str = "", body: str = "") -> O
         content = {"title": title, "body": body, "code_blocks": []}
     else:
         try:
-            nav = Fetcher().get(url)
+            nav = Fetcher.get(url)
             content = extract_content(nav.body)
         except Exception as e:
             print(f"Error fetching {url}: {e}")

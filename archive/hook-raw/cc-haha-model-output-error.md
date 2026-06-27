@@ -58,7 +58,7 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 ```bash
 # Test: Navigate to a page
 curl -s -X POST "http://127.0.0.1:9333/cdp/execute" \
-  -H "Authorization: Bearer crly_4edff66bcd5b5ffe3207f068608199704e51b40de64f04f4" \
+  -H "Authorization: Bearer [REDACTED]" \
   -H "Content-Type: application/json" \
   -d '{"command":"Page.navigate","params":{"url":"https://www.baidu.com"}}' | python3 -c "import sys,json; print(json.dumps(json.load(sys.stdin), indent=2, ensure_ascii=False
 ```

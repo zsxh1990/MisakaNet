@@ -23,7 +23,7 @@ All notable changes to the Misaka Network project are documented here.
 - **CI Security Hardening**: secret scan + dependency audit gates hardened to fail-closed
 
 ### 📦 Lessons
-- 207 total lessons (11 core + 196 contrib)
+- 149 published lessons (11 core + 138 contrib, 201 including drafts/archive)
 - New domains: feishu, fanuc, RAG, browser automation, WSL2
 - Quality scoring infrastructure: `scripts/score_lessons.py`, `data/quality_scores.json`
 
