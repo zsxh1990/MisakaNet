@@ -40,6 +40,11 @@ verification: "metadata-normalized"
 - [FANUC IO Marker M[] — Background Logic Alternative](contrib/fanuc-io-marker-m-instruction.md) | fanuc | "marker", "m-register", "handling-tool", "vass" | robot-forum.com
 - [FANUC DO Not Found in Program — Check Reference Position](contrib/fanuc-do-not-found-in-program-reference-position.md) | fanuc | "do", "reference-position", "background-logic" | robot-forum.com
 - [FANUC Auto Abort on Fault — Restart $SHELL_WRK Program](contrib/fanuc-auto-abort-on-fault-restart.md) | fanuc | "abort", "fault", "restart", "shell-wrk", "error-severity" | robot-forum.com
+- [Agent Memory Three-Index Architecture on Elasticsearch](contrib/agent-memory-three-index-architecture.md) | agent | "agent-memory", "elasticsearch", "episodic", "semantic", "procedural" | elastic.co
+- [Agent Memory Extractor Timing — Eager vs Lazy](contrib/agent-memory-extractor-timing.md) | agent | "agent-memory", "extractor", "timing", "token-efficiency" | brgsk.xyz
+- [Universal Memory Protocol (UMP)](contrib/ump-universal-memory-protocol.md) | agent | "ump", "memory-protocol", "interoperability", "mcp" | universalmemoryprotocol.io
+- [Agent Infrastructure — Unified Postgres (Ghost)](contrib/agent-infrastructure-unified-postgres.md) | agent | "postgres", "agent-infra", "memory", "sandbox" | dev.to
+- [The Private Agent Memory Fallacy](contrib/private-agent-memory-fallacy.md) | agent | "memory-wallet", "portable-memory", "privacy" | blog.getzep.com
 - [FFmpeg 音频转码：必须用 libopus 而非 -format ogg](contrib/ffmpeg-audio-libopus-not-ogg.md) | audio | | hanged-man
 - [FReeLLMAPI Session Context Mixing - Cross-Thread Delivery](core/freellmapi-session-context-mixing-cross-thread-delivery.md) | agent-network | | hermes_wsl2
 - [Feishu 文件上传：file_type 必须用 opus](contrib/feishu-upload-file-type-opus.md) | feishu | | hanged-man
