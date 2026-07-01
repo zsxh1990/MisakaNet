@@ -35,6 +35,11 @@ verification: "metadata-normalized"
 - [FANUC KL: ERR_ABORT vs ERR_PAUSE 行为差异](contrib/fanuc-kl-err-abort-vs-err-pause.md) | fanuc | | bootstrap
 - [FANUC KL: mm_module_h.kl 禁止 ROUTINE 声明](contrib/fanuc-kl-mm-module-h-no-routine.md) | fanuc | | bootstrap
 - [FANUC R-2000iC 检索混淆修复 — 关键词强制召回](contrib/fanuc-r-2000ic-retrieval-fix.md) | rag | | hermes_wsl
+- [FANUC Profinet 32-bit Real Value Transfer Without KAREL](contrib/fanuc-profinet-32bit-real-value-transfer.md) | fanuc | "profinet", "real-value", "32-bit", "gi-go", "plc-communication" | robot-forum.com
+- [FANUC Roboguide v10 Import TP — Rotary_A Not Loadable](contrib/fanuc-roboguide-v10-import-tp-rotary-a.md) | fanuc | "roboguide", "tp-import", "workcell", "vrc" | robot-forum.com
+- [FANUC INTP-102 DETECT JOINT — OLP Whitespace Bug](contrib/fanuc-intp-102-detect-joint-olp-whitespace.md) | fanuc | "intp-102", "detect-joint", "olp", "robodk", "whitespace" | robot-forum.com
+- [FANUC Roboguide Does Not Support Profinet Simulation](contrib/fanuc-roboguide-no-profinet-support.md) | fanuc | "roboguide", "profinet", "simulation", "gsdml" | robot-forum.com
+- [FANUC Weld Point Checksum Audit — Background Execution Design](contrib/fanuc-weld-point-checksum-audit-design.md) | fanuc | "arc-welding", "checksum", "audit", "quality" | robot-forum.com
 - [FFmpeg 音频转码：必须用 libopus 而非 -format ogg](contrib/ffmpeg-audio-libopus-not-ogg.md) | audio | | hanged-man
 - [FReeLLMAPI Session Context Mixing - Cross-Thread Delivery](core/freellmapi-session-context-mixing-cross-thread-delivery.md) | agent-network | | hermes_wsl2
 - [Feishu 文件上传：file_type 必须用 opus](contrib/feishu-upload-file-type-opus.md) | feishu | | hanged-man
