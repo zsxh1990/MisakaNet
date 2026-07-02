@@ -56,6 +56,17 @@ verification: "metadata-normalized"
 - [MCP + Bedrock Integration](contrib/lesson-review-4-mcp-bedrock-integration.md) | mcp | "mcp", "bedrock", "aws", "tool-calling" | segmentfault.com
 - [EKS Kubernetes Version Rollback](contrib/lesson-review-5-eks-version-rollback.md) | ops | "kubernetes", "eks", "aws", "upgrade", "rollback" | aws.amazon.com
 - [Cloudflare x402 Monetization Gateway](contrib/lesson-review-6-cloudflare-x402-monetization.md) | ops | "cloudflare", "x402", "api", "monetization" | blog.cloudflare.com
+- [Redis → PostgreSQL 替换](contrib/lesson-9-redis-postgresql-replacement.md) | ops | "redis", "postgresql", "caching", "pubsub" | dev.to
+- [微服务延迟成本分析](contrib/lesson-10-microservices-latency-math.md) | ops | "microservices", "latency", "architecture" | dev.to
+- [GitHub Commit GPG 签名](contrib/lesson-11-github-commit-signing.md) | ops | "git", "github", "gpg", "security" | dev.to
+- [AWS Lambda MicroVMs](contrib/lesson-13-aws-lambda-microvms.md) | ops | "aws", "lambda", "microvm", "sandbox" | aws.amazon.com
+- [API 分页设计](contrib/lesson-14-api-pagination-design.md) | ops | "api", "pagination", "cursor", "keyset" | solovyov.net
+- [Cloudflare Workflows 持久化](contrib/lesson-15-cloudflare-workflows-durable.md) | ops | "cloudflare", "workflows", "durable" | blog.cloudflare.com
+- [AWS ECS 高分辨率指标](contrib/lesson-16-aws-ecs-high-resolution-metrics.md) | ops | "aws", "ecs", "metrics", "auto-scaling" | aws.amazon.com
+- [MCP 标准化协议](contrib/lesson-17-segmentfault-mcp-standardization.md) | mcp | "mcp", "agent", "tool-calling" | segmentfault.com
+- [数据库索引优化](contrib/lesson-18-database-performance-indexing.md) | ops | "database", "postgresql", "indexing", "performance" | practical-experience
+- [gRPC vs OpenAPI vs REST](contrib/lesson-19-grpc-openapi-rest-comparison.md) | ops | "grpc", "openapi", "rest", "api" | cloud.google.com
+- [API 设计原则](contrib/lesson-20-api-design-principles.md) | ops | "api", "design", "principles", "rest" | increase.com
 - [DevOps Platform Engineering Golden Paths](contrib/lesson-review-3-devops-platform-engineering.md) | ops | "devops", "platform-engineering", "golden-paths" | dev.to
 - [FFmpeg 音频转码：必须用 libopus 而非 -format ogg](contrib/ffmpeg-audio-libopus-not-ogg.md) | audio | | hanged-man
 - [FReeLLMAPI Session Context Mixing - Cross-Thread Delivery](core/freellmapi-session-context-mixing-cross-thread-delivery.md) | agent-network | | hermes_wsl2
