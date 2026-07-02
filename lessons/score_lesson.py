@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score a MisakaNet lesson file against quality criteria. Threshold: 70/100."""
+"""Score a MisakaNet lesson file against quality criteria. Threshold: 75/100."""
 import json, re, sys
 
 def score_lesson(filepath: str) -> dict:
@@ -85,8 +85,8 @@ def score_lesson(filepath: str) -> dict:
     breakdown["trust"] = min(trust_score, 10)
     score += breakdown["trust"]
 
-    grade = "A" if score >= 85 else "B" if score >= 70 else "C" if score >= 60 else "D"
-    return {"file": filepath, "score": score, "pass": score >= 70, "breakdown": breakdown, "grade": grade}
+    grade = "A" if score >= 85 else "B" if score >= 75 else "D"
+    return {"file": filepath, "score": score, "pass": score >= 75, "breakdown": breakdown, "grade": grade}
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

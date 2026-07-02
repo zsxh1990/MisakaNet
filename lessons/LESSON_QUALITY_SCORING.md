@@ -1,6 +1,6 @@
 # MisakaNet Lesson 质量评估打分系统
 
-> 入库门槛：70 分（满分 100）
+> 入库门槛：75 分（满分 100）
 > 对标：lessons/contrib/ 中已入库的高质量 lesson
 
 ## 评分维度（100 分）
@@ -165,7 +165,7 @@ def score_lesson(filepath: str) -> dict:
         "score": score,
         "pass": score >= 60,
         "breakdown": breakdown,
-        "grade": "A" if score >= 85 else "B" if score >= 70 else "C" if score >= 60 else "D"
+        "grade": "A" if score >= 85 else "B" if score >= 75 else "D"
     }
 ```
 
@@ -174,8 +174,8 @@ def score_lesson(filepath: str) -> dict:
 | 等级 | 分数 | 说明 |
 |------|------|------|
 | A | ≥ 85 | 优秀，可直接入库 |
-| B | 70-84 | 良好，入库后可迭代 |
-| D | < 70 | 不及格，需重写或补充 |
+| B | 75-84 | 良好，入库后可迭代 |
+| D | < 75 | 不及格，需重写或补充 |
 
 ## 使用方式
 

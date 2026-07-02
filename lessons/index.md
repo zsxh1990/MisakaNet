@@ -53,6 +53,10 @@ verification: "metadata-normalized"
 - [MCP Context Mode — 98% Context Reduction](contrib/mcp-context-mode-98-reduction.md) | mcp | "mcp", "claude-code", "context-window", "optimization" | mksg.lu
 - [Ghidra MCP Server — AI Reverse Engineering](contrib/ghidra-mcp-server-reverse-engineering.md) | mcp | "mcp", "ghidra", "reverse-engineering", "security" | github.com/LaurieWired/GhidraMCP
 - [webMCP — Chrome AI Agent Protocol](contrib/webmcp-chrome-ai-agent-protocol.md) | mcp | "webmcp", "chrome", "ai-agents", "protocol" | dev.to
+- [MCP + Bedrock Integration](contrib/lesson-review-4-mcp-bedrock-integration.md) | mcp | "mcp", "bedrock", "aws", "tool-calling" | segmentfault.com
+- [EKS Kubernetes Version Rollback](contrib/lesson-review-5-eks-version-rollback.md) | ops | "kubernetes", "eks", "aws", "upgrade", "rollback" | aws.amazon.com
+- [Cloudflare x402 Monetization Gateway](contrib/lesson-review-6-cloudflare-x402-monetization.md) | ops | "cloudflare", "x402", "api", "monetization" | blog.cloudflare.com
+- [DevOps Platform Engineering Golden Paths](contrib/lesson-review-3-devops-platform-engineering.md) | ops | "devops", "platform-engineering", "golden-paths" | dev.to
 - [FFmpeg 音频转码：必须用 libopus 而非 -format ogg](contrib/ffmpeg-audio-libopus-not-ogg.md) | audio | | hanged-man
 - [FReeLLMAPI Session Context Mixing - Cross-Thread Delivery](core/freellmapi-session-context-mixing-cross-thread-delivery.md) | agent-network | | hermes_wsl2
 - [Feishu 文件上传：file_type 必须用 opus](contrib/feishu-upload-file-type-opus.md) | feishu | | hanged-man
