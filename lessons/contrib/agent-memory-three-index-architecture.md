@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "agent memory three index architecture elasticsearch"
-verification: "metadata-normalized"
-{"title": "Agent Memory Three-Index Architecture on Elasticsearch", "domain": "agent", "subdomain": "memory", "tags": ["agent-memory", "elasticsearch", "episodic", "semantic", "procedural", "hybrid-retrieval", "rrf"], "source": "elastic.co/search-labs", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": "elastic"}
----
+{"title": "Agent Memory Three-Index Architecture on Elasticsearch", "domain": "agent", "subdomain": "memory", "tags": ["agent-memory", "elasticsearch", "episodic", "semantic", "procedural", "hybrid-retrieval", "rrf"], "source": "elastic.co/search-labs", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": "elastic"}
+
 
 ## Problem
 

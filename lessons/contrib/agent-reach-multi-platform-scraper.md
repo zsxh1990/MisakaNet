@@ -1,9 +1,7 @@
----
-domain: "contrib"
-title: "agent reach multi platform internet access for ai agents"
-verification: "metadata-normalized"
-{"title": "Agent-Reach — Multi-Platform Internet Access for AI Agents", "domain": "agent", "subdomain": "tooling", "tags": ["agent-reach", "scraping", "reddit", "twitter", "bilibili", "mcp"], "source": "github.com/Panniantong/Agent-Reach", "status": "draft", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "Agent-Reach — Multi-Platform Internet Access for AI Agents", "domain": "agent", "subdomain": "tooling", "tags": ["agent-reach", "scraping", "reddit", "twitter", "bilibili", "mcp"], "source": "github.com/Panniantong/Agent-Reach", "status": "published", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
+{"title": "Agent-Reach — Multi-Platform Internet Access for AI Agents", "domain": "agent", "subdomain": "tooling", "tags": ["agent-reach", "scraping", "reddit", "twitter", "bilibili", "mcp"], "source": "github.com/Panniantong/Agent-Reach", "status": "published", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

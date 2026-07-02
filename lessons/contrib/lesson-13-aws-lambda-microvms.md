@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "aws lambda microvms isolated sandbox firecracker"
-verification: "metadata-normalized"
-{"title": "AWS Lambda MicroVMs — 隔离沙箱与 Firecracker", "domain": "ops", "subdomain": "serverless", "tags": ["aws", "lambda", "microvm", "firecracker", "sandbox", "isolation"], "source": "aws.amazon.com/blogs", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "AWS Lambda MicroVMs — 隔离沙箱与 Firecracker", "domain": "ops", "subdomain": "serverless", "tags": ["aws", "lambda", "microvm", "firecracker", "sandbox", "isolation"], "source": "aws.amazon.com/blogs", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

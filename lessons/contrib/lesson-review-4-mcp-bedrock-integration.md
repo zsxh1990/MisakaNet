@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "mcp protocol bedrock integration standard tool calling"
-verification: "metadata-normalized"
-{"title": "MCP 协议 + Bedrock 实战 — Agent 外部工具调用标准化", "domain": "mcp", "subdomain": "integration", "tags": ["mcp", "bedrock", "aws", "agent", "tool-calling", "standardization"], "source": "segmentfault.com", "status": "draft", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "MCP 协议 + Bedrock 实战 — Agent 外部工具调用标准化", "domain": "mcp", "subdomain": "integration", "tags": ["mcp", "bedrock", "aws", "agent", "tool-calling", "standardization"], "source": "segmentfault.com", "status": "published", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

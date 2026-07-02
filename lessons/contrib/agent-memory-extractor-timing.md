@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "agent memory extractor timing eager vs lazy"
-verification: "metadata-normalized"
-{"title": "Agent Memory Extractor Timing — Eager vs Lazy with Implementation", "domain": "agent", "subdomain": "memory", "tags": ["agent-memory", "extractor", "timing", "token-efficiency", "quality"], "source": "brgsk.xyz", "status": "draft", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "Agent Memory Extractor Timing — Eager vs Lazy with Implementation", "domain": "agent", "subdomain": "memory", "tags": ["agent-memory", "extractor", "timing", "token-efficiency", "quality"], "source": "brgsk.xyz", "status": "published", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

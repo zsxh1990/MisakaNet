@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "grpc openapi rest api protocol comparison"
-verification: "metadata-normalized"
-{"title": "gRPC vs OpenAPI vs REST — API 协议选择指南", "domain": "ops", "subdomain": "api", "tags": ["grpc", "openapi", "rest", "api", "protocol", "architecture"], "source": "cloud.google.com/blog", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "gRPC vs OpenAPI vs REST — API 协议选择指南", "domain": "ops", "subdomain": "api", "tags": ["grpc", "openapi", "rest", "api", "protocol", "architecture"], "source": "cloud.google.com/blog", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "fanuc auto abort on fault restart shell program"
-verification: "metadata-normalized"
-{"title": "FANUC Auto Abort on Fault — Restart $SHELL_WRK Program", "domain": "fanuc", "subdomain": "error-handling", "tags": ["abort", "fault", "restart", "shell-wrk", "bg-logic", "error-severity", "auto-recovery"], "source": "robot-forum.com", "status": "draft", "confidence": "0.8", "created": "2026-07-01", "verified_date": "", "domain_expert": "pdl"}
----
+{"title": "FANUC Auto Abort on Fault — Restart $SHELL_WRK Program", "domain": "fanuc", "subdomain": "error-handling", "tags": ["abort", "fault", "restart", "shell-wrk", "bg-logic", "error-severity", "auto-recovery"], "source": "robot-forum.com", "status": "published", "confidence": "0.8", "created": "2026-07-01", "verified_date": "", "domain_expert": "pdl"}
+
 
 ## Problem
 

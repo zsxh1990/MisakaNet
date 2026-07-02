@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "api design principles no abstractions consistency"
-verification: "metadata-normalized"
-{"title": "API 设计原则 — 无抽象、一致性、幂等性", "domain": "ops", "subdomain": "api", "tags": ["api", "design", "principles", "rest", "consistency"], "source": "increase.com/articles", "status": "draft", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "API 设计原则 — 无抽象、一致性、幂等性", "domain": "ops", "subdomain": "api", "tags": ["api", "design", "principles", "rest", "consistency"], "source": "increase.com/articles", "status": "published", "confidence": "0.85", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

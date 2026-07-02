@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "cloudflare workflows saga rollback pattern"
-verification: "metadata-normalized"
-{"title": "Cloudflare Workflows Saga Rollback — Durable Multi-Step Compensation", "domain": "ops", "subdomain": "workflow", "tags": ["cloudflare", "workflows", "saga", "rollback", "durable", "compensation"], "source": "blog.cloudflare.com", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "Cloudflare Workflows Saga Rollback — Durable Multi-Step Compensation", "domain": "ops", "subdomain": "workflow", "tags": ["cloudflare", "workflows", "saga", "rollback", "durable", "compensation"], "source": "blog.cloudflare.com", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

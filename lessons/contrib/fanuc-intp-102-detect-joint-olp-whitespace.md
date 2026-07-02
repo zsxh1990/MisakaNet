@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "fanuc intp-102 detect joint olp whitespace bug"
-verification: "metadata-normalized"
-{"title": "FANUC INTP-102 DETECT JOINT — OLP Whitespace Bug", "domain": "fanuc", "subdomain": "olp", "tags": ["intp-102", "detect-joint", "olp", "robodk", "ls-format", "whitespace", "arc-sensor"], "source": "robot-forum.com", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "FANUC INTP-102 DETECT JOINT — OLP Whitespace Bug", "domain": "fanuc", "subdomain": "olp", "tags": ["intp-102", "detect-joint", "olp", "robodk", "ls-format", "whitespace", "arc-sensor"], "source": "robot-forum.com", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 

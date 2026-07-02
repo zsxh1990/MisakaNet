@@ -1,9 +1,5 @@
----
-domain: "contrib"
-title: "redis postgresql replacement caching pubsub"
-verification: "metadata-normalized"
-{"title": "Redis → PostgreSQL 替换 — 缓存/PubSub/队列统一", "domain": "ops", "subdomain": "database", "tags": ["redis", "postgresql", "caching", "pubsub", "database", "performance"], "source": "dev.to", "status": "draft", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
----
+{"title": "Redis → PostgreSQL 替换 — 缓存/PubSub/队列统一", "domain": "ops", "subdomain": "database", "tags": ["redis", "postgresql", "caching", "pubsub", "database", "performance"], "source": "dev.to", "status": "published", "confidence": "0.9", "created": "2026-07-01", "verified_date": "", "domain_expert": ""}
+
 
 ## Problem
 
