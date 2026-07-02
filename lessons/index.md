@@ -67,6 +67,10 @@ verification: "metadata-normalized"
 - [数据库索引优化](contrib/lesson-18-database-performance-indexing.md) | ops | "database", "postgresql", "indexing", "performance" | practical-experience
 - [gRPC vs OpenAPI vs REST](contrib/lesson-19-grpc-openapi-rest-comparison.md) | ops | "grpc", "openapi", "rest", "api" | cloud.google.com
 - [API 设计原则](contrib/lesson-20-api-design-principles.md) | ops | "api", "design", "principles", "rest" | increase.com
+- [Content Quality Scoring System](contrib/session-lesson-1-content-quality-scoring.md) | ops | "quality", "scoring", "automation", "evaluation" | practical-experience
+- [Forum Accessibility Testing](contrib/session-lesson-2-forum-accessibility-testing.md) | ops | "scraping", "accessibility", "forum", "testing" | practical-experience
+- [Lobsters JSON API](contrib/session-lesson-3-lobsters-json-api.md) | ops | "lobsters", "api", "scraping", "json" | practical-experience
+- [Playwright Forum Selectors](contrib/session-lesson-4-playwright-forum-selectors.md) | ops | "playwright", "scraping", "selectors", "forum" | practical-experience
 - [DevOps Platform Engineering Golden Paths](contrib/lesson-review-3-devops-platform-engineering.md) | ops | "devops", "platform-engineering", "golden-paths" | dev.to
 - [FFmpeg 音频转码：必须用 libopus 而非 -format ogg](contrib/ffmpeg-audio-libopus-not-ogg.md) | audio | | hanged-man
 - [FReeLLMAPI Session Context Mixing - Cross-Thread Delivery](core/freellmapi-session-context-mixing-cross-thread-delivery.md) | agent-network | | hermes_wsl2
