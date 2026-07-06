@@ -1,5 +1,12 @@
 ---
-{"title": "API 请求限流 (Rate Limit) 处理方案", "domain": "devops", "tags": ["api", "rate-limit", "retry", "429"]}
+title: "API 请求限流 (Rate Limit) 处理方案"
+domain: "devops"
+tags:
+  - api
+  - rate-limit
+  - retry
+  - "429"
+created: "2026-05-21"
 ---
 
 ## 背景
