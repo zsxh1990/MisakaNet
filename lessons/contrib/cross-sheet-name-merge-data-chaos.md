@@ -17,7 +17,7 @@ verified_date: "2026-07-06"
 
 ## Problem
 
-不同 Excel Sheet（如 FE地板/UB下车身）都有同名机器人（如 `010R04`），直接按 `robotName` 字段聚合会把不同工位的机器人合并成一台，导致工序序列混乱、统计数据错误。
+不同 Excel Sheet（如区域A/区域B）都有同名机器人（如 `R01`），直接按 `robotName` 字段聚合会把不同工位的机器人合并成一台，导致工序序列混乱、统计数据错误。
 
 ## Root Cause
 
@@ -25,7 +25,7 @@ verified_date: "2026-07-06"
 
 ## Solution
 
-1. **机器人唯一标识必须带 Sheet 前缀**：`UB_010R04` vs `FE_010R04`
+1. **机器人唯一标识必须带 Sheet 前缀**：`区域A_R01` vs `区域B_R01`
 2. 读取多 Sheet 数据时，第一件事是给每条记录打上来源 Sheet 标签
 3. 聚合时用 `sheet_prefix + robotName` 作为联合主键
 
