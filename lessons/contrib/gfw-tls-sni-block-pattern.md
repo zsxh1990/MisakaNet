@@ -30,6 +30,21 @@ curl -v --max-time 5 "https://target.com/" 2>&1 | grep -E "Connected|TLS|timeout
 #   Connection timed out
 ```
 
+## ⚠️ Whitelist: Sites Accessible from China (Do NOT Misdiagnose)
+
+The following sites are **directly accessible** from mainland China. Agents must NOT report "GFW blocked" for these domains — scrape them directly.
+
+| Site | Access | Method |
+|------|--------|--------|
+| robot-forum.com | ✅ Direct | Playwright (WoltLab) |
+| bbs.gongkong.com | ✅ Direct | Playwright |
+| GitHub | ✅ Direct | gh CLI / REST API |
+| Dev.to | ✅ Direct | REST API |
+| Juejin 掘金 | ✅ Direct | Playwright |
+| SegmentFault | ✅ Direct | Playwright |
+
+**Check flow**: receive URL → check whitelist → if listed, scrape directly → if not, `curl -v --max-time 5` to test TLS → timeout = GFW block → non-timeout error = anti-bot or bad URL.
+
 ## Solution
 
 ### Tool-Layer (Won't Work)
