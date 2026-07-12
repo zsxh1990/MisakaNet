@@ -1,11 +1,11 @@
-{
-  "title": "Lesson Quality Requirements: SKP Format",
-  "domain": "devops",
-  "tags": ["lesson", "quality", "format", "skp", "misakanet"],
-  "status": "published",
-  "source": "agent_experience",
-  "created": "2026-07-02"
-}
+---
+title: "Lesson Quality Requirements: SKP Format"
+domain: devops
+tags: ["lesson", "quality", "format", "skp", "misakanet"]
+status: published
+source: agent_experience
+created: 2026-07-02
+---
 ---
 
 ## Problem
