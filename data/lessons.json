@@ -11,7 +11,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "auto-merge-ci-pipeline",
@@ -33,7 +34,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "contributor-engagement-retention",
@@ -54,7 +56,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "cronjob-one-shot-race-condition-duplicate-execution",
@@ -72,7 +75,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "dco-auto-fix-workflow",
@@ -95,7 +99,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "freellmapi-session-context-mixing-cross-thread-delivery",
@@ -113,7 +118,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "github-actions-code-injection",
@@ -133,7 +139,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "hermes-state-database-lock-issues-cleanup-protocol",
@@ -151,7 +158,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "hx-state-database-lock-issues-cleanup-protocol",
@@ -169,7 +177,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "pr-cleanup-sop",
@@ -189,7 +198,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "pull-request-welcome-trigger-trap",
@@ -210,7 +220,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "search-first-roadmap-loop",
@@ -230,7 +241,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "README",
@@ -244,7 +256,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-manual-update-timeout",
@@ -258,7 +271,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-memory-extractor-timing",
@@ -272,7 +286,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-memory-three-index-architecture",
@@ -286,7 +301,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-reach-multi-platform-scraper",
@@ -300,7 +316,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-state-database-lock-cleanup",
@@ -314,7 +331,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "agent-write-file-sandbox-worktree-path-breakage",
@@ -328,7 +346,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "ai-agent-project-outreach-guide",
@@ -342,7 +361,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "aily-feishu-mcp-pull-only",
@@ -356,7 +376,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "anthropic-proxy-internal-gateway",
@@ -370,7 +391,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "api-gateway-anthropic-incompatibility",
@@ -384,7 +406,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "api-rate-limit-handling-best-practices",
@@ -398,7 +421,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "api-rate-limit-handling",
@@ -412,7 +436,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "audit-sampling-stratified-sampling-for-kb-inspection",
@@ -426,7 +451,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "auth-header-bug",
@@ -440,7 +466,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "bge-embedding-fallback-crash",
@@ -458,7 +485,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "browser-automation-csp-bypass",
@@ -472,7 +500,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "browser-harness-cdp-browser-automation",
@@ -486,7 +515,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "cc-connect-feishu-display-optimization",
@@ -500,7 +530,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "cc-connect-feishu-setup-complete",
@@ -514,7 +545,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "ccswitch-hermes-switch",
@@ -528,7 +560,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "chroma-rebuild-no-checkpoint-cn",
@@ -542,7 +575,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "chroma-rebuild-no-checkpoint",
@@ -556,7 +590,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "chrome-relay-browser-automation",
@@ -570,7 +605,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "ci-dco-decouple-pythonpath-fork-pr",
@@ -584,7 +620,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "ci-lambda-module-level-side-effects",
@@ -598,7 +635,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "cloudflare-email-worker-registration-trap",
@@ -612,7 +650,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "codeql-alert-dismissal-false-positive",
@@ -626,7 +665,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "codewhale-git-push-yolo-task",
@@ -640,7 +680,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "cron-job-not-running",
@@ -654,7 +695,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "cross-sheet-name-merge-data-chaos",
@@ -668,7 +710,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "curl-request-troubleshoot",
@@ -682,7 +725,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "data-capping-equals-forging-data",
@@ -696,7 +740,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "deepseek-tui-write-file-sandbox-worktree-git-path",
@@ -710,7 +755,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "disk-space-cleanup",
@@ -724,7 +770,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "fanuc-auto-abort-on-fault-restart",
@@ -738,7 +785,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "fanuc-do-not-found-in-program-reference-position",
@@ -752,7 +800,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "fanuc-intp-102-detect-joint-olp-whitespace",
@@ -766,7 +815,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "fanuc-io-marker-m-instruction",
@@ -780,7 +830,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "fanuc-kl-1086-is-line-number-not-error-code",
@@ -794,7 +845,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "fanuc-kl-bytes-ahead-is-builtin-procedure",
@@ -808,7 +860,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "fanuc-kl-err-abort-vs-err-pause",
@@ -822,7 +875,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "fanuc-kl-mm-module-h-no-routine",
@@ -836,7 +890,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "fanuc-profinet-32bit-real-value-transfer",
@@ -850,7 +905,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "fanuc-r-2000ic-retrieval-fix",
@@ -864,7 +920,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "feishu-agent-display-settings",
@@ -878,7 +935,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "feishu-block-api-false-success",
@@ -892,7 +950,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-block-batch-limit",
@@ -906,7 +965,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-block-type-values-limits",
@@ -920,7 +980,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-bot-setup-complete",
@@ -934,7 +995,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-doc-delete-blocks-by-range-pitfall",
@@ -948,7 +1010,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-doc-url-use-api-return",
@@ -962,7 +1025,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-markdown-table-not-rendered",
@@ -976,7 +1040,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "feishu-mcp-server-deepseek-tui-setup",
@@ -990,7 +1055,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-upload-file-type-opus",
@@ -1004,7 +1070,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-webhook-url-env-config",
@@ -1018,7 +1085,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-websocket-404-error-http-webhook-required",
@@ -1032,7 +1100,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "feishu-wiki-batch-download",
@@ -1046,7 +1115,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "ffmpeg-audio-libopus-not-ogg",
@@ -1060,7 +1130,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "firewall-port-open-not-public",
@@ -1074,7 +1145,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "frontmatter-parsing-edge-cases",
@@ -1088,7 +1160,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "game-mcp-end-turn-conflict-409",
@@ -1102,7 +1175,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "game-mcp-game-over-restart-flow",
@@ -1116,7 +1190,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "game-mcp-rare-relic-freeze",
@@ -1130,7 +1205,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "gateway-hang-watchdog-recovery",
@@ -1144,7 +1220,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "gfw-tls-sni-block-pattern",
@@ -1158,7 +1235,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "gfw-tls-sni-blocking-tool-layer-ineffective",
@@ -1172,7 +1250,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "ghidra-mcp-server-reverse-engineering",
@@ -1186,7 +1265,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "git-credential-helper-gh-path-mismatch",
@@ -1200,7 +1280,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "git-credentials-and-node-id-setup",
@@ -1214,7 +1295,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "git-credentials-automation",
@@ -1228,7 +1310,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "git-merge-conflict-resolution",
@@ -1242,7 +1325,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "git-push-without-shell-agent",
@@ -1256,7 +1340,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "git-tls-handshake-failure",
@@ -1270,7 +1355,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "github-401-credential-lookup",
@@ -1284,7 +1370,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "github-api-pr-issue-management",
@@ -1298,7 +1385,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "github-dns-443-block-hosts-workaround",
@@ -1312,7 +1400,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "gpt-sovits-hubert-16khz",
@@ -1326,7 +1415,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "gpt-sovits-name2text-arpabet",
@@ -1340,7 +1430,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "gpt-sovits-ref-free-bug",
@@ -1354,7 +1445,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "hub-credential-gateway-vs-hub",
@@ -1368,7 +1460,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "hub-feishu-wsclient-start-never-called",
@@ -1382,7 +1475,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "issue-comment-newbie-welcome",
@@ -1396,7 +1490,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "js-dead-code-chain-break",
@@ -1410,7 +1505,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "json-parse-failure-handling",
@@ -1424,7 +1520,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "kb-4sigma-quality-audit-pipeline",
@@ -1442,7 +1539,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "knowledge-graph-ux-patterns-from-high-star-projects",
@@ -1456,7 +1554,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "lesson-06-git-push-credential-helper-403",
@@ -1470,7 +1569,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-07-uv-venv-seed-fix-no-pip",
@@ -1484,7 +1584,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-08-pip-https-proxy-clash",
@@ -1498,7 +1599,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-09-v2ex-api-show-endpoint-unstable",
@@ -1512,7 +1614,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-10-agent-reach-doctor-baseline",
@@ -1526,7 +1629,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-10-microservices-latency-math",
@@ -1540,7 +1644,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-11-github-commit-signing",
@@ -1554,7 +1659,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-13-aws-lambda-microvms",
@@ -1568,7 +1674,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-14-api-pagination-design",
@@ -1582,7 +1689,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-15-cloudflare-workflows-durable",
@@ -1596,7 +1704,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-16-aws-ecs-high-resolution-metrics",
@@ -1610,7 +1719,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-17-segmentfault-mcp-standardization",
@@ -1624,7 +1734,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-18-database-performance-indexing",
@@ -1638,7 +1749,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-19-grpc-openapi-rest-comparison",
@@ -1652,7 +1764,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-20-api-design-principles",
@@ -1666,7 +1779,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-9-redis-postgresql-replacement",
@@ -1680,7 +1794,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-management-standardization",
@@ -1694,7 +1809,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-pep668-homebrew-externally-managed",
@@ -1716,7 +1832,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "draft"
+    "status": "draft",
+    "verified": false
   },
   {
     "id": "lesson-quality-requirements",
@@ -1730,7 +1847,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-3-devops-platform-engineering",
@@ -1744,7 +1862,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-4-mcp-bedrock-integration",
@@ -1758,7 +1877,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-5-eks-version-rollback",
@@ -1772,7 +1892,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-6-cloudflare-x402-monetization",
@@ -1786,7 +1907,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-7-cloudflare-saga-rollbacks",
@@ -1800,7 +1922,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson-review-8-cloudflare-ai-traffic-options",
@@ -1814,7 +1937,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lesson_file_line_number_corruption",
@@ -1828,7 +1952,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "lessons-md-fix-heading-block-type",
@@ -1842,7 +1967,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "mcp-context-mode-98-reduction",
@@ -1856,7 +1982,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "mcp-server-direct-handler-testing",
@@ -1870,7 +1997,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "misakanet-heal-engine-bootstrap-workflow",
@@ -1884,7 +2012,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "misakanet-heal-ux-gap-queue-lesson-flag-mismatch",
@@ -1898,7 +2027,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "misakanet-refactor-v2-review",
@@ -1912,7 +2042,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "model-output-fix",
@@ -1926,7 +2057,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "model-switch-script-pattern",
@@ -1940,7 +2072,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "multi-forum-scraping-architecture",
@@ -1954,7 +2087,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "openai-compatible-api-call",
@@ -1968,7 +2102,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "openclaw-fatal-error-hook-protocol",
@@ -1982,7 +2117,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "openclaw-gateway-dynamic-module-missing",
@@ -1996,7 +2132,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "openclaw-playwright-wsl-libnss3-libnspr4-snap-chromium",
@@ -2010,7 +2147,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "openclaw-prefer-cli-and-policy-over-direct-edit",
@@ -2024,7 +2162,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "openclaw-reinstall-lesson",
@@ -2038,7 +2177,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "oss-refactor-lessons",
@@ -2052,7 +2192,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "permission-denied-fix",
@@ -2066,7 +2207,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "phase-0-output-gate",
@@ -2080,7 +2222,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "pip-install-failure-fix",
@@ -2094,7 +2237,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "pip-install-timeout-ssl",
@@ -2108,7 +2252,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "pr-strategy",
@@ -2122,7 +2267,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "private-agent-memory-fallacy",
@@ -2136,7 +2282,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "process-card-sequence-extraction-rules",
@@ -2150,7 +2297,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "promo-use-real-examples-not-hypotheticals",
@@ -2164,7 +2312,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "python-gbk-encoding-error",
@@ -2178,7 +2327,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "python-pycache-stale",
@@ -2192,7 +2342,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "python-sandbox-path-isolation",
@@ -2206,7 +2357,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "python-venv-tiktoken-module-not-found",
@@ -2220,7 +2372,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "python-venv-troubleshoot",
@@ -2234,7 +2387,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "rag-alarm-code-mandatory-recall",
@@ -2252,7 +2406,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-brand-contamination-detection-and-fix",
@@ -2266,7 +2421,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "rag-brand-filter-three-pitfalls",
@@ -2284,7 +2440,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-build-strategy-batch",
@@ -2302,7 +2459,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-chinese-encoding-pymupdf",
@@ -2320,7 +2478,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-chunk-params-800-100",
@@ -2338,7 +2497,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-cross-encoder-cpu-bottleneck",
@@ -2352,7 +2512,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "rag-kb-quality-flywheel-self-loop",
@@ -2373,7 +2534,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rag-three-channel-llm-disaster-recovery",
@@ -2391,7 +2553,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "rdt-cli-reddit-terminal",
@@ -2405,7 +2568,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "readme-seven-traps-fix-checklist",
@@ -2419,7 +2583,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "regex-escaped-quotes-source-parsing",
@@ -2433,7 +2598,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "regex-greedy-matching",
@@ -2447,7 +2613,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "registration-chain-worker-fallback",
@@ -2461,7 +2628,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "sag-lite-data-quality-cleaning",
@@ -2475,7 +2643,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "scrapling-installation-and-usage",
@@ -2489,7 +2658,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "search-quota-exhaustion-false-zero",
@@ -2503,7 +2673,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "search-smart-fallback-implementation",
@@ -2517,7 +2688,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "search-ssot-data-source-pollution-fix",
@@ -2531,7 +2703,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "session-lesson-1-content-quality-scoring",
@@ -2545,7 +2718,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "session-lesson-2-forum-accessibility-testing",
@@ -2559,7 +2733,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "session-lesson-3-lobsters-json-api",
@@ -2573,7 +2748,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "session-lesson-4-playwright-forum-selectors",
@@ -2587,7 +2763,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "shared-json-needs-atomic-write",
@@ -2601,7 +2778,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "shell-script-debugging",
@@ -2615,7 +2793,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "slugify-path-traversal-deep-coverage",
@@ -2629,7 +2808,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "slugify-windows-path-sanitation",
@@ -2643,7 +2823,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "static-page-github-api-403-rate-limit",
@@ -2657,7 +2838,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "static-page-width-consistency",
@@ -2671,7 +2853,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "supabase-capacity-constraints-project-operations",
@@ -2692,7 +2875,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "swarm-pr-battle-playbook",
@@ -2706,7 +2890,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "testimonio-misakanet",
@@ -2720,7 +2905,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "tmux-session-management",
@@ -2734,7 +2920,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "tts-chinese-encoding-powershell",
@@ -2748,7 +2935,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "version-management-multiple-files",
@@ -2770,7 +2958,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "published"
+    "status": "published",
+    "verified": true
   },
   {
     "id": "vertical-kb-question-bank-strategy",
@@ -2784,7 +2973,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "wcferry-wechat-version-lock",
@@ -2798,7 +2988,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "webmcp-chrome-ai-agent-protocol",
@@ -2812,7 +3003,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "wechat-pubacct-fetch-separate-search-from-retrieval",
@@ -2826,7 +3018,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wecom-robot-long-connect-no-ngrok",
@@ -2840,7 +3033,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "write-file-sandbox-worktree-git-path",
@@ -2854,7 +3048,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wsl-permission-ntfs-fix",
@@ -2868,7 +3063,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "wsl-pip-gbk-hub-poller-crash",
@@ -2882,7 +3078,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "wsl-proxy-huggingface-external",
@@ -2896,7 +3093,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "wsl-proxy-setup",
@@ -2910,7 +3108,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wsl-terminal-underscore-corruption",
@@ -2924,7 +3123,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wsl-terminal-underscore-missing",
@@ -2938,7 +3138,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wsl2-memory-leak-fix",
@@ -2952,7 +3153,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wxauto-im-feedback-collection-jsonl-queue",
@@ -2966,7 +3168,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": false
   },
   {
     "id": "wxauto-windows-python-not-wsl",
@@ -2980,7 +3183,8 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   },
   {
     "id": "zero-bounty-agent-competition-flywheel",
@@ -2994,6 +3198,7 @@
     "validity_period_days": 365,
     "environment_version": "",
     "confidence": 0.5,
-    "status": "active"
+    "status": "active",
+    "verified": true
   }
 ]
