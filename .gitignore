@@ -70,3 +70,4 @@ bench_results/
 .aider*
 coverage.xml
 data/lessons.db
+data/search_gaps.jsonl

@@ -28,11 +28,16 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timezone
 from importlib import metadata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
+
+# Gap logging — opt-out via MISAKANET_NO_GAP_LOG=1
+_GAP_LOG_DISABLED = os.environ.get("MISAKANET_NO_GAP_LOG", "0") == "1"
+_GAP_LOG_PATH = REPO_ROOT / "data" / "search_gaps.jsonl"
 
 
 def get_server_version() -> str:
@@ -138,6 +143,24 @@ def _fallback_search(query: str, domain: str = None, top: int = 5) -> list | Non
     ]
 
 
+def _log_search_gap(query: str, source: str) -> None:
+    """Log a zero-result search query to the gap file for analysis."""
+    if _GAP_LOG_DISABLED:
+        return
+    try:
+        entry = {
+            "query": query.strip(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "result_count": 0,
+            "source": source,
+        }
+        _GAP_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(_GAP_LOG_PATH, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError:
+        pass  # Best-effort — don't fail the search
+
+
 def handle_search(args: dict) -> dict:
     """Search MisakaNet lessons."""
     query = args.get("query", "")
@@ -161,6 +184,8 @@ def handle_search(args: dict) -> dict:
 
     if HAS_SAG and not explain:
         results = sag_search(SAG_DB, query, domain=domain, top=top)
+        if not results:
+            _log_search_gap(query, "sag-lite")
         voice = "lesson-found" if results else "failure-warning"
         return {"results": results, "source": "sag-lite", "voice": voice}
     elif HAS_BM25:
@@ -179,12 +204,16 @@ def handle_search(args: dict) -> dict:
             if explain:
                 result["score_breakdown"] = _score_breakdown(query, doc, docs=docs)
             results.append(result)
+        if not results:
+            _log_search_gap(query, "bm25")
         voice = "lesson-found" if results else "failure-warning"
         return {"results": results, "source": "bm25", "voice": voice}
     else:
         # Fallback: lightweight keyword search from lessons.json
         results = _fallback_search(query, domain=domain, top=top)
         if results is not None:
+            if not results:
+                _log_search_gap(query, "fallback")
             voice = "lesson-found" if results else "failure-warning"
             return {"results": results, "source": "fallback", "voice": voice}
         return {

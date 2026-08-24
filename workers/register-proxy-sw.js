@@ -1605,6 +1605,30 @@ export default {
       return jsonResponse({ success: true, available: true, windowDays: WINDOW_DAYS, summary });
     }
 
+    // GET /api/insights/search-gaps — top unmet search queries
+    if (request.method === "GET" && url.pathname === "/api/insights/search-gaps") {
+      if (!env.MISAKANET_KV) return jsonResponse({ success: true, available: false, gaps: [] });
+      const gapData = await env.MISAKANET_KV.get("search_gaps:top", "json");
+      return jsonResponse({ success: true, available: true, gaps: gapData || [] });
+    }
+
+    // POST /api/insights/search-gaps — sync gap data from local analyzer
+    if (request.method === "POST" && url.pathname === "/api/insights/search-gaps") {
+      const syncToken = request.headers.get("X-Sync-Token");
+      if (!syncToken || !env.SYNC_TOKEN || !timingSafeEqual(syncToken, env.SYNC_TOKEN)) {
+        return jsonResponse({ error: "Unauthorized" }, 401);
+      }
+      if (!env.MISAKANET_KV) return jsonResponse({ error: "KV not configured" }, 500);
+      try {
+        const body = await request.json();
+        if (!Array.isArray(body.gaps)) return jsonResponse({ error: "gaps array required" }, 400);
+        await env.MISAKANET_KV.put("search_gaps:top", JSON.stringify(body.gaps), { expirationTtl: 86400 * 7 });
+        return jsonResponse({ success: true, stored: body.gaps.length });
+      } catch (e) {
+        return jsonResponse({ error: e.message }, 400);
+      }
+    }
+
     // GET /api/github/* - authenticated GitHub API proxy for the org frontend.
     // Keep this before the HTML landing page; otherwise the frontend receives
     // HTML and fails with: Unexpected token '<' while parsing JSON.
