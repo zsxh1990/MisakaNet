@@ -1,28 +1,42 @@
 {
-  "generated_at": "2026-08-28T00:26:06.386430+00:00",
+  "generated_at": "2026-08-25T01:55:51.498882+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
-  "item_count": 10,
+  "item_count": 12,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(main): release 2.22.0",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1289",
-      "timestamp": "2026-08-27T15:00:29Z",
+      "title": "feat: add misakanet_memory_context tool (#1165)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1245",
+      "timestamp": "2026-08-24T12:45:31Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(voice): fix Windows audio playback, asset paths, and hook test suite",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1336",
-      "timestamp": "2026-08-27T15:00:24Z",
+      "title": "feat: configurable BM25/vector hybrid search weights (#1220)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1247",
+      "timestamp": "2026-08-24T12:45:27Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(mcp): restore search backend compatibility",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1294",
-      "timestamp": "2026-08-26T05:50:46Z",
+      "title": "feat(pr-genius): split rules into repo-agnostic and repo-specific layers (#1036)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1264",
+      "timestamp": "2026-08-24T12:45:23Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "chore(main): release 2.21.0",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1263",
+      "timestamp": "2026-08-24T12:03:52Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "refactor: split mcp_server.py into misakanet/server/ package",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1277",
+      "timestamp": "2026-08-24T11:52:46Z",
       "source": "github"
     },
     {
