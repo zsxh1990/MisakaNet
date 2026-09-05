@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-05T15:17:56.242268+00:00",
+  "generated_at": "2026-09-05T17:22:31.139677+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "docs(dsh): npm vs git+ guidance + remote MCP example patch (B2-doc)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1486",
-      "timestamp": "2026-09-05T13:50:47Z",
+      "title": "feat(i18n): add Spanish and Portuguese lessons for LatAm market (#1349)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1496",
+      "timestamp": "2026-09-05T16:52:17Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "feat(dsh): declare dsh.bundle — register stdio MCP server as mcp__mis…",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1484",
-      "timestamp": "2026-09-05T11:32:40Z",
+      "title": "feat: publish rhythm tracker and calendar (#1348)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1495",
+      "timestamp": "2026-09-05T16:47:47Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "Audit/2026 09 05 qw m0m2",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1482",
-      "timestamp": "2026-09-05T10:30:06Z",
+      "title": "feat: request classification logging (#1347)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1490",
+      "timestamp": "2026-09-05T16:47:41Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(main): release 2.27.1",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1479",
-      "timestamp": "2026-09-05T03:52:23Z",
+      "title": "lesson: AI Gateway auth pitfalls (#1354)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1489",
+      "timestamp": "2026-09-05T16:47:35Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "test(mcp): cover registered Bearer-token lesson submissions",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1293",
-      "timestamp": "2026-09-05T03:51:16Z",
+      "title": "[Search] Add kind filter + query-intent routing (#1441)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1454",
+      "timestamp": "2026-09-05T16:47:26Z",
       "source": "github"
     },
     {
