@@ -1,9 +1,16 @@
 {
-  "generated_at": "2026-09-05T04:35:13.369133+00:00",
+  "generated_at": "2026-09-05T10:40:50.762759+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
+    {
+      "type": "merged_pr",
+      "title": "Audit/2026 09 05 qw m0m2",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1482",
+      "timestamp": "2026-09-05T10:30:06Z",
+      "source": "github"
+    },
     {
       "type": "merged_pr",
       "title": "chore(main): release 2.27.1",
@@ -30,13 +37,6 @@
       "title": "chore(main): release 2.27.0",
       "url": "https://github.com/Ikalus1988/MisakaNet/pull/1467",
       "timestamp": "2026-09-04T17:10:57Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "feat(ops): trigger sync_answered_questions.py on answered label/close (#1462)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1471",
-      "timestamp": "2026-09-04T06:15:06Z",
       "source": "github"
     },
     {
