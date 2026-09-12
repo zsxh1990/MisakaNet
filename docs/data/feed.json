@@ -1,9 +1,16 @@
 {
-  "generated_at": "2026-09-11T23:18:32.404360+00:00",
+  "generated_at": "2026-09-12T04:40:56.967544+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
+    {
+      "type": "merged_pr",
+      "title": "fix(dsh): stop naming the protected @deepseek-ai component in the bundle patch",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1636",
+      "timestamp": "2026-09-12T01:54:54Z",
+      "source": "github"
+    },
     {
       "type": "merged_pr",
       "title": "chore(main): release 2.29.0",
@@ -30,13 +37,6 @@
       "title": "fix(release): release-please 提交自带 sign-off，release PR 才能过 DCO",
       "url": "https://github.com/Ikalus1988/MisakaNet/pull/1628",
       "timestamp": "2026-09-11T12:18:34Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "fix(ci): leaderboard-watch 并发快照冲突（`|| true` 掩盖 → detached HEAD）",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1625",
-      "timestamp": "2026-09-11T12:17:42Z",
       "source": "github"
     },
     {
