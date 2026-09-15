@@ -1,42 +1,35 @@
 {
-  "generated_at": "2026-09-15T05:02:32.993533+00:00",
+  "generated_at": "2026-09-15T11:50:00.679507+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
-  "item_count": 11,
+  "item_count": 10,
   "items": [
     {
       "type": "merged_pr",
-      "title": "feat(ssot): gate the node count, and mirror it from the KV that owns it",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1686",
-      "timestamp": "2026-09-15T04:48:08Z",
+      "title": "fix(onboarding): ask a question the corpus answers, and gate it offline",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1721",
+      "timestamp": "2026-09-15T11:48:52Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "feat(setup): give the npx installer the OpenClaw target it was missing",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1684",
-      "timestamp": "2026-09-15T02:08:23Z",
+      "title": "docs: contribution paths in plain words, and retire the copy for what is gone",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1720",
+      "timestamp": "2026-09-15T10:59:58Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(deps): bump hashgraph-online/hol-guard/.github/workflows/guarded-repository.yml from 3.0.148 to 3.0.153",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1671",
-      "timestamp": "2026-09-13T22:41:02Z",
+      "title": "fix(setup): probe with a handshake, and read OpenClaw's workspace from its config",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1717",
+      "timestamp": "2026-09-15T10:45:54Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(deps): bump zsxh1990/pr-genius/.github/actions/pr-genius-check from 1.7.2 to 1.8.0",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1670",
-      "timestamp": "2026-09-13T22:40:58Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "chore(deps): bump Codium-ai/pr-agent from 0.44.0 to 0.45.0",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1669",
-      "timestamp": "2026-09-13T22:40:54Z",
+      "title": "feat(setup): a 14-day upgrade nudge, without ever replacing anything behind your back",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1712",
+      "timestamp": "2026-09-15T09:11:22Z",
       "source": "github"
     },
     {
