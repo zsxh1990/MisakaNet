@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-22T17:01:06.423321+00:00",
+  "generated_at": "2026-09-22T21:23:09.033471+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "docs(maintainer): the reproduce script no longer looks like a hardcoded secret",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2067",
-      "timestamp": "2026-09-22T16:46:36Z",
+      "title": "docs(maintainer): correct the two facts this document got wrong, and record the round",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2076",
+      "timestamp": "2026-09-22T17:45:22Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(intake): a citation needs a shape, not just digits — three of four \"done but open\" intakes were artifacts",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2069",
-      "timestamp": "2026-09-22T16:46:33Z",
+      "title": "docs: sweep the removed read cap out of the three surfaces that still promised it",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2078",
+      "timestamp": "2026-09-22T17:39:46Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(maintainer): record this session in the state document, including what I got wrong",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2058",
-      "timestamp": "2026-09-22T16:20:21Z",
+      "title": "fix(worker): analytics stop spending the KV write budget (#1890)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2071",
+      "timestamp": "2026-09-22T17:23:08Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(site): registration copy stops selling registration as the way in",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2065",
-      "timestamp": "2026-09-22T16:15:05Z",
+      "title": "chore(npm): record 2.34.0 — the publish run could not push it",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2072",
+      "timestamp": "2026-09-22T17:22:57Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "test(gates): the row-id gate scans tracked files, not the filesystem",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2064",
-      "timestamp": "2026-09-22T16:14:59Z",
+      "title": "fix(site): count registrations as registrations, and take the client list from the installers",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2070",
+      "timestamp": "2026-09-22T17:19:32Z",
       "source": "github"
     },
     {
