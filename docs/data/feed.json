@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-23T04:50:01.404828+00:00",
+  "generated_at": "2026-09-23T11:44:25.658961+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "fix(search): the user's words decide the order, not the alias expansion",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2091",
-      "timestamp": "2026-09-23T04:46:55Z",
+      "title": "docs: the land mechanism was proven live, twice",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2105",
+      "timestamp": "2026-09-23T11:15:04Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(maintainer): correct the two facts this document got wrong, and record the round",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2076",
-      "timestamp": "2026-09-22T17:45:22Z",
+      "title": "docs: automated writers land through a pull request that merges itself",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2104",
+      "timestamp": "2026-09-23T11:09:56Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs: sweep the removed read cap out of the three surfaces that still promised it",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2078",
-      "timestamp": "2026-09-22T17:39:46Z",
+      "title": "fix(d1): the served trust field carries the level the corpus publishes",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2100",
+      "timestamp": "2026-09-23T11:04:57Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(worker): analytics stop spending the KV write budget (#1890)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2071",
-      "timestamp": "2026-09-22T17:23:08Z",
+      "title": "ci: make the red mean something — a flaky leg with headroom, and an action alias that follows versions",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2098",
+      "timestamp": "2026-09-23T11:01:14Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(npm): record 2.34.0 — the publish run could not push it",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2072",
-      "timestamp": "2026-09-22T17:22:57Z",
+      "title": "chore: delete the STATUS generator nobody ran, and keep the ignore line that guards its output",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2101",
+      "timestamp": "2026-09-23T09:17:01Z",
       "source": "github"
     },
     {
