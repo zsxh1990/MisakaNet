@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-25T11:55:54.152728+00:00",
+  "generated_at": "2026-09-25T17:16:19.833676+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(friction): the stale bot may label but never close, and the contributor wall states its basis",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2228",
-      "timestamp": "2026-09-25T11:52:58Z",
+      "title": "fix(ops): the preflight picked the GitHub token by substring — CodeQL alert #285",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2252",
+      "timestamp": "2026-09-25T15:20:07Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(ci): the OCR review's four real findings — a dead token guard, an orphaned reader, a writer with no floor, a traceback in the watcher",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2235",
-      "timestamp": "2026-09-25T11:48:18Z",
+      "title": "fix(search): the threshold that decides answered-vs-no_match rested on a measurement nobody could re-run",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2249",
+      "timestamp": "2026-09-25T15:13:42Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(ci): iteration 1 listed a fix it did not apply — the dispatch input was still interpolated into the shell",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2234",
-      "timestamp": "2026-09-25T10:59:22Z",
+      "title": "test(search): four measured designs for CJK recall, all of them regress the English floors",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2251",
+      "timestamp": "2026-09-25T15:13:18Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(ci): Open Code Review iteration 2 — dead state, a writer with no concurrency, unbounded jobs",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2233",
-      "timestamp": "2026-09-25T10:50:50Z",
+      "title": "chore: update leaderboard snapshot",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2247",
+      "timestamp": "2026-09-25T15:04:57Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(security): a PR-controlled branch name was interpolated into a shell command (Open Code Review pass)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2230",
-      "timestamp": "2026-09-25T10:41:32Z",
+      "title": "fix(ops): the \"diff every file against main before you push\" ritual is now a command",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2246",
+      "timestamp": "2026-09-25T14:59:30Z",
       "source": "github"
     },
     {
