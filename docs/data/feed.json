@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-29T09:54:51.113898+00:00",
+  "generated_at": "2026-09-29T18:06:48.620252+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2432",
-      "timestamp": "2026-09-29T01:18:09Z",
+      "title": "docs(ci): the required-check set is four, and three documents disagreed about it",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2456",
+      "timestamp": "2026-09-29T18:03:54Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2431",
-      "timestamp": "2026-09-29T01:09:09Z",
+      "title": "fix(api): `?q=` answered 502 for ordinary searches — FTS5 was reading the user text as syntax",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2458",
+      "timestamp": "2026-09-29T17:50:52Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "test(langchain): measure the concurrency ratio up to three times instead of once (#2424)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2430",
-      "timestamp": "2026-09-29T00:59:17Z",
+      "title": "docs(contracts): three published surfaces an agent reads first, each verified against the live service",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2452",
+      "timestamp": "2026-09-29T17:31:40Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2427",
-      "timestamp": "2026-09-28T21:21:42Z",
+      "title": "fix(privacy): the analytics endpoints published caller text and third-party tool names",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2454",
+      "timestamp": "2026-09-29T17:26:11Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(mcp): mark a non-published lesson in the default detail levels and in get_lesson",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2423",
-      "timestamp": "2026-09-28T18:06:03Z",
+      "title": "fix(site): the homepage quoted the lesson count four times — now it references it",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2455",
+      "timestamp": "2026-09-29T17:21:51Z",
       "source": "github"
     },
     {
