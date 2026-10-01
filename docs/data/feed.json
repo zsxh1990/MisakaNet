@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-01T00:35:18.682461+00:00",
+  "generated_at": "2026-10-01T10:13:48.169008+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2555",
-      "timestamp": "2026-09-30T20:12:29Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "feat(dsh): a browser half for the plugin — visibility on the search, the reuse verdict where the outcome is",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2551",
-      "timestamp": "2026-09-30T17:56:46Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "docs(readme): show the DeepSeek Harness \"Add plugin\" dialog, three steps marked",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2549",
-      "timestamp": "2026-09-30T17:31:31Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "feat(mcp): the intake re-submit channel now carries a poll hint and a verified conversion receipt (#2494)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2553",
-      "timestamp": "2026-09-30T17:27:17Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
       "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2550",
-      "timestamp": "2026-09-30T17:01:38Z",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2586",
+      "timestamp": "2026-10-01T10:10:36Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "feat(dsh): the /misakanet command, answered in the composer",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2598",
+      "timestamp": "2026-10-01T10:00:58Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "docs(readme): show what the 2.40.0 browser half actually looks like",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2592",
+      "timestamp": "2026-10-01T08:18:38Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "test(smoke): the probe asserts every seat, including the left column",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2590",
+      "timestamp": "2026-10-01T08:09:04Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "fix(ci): sync PR branches six-hourly, and never push to a PR that can already merge",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2588",
+      "timestamp": "2026-10-01T08:07:44Z",
       "source": "github"
     },
     {
