@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T10:13:48.169008+00:00",
+  "generated_at": "2026-10-01T18:26:55.345661+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
@@ -7,36 +7,36 @@
     {
       "type": "merged_pr",
       "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2586",
-      "timestamp": "2026-10-01T10:10:36Z",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2660",
+      "timestamp": "2026-10-01T18:09:56Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "feat(dsh): the /misakanet command, answered in the composer",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2598",
-      "timestamp": "2026-10-01T10:00:58Z",
+      "title": "docs(dsh): 席位计数、root 计数与版本归因三处都不对",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2658",
+      "timestamp": "2026-10-01T18:01:57Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(readme): show what the 2.40.0 browser half actually looks like",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2592",
-      "timestamp": "2026-10-01T08:18:38Z",
+      "title": "fix(intake-bot): 覆盖门认技术栈词 —— 修 #2646 复验发现的漏报 + §8.1 自检输出失效",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2657",
+      "timestamp": "2026-10-01T17:51:36Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "test(smoke): the probe asserts every seat, including the left column",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2590",
-      "timestamp": "2026-10-01T08:09:04Z",
+      "title": "docs(agents): how to test the DSH client half from a checkout",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2647",
+      "timestamp": "2026-10-01T17:49:27Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(ci): sync PR branches six-hourly, and never push to a PR that can already merge",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2588",
-      "timestamp": "2026-10-01T08:07:44Z",
+      "title": "docs(roadmap): 2026-10-02 节的三条断言与代码对齐（检索行不投票 / rate: 已迁 D1 / 验收口径回到 #2115）",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2655",
+      "timestamp": "2026-10-01T17:43:06Z",
       "source": "github"
     },
     {
