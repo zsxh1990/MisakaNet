@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-02T00:50:12.514185+00:00",
+  "generated_at": "2026-10-02T09:51:28.578101+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2661",
-      "timestamp": "2026-10-01T18:49:13Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "docs(readme): Voice ships in 2.40.0, not 2.41.0",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2656",
-      "timestamp": "2026-10-01T18:34:41Z",
+      "title": "fix(site): 首页在无鼠标、无动画下也能用（F6 第一片）",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2710",
+      "timestamp": "2026-10-02T08:48:44Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
       "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2660",
-      "timestamp": "2026-10-01T18:09:56Z",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2712",
+      "timestamp": "2026-10-02T08:46:02Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(dsh): 席位计数、root 计数与版本归因三处都不对",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2658",
-      "timestamp": "2026-10-01T18:01:57Z",
+      "title": "fix(d1): sync 的 SQL 以注释收尾，且三个 push 同时同步（automation 变红的根因）",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2709",
+      "timestamp": "2026-10-02T08:32:49Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(intake-bot): 覆盖门认技术栈词 —— 修 #2646 复验发现的漏报 + §8.1 自检输出失效",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2657",
-      "timestamp": "2026-10-01T17:51:36Z",
+      "title": "fix(site): 上手弹窗不再承诺网络做不到的事（并修掉英文读者看到中文）",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2706",
+      "timestamp": "2026-10-02T07:47:25Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "chore: update leaderboard snapshot",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2705",
+      "timestamp": "2026-10-02T07:19:01Z",
       "source": "github"
     },
     {
