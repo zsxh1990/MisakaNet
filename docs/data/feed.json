@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-02T09:51:28.578101+00:00",
+  "generated_at": "2026-10-02T17:53:32.358711+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "fix(site): 首页在无鼠标、无动画下也能用（F6 第一片）",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2710",
-      "timestamp": "2026-10-02T08:48:44Z",
+      "title": "docs: add OpenCode, Kiro, and Oh-my-Pi integration guides",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2576",
+      "timestamp": "2026-10-02T17:34:15Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2712",
-      "timestamp": "2026-10-02T08:46:02Z",
+      "title": "chore(data): sync lessons.json + refresh feed",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2725",
+      "timestamp": "2026-10-02T17:06:21Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(d1): sync 的 SQL 以注释收尾，且三个 push 同时同步（automation 变红的根因）",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2709",
-      "timestamp": "2026-10-02T08:32:49Z",
+      "title": "docs(lessons): voice pipelines and IM bots fail at someone else's layer (#2630)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2689",
+      "timestamp": "2026-10-02T16:51:16Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(site): 上手弹窗不再承诺网络做不到的事（并修掉英文读者看到中文）",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2706",
-      "timestamp": "2026-10-02T07:47:25Z",
+      "title": "docs: external pilot report — upgraded-docs-framework (#1550)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2581",
+      "timestamp": "2026-10-02T16:51:10Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2705",
-      "timestamp": "2026-10-02T07:19:01Z",
+      "title": "docs: add Copilot integration recipes for three surfaces (#1941)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2489",
+      "timestamp": "2026-10-02T16:51:02Z",
       "source": "github"
     },
     {
