@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-03T11:44:34.195006+00:00",
+  "generated_at": "2026-10-03T16:27:00.647220+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "fix(intake): a question body clipped at 2,000 chars still looked answerable, and #2743 arrived that way",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2749",
-      "timestamp": "2026-10-03T11:40:25Z",
+      "title": "chore(data): sync lessons.json + refresh feed",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2778",
+      "timestamp": "2026-10-03T16:03:34Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(ci): 质量门禁表加了一行，声明的行数没跟上（main 现在红着而 check-runs 全绿）",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2745",
-      "timestamp": "2026-10-03T09:40:58Z",
+      "title": "lessons: reland #2570's five contrib lessons on current main (generators re-run)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2775",
+      "timestamp": "2026-10-03T15:58:41Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "ci(lesson): a correct lesson that would have joined nothing",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2729",
-      "timestamp": "2026-10-03T09:18:44Z",
+      "title": "chore(data): sync lessons.json + refresh feed",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2777",
+      "timestamp": "2026-10-03T15:55:47Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "security(site): the homepage only sanitizer was pinned to 3.0.9, which has 20 known CVEs",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2730",
-      "timestamp": "2026-10-03T09:18:41Z",
+      "title": "lessons: reland #2554's swift-format / NSOpenPanel lesson on current main (generator re-run)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2771",
+      "timestamp": "2026-10-03T15:47:44Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "ci: a scheduled ratchet on the documented gate set",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2723",
-      "timestamp": "2026-10-03T09:18:17Z",
+      "title": "chore(data): sync lessons.json + refresh feed",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2776",
+      "timestamp": "2026-10-03T15:39:39Z",
       "source": "github"
     },
     {
