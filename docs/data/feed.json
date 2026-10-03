@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-10-03T21:22:20.136216+00:00",
+  "generated_at": "2026-10-03T23:54:22.921758+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
+    {
+      "type": "merged_pr",
+      "title": "chore(data): sync lessons.json + refresh feed",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2803",
+      "timestamp": "2026-10-03T21:35:04Z",
+      "source": "github"
+    },
+    {
+      "type": "merged_pr",
+      "title": "fix(gate): a structured field that is present but the wrong type is not \"missing\"",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2802",
+      "timestamp": "2026-10-03T21:29:51Z",
+      "source": "github"
+    },
     {
       "type": "merged_pr",
       "title": "fix(ci): six one-page GitHub list reads; one of them is why PR #2020 has 113 audit reports",
@@ -23,20 +37,6 @@
       "title": "fix(mcp): compact search results must carry the score the schema promises (#2790)",
       "url": "https://github.com/Ikalus1988/MisakaNet/pull/2799",
       "timestamp": "2026-10-03T20:06:50Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "refactor(site): retire the 111 id-alias stub pages; docs/_redirects is now the only publisher",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2798",
-      "timestamp": "2026-10-03T19:28:59Z",
-      "source": "github"
-    },
-    {
-      "type": "merged_pr",
-      "title": "fix(infra): the site-build watcher stopped seeing builds past 100 check-runs",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2797",
-      "timestamp": "2026-10-03T19:25:09Z",
       "source": "github"
     },
     {
