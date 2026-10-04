@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-04T05:59:15.990091+00:00",
+  "generated_at": "2026-10-04T12:27:39.000005+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "chore(main): release 2.41.1",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2810",
-      "timestamp": "2026-10-04T05:50:30Z",
+      "title": "fix(ci): the freshness probe depends on a cron that has never fired",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2827",
+      "timestamp": "2026-10-04T10:06:23Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(worker): a lesson section was sheared at 2,000 characters too — silently",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2817",
-      "timestamp": "2026-10-04T05:44:58Z",
+      "title": "ci(registry): pin the advertised tool surface to the one we actually serve",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2823",
+      "timestamp": "2026-10-04T09:57:45Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(worker): the MCP intake path sheared submissions at 2,000 characters, silently",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2816",
-      "timestamp": "2026-10-04T05:20:51Z",
+      "title": "fix(worker): the last silent clip in the intake path was on the assembled body",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2829",
+      "timestamp": "2026-10-04T09:57:28Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(tests): the DSH-home guard verified nothing when the checkout lived in /tmp",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2815",
-      "timestamp": "2026-10-04T05:13:01Z",
+      "title": "docs(readme): re-sync the Japanese README to the English source of truth",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2824",
+      "timestamp": "2026-10-04T07:47:47Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(docs): three current documents told readers to install a version two releases old",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2814",
-      "timestamp": "2026-10-04T05:06:19Z",
+      "title": "docs(agents): a way to verify the five MCP-only clients, and an honest gap",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2822",
+      "timestamp": "2026-10-04T07:41:26Z",
       "source": "github"
     },
     {
