@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-10-05T14:49:49.844682+00:00",
+  "generated_at": "2026-10-05T22:02:58.147266+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
   "items": [
     {
       "type": "merged_pr",
-      "title": "fix(ci): the freshness probe depends on a cron that has never fired",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2827",
-      "timestamp": "2026-10-04T10:06:23Z",
+      "title": "chore(deps-dev): bump wrangler from 4.144.0 to 4.146.0 in the npm group",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2854",
+      "timestamp": "2026-10-05T18:31:35Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "ci(registry): pin the advertised tool surface to the one we actually serve",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2823",
-      "timestamp": "2026-10-04T09:57:45Z",
+      "title": "chore(benchmark): weekly Workers AI lesson benchmark report [2026-10-05]",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2860",
+      "timestamp": "2026-10-05T18:28:31Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "fix(worker): the last silent clip in the intake path was on the assembled body",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2829",
-      "timestamp": "2026-10-04T09:57:28Z",
+      "title": "docs(handoff): record the 87fffdd2 deploy, the two merges, and the approval-API shape",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2886",
+      "timestamp": "2026-10-05T18:18:22Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(readme): re-sync the Japanese README to the English source of truth",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2824",
-      "timestamp": "2026-10-04T07:47:47Z",
+      "title": "chore(main): release 2.41.3",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2879",
+      "timestamp": "2026-10-05T18:13:04Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "docs(agents): a way to verify the five MCP-only clients, and an honest gap",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2822",
-      "timestamp": "2026-10-04T07:41:26Z",
+      "title": "fix(ci): the approval watcher rewrote its report and told nobody",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/2885",
+      "timestamp": "2026-10-05T18:02:29Z",
       "source": "github"
     },
     {
