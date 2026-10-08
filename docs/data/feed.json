@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T10:40:48.610596+00:00",
+  "generated_at": "2026-10-08T18:52:50.458364+00:00",
   "repo": "https://github.com/Ikalus1988/MisakaNet",
   "site": "https://misakanet.org",
   "item_count": 11,
@@ -7,36 +7,36 @@
     {
       "type": "merged_pr",
       "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3031",
-      "timestamp": "2026-10-08T06:20:33Z",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3071",
+      "timestamp": "2026-10-08T18:44:33Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
       "title": "chore: auto-update lessons.json, public counts and generated pages",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3030",
-      "timestamp": "2026-10-08T06:10:05Z",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3070",
+      "timestamp": "2026-10-08T18:40:08Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "lesson: a port that is already allocated is EADDRINUSE — name the holder with ss, free it, retry (#2804)",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3016",
-      "timestamp": "2026-10-08T06:02:46Z",
+      "title": "lesson: README --profile name verbatim installs into unloaded profile (closes #2865)",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3040",
+      "timestamp": "2026-10-08T18:34:35Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore(data): sync lessons.json + refresh feed",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3024",
-      "timestamp": "2026-10-08T01:11:39Z",
+      "title": "docs(handoff): phase 9 — seven PRs finished, and four ways I read silence as success",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3067",
+      "timestamp": "2026-10-08T18:02:22Z",
       "source": "github"
     },
     {
       "type": "merged_pr",
-      "title": "chore: update leaderboard snapshot",
-      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3021",
-      "timestamp": "2026-10-07T20:58:19Z",
+      "title": "fix(test): the burst-limit test assumed a clock it does not control",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/3066",
+      "timestamp": "2026-10-08T17:28:30Z",
       "source": "github"
     },
     {
